@@ -1,5 +1,5 @@
 export class Persona {
-    Tipo_Documento: number;
+    Tipo_Documento: string;
     Identificacion: number;
     Primer_Nombre: string;
     Segundo_Nombre: string;
