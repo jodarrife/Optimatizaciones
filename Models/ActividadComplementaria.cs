@@ -1,8 +1,9 @@
+using Newtonsoft.Json;
+///<Summary>
+/// Se coloca TaskItem a la Clase en lugar de Task,porque Task es una palabra Reservada de .NetCore
+/// </Summary>
+///
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace UPC.Modelos
 {
@@ -23,7 +24,7 @@ namespace UPC.Modelos
         public string Estado_Actividad { get; set; }
         [JsonProperty("fecha_Actividad")]
         public DateTime Fecha_Actividad { get; set; }
-        public ActividadComplementaria(int cod_Actividad, string informe_Numero, string tipo_Actividad, string nombre_Actividad, string descripcion, string estado_Actividad, DataTime fecha_Actividad)
+        public ActividadComplementaria(int cod_Actividad, string informe_Numero, string tipo_Actividad, string nombre_Actividad, string descripcion, string estado_Actividad, DateTime fecha_Actividad)
         {
             Cod_Actividad = cod_Actividad;
             Informe_Numero = informe_Numero;

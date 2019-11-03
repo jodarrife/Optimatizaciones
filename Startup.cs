@@ -11,6 +11,9 @@ using Proyecto.Models;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using NJsonSchema;
+using NSwag.AspNetCore;
+using System;
 
 namespace Proyecto
 {
@@ -38,6 +41,30 @@ namespace Proyecto
 
             services.AddAuthentication()
                 .AddIdentityServerJwt();
+                        services.AddMvc(option => option.EnableEndpointRouting = false);
+
+            //Register the swagger services
+            services.AddSwaggerDocument(config =>
+            {
+                config.PostProcess = document =>
+                {
+                    document.Info.Version = "v1";
+                    document.Info.Title = "Task API";
+                    document.Info.Description = "A simple ASP.NET Core web API";
+                    document.Info.TermsOfService = "None";
+                    document.Info.Contact = new NSwag.OpenApiContact
+                    {
+                        Name = "Programacion Web",
+                        Email = string.Empty,
+                        Url = "https://sites.google.com/a/unicesar.edu.co/borisgonzalez/home"
+                    };
+                    document.Info.License = new NSwag.OpenApiLicense
+                    {
+                        Name = "Use under LICX",
+                        Url = "https://example.com/license"
+                    };
+                };
+            });
             services.AddControllersWithViews();
             services.AddRazorPages();
             // In production, the Angular files will be served from this directory
@@ -68,7 +95,8 @@ namespace Proyecto
             {
                 app.UseSpaStaticFiles();
             }
-
+            app.UseOpenApi();
+            app.UseSwaggerUi3();
             app.UseRouting();
 
             app.UseAuthentication();

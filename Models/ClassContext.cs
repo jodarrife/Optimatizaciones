@@ -7,13 +7,13 @@ namespace UPC.Modelos
         base(options)
         {
         }
-        public DbSet<Persona> Persona { get; set; }
-        public DbSet<Docente> Docente { get; set; }
-        public DbSet<JefeDepartamento> JefeDepartamento { get; set; }
-        public DbSet<PlanDeAccion> PlanDeAccion { get; set; }
-        public DbSet<Evidencia> Evidencia { get; set; }
-        public DbSet<Acciones> Acciones { get; set; }
-        public DbSet<ActividadComplementaria> ActividadComplementaria { get; set; }
+        public DbSet<PersonaItem> Personas { get; set; }
+        public DbSet<DocenteItem> Docentes { get; set; }
+        public DbSet<JefeDepartamento> JefeDepartamentos { get; set; }
+        public DbSet<PlanDeAccion> PlanDeAccions { get; set; }
+        public DbSet<Evidencia> Evidencias { get; set; }
+        public DbSet<Acciones> Accioness { get; set; }
+        public DbSet<ActividadComplementaria> ActividadComplementarias { get; set; }
     }
 
 }

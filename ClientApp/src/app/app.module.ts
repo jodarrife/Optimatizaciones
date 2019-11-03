@@ -34,6 +34,7 @@ import { ModificarDocenteComponent } from './Componentes/Modificar/modificar-doc
 import { ModificarActComplementariasComponent } from './Componentes/Modificar/modificar-act-complementarias/modificar-act-complementarias.component';
 import { ModificarPlanAccionComponent } from './Componentes/Modificar/modificar-plan-accion/modificar-plan-accion.component';
 import { ModificarAccionesComponent } from './Componentes/Modificar/modificar-acciones/modificar-acciones.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -74,7 +75,8 @@ import { ModificarAccionesComponent } from './Componentes/Modificar/modificar-ac
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent, canActivate: [AuthorizeGuard] },
-    ])
+    ]),
+    AppRoutingModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthorizeInterceptor, multi: true }
