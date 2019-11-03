@@ -4,45 +4,54 @@
 <p>AGREGAR</p>
 <div class="form-group">
     <label>Tipo Documento:
-        <input [(ngModel)]="docente.Tipo_Documento" class="form-control" placeholder="DIGITE TIPO DE DOCUMENTO"
-            type="text" />
+        <select ng-model="selComboTipoDocumento" SIZE=1>
+            <option value="">------Seleccionar------</option>
+            <option value="">CÉDULA DE CIUDADANIA</option>
+            <option value="">CÉDULA DE EXTRANJERÍA</option>
+            <option value="">TARJETA DE IDENTIDAD</option>
+            <option value="">DNI</option>
+            <option value="">REGISTRO CIVIL</option>
+        </select>
     </label>
 </div>
-
+<!--IDENTIFICACION-->
 <div class="form-group">
     <label>Identificacion:
-        <input [(ngModel)]="docente.Identificacion" class="form-control" placeholder="DIGITE DOCUMENTO"
-            type="number" />
+        <input [(ngModel)]="docente.Identificacion" class="form-control" placeholder="DIGITE DOCUMENTO" type="number" />
     </label>
 </div>
-
+<!--Primer Nombre:-->
 <div class="form-group">
     <label>Primer Nombre:
         <input [(ngModel)]="docente.Tipo_Documento" class="form-control" placeholder="DIGITE TIPO DE DOCUMENTO"
             type="text" />
     </label>
 </div>
-
+<!--SEGUNDO Nombre:-->
 <div class="form-group">
     <label>Segundo Nombre:
         <input [(ngModel)]="docente.Tipo_Documento" class="form-control" placeholder="DIGITE TIPO DE DOCUMENTO"
             type="text" />
     </label>
 </div>
-
+<!--Primer APELLIDO:-->
 <div class="form-group">
     <label>Primer Apellido:
         <input [(ngModel)]="docente.Tipo_Documento" class="form-control" placeholder="DIGITE TIPO DE DOCUMENTO"
             type="text" />
     </label>
 </div>
-
+<!--SEGUNDO APELLIDO:-->
 <div class="form-group">
     <label>Segundo Apellido:
         <input [(ngModel)]="docente.Tipo_Documento" class="form-control" placeholder="DIGITE TIPO DE DOCUMENTO"
             type="text" />
     </label>
 </div>
+<!--Fecha Nacimiento
+
+<ngb-datepicker #dp [(ngModel)]="model" (navigate)="date = $event.next"></ngb-datepicker>
+-->
 
 <div class="form-group">
     <label>Fecha Nacimiento:
@@ -92,7 +101,15 @@
             type="text" />
     </label>
 </div>
+<div data-role="control" data-type="email" data-hash="00000008" data-type-id="5" data-colspan="20"
+    data-label-is-bold="1" data-is-required="1" data-renderer-type="lln" data-label-width="5" data-id="58172011">
+    <div data-role="label-column" data-colspan="5"><label data-role="label" id="email00000008-acc"
+            data-i18n-text="control_label_58172011">Email</label>
+        <dt data-role="instructions" id="email-00000008-instr-acc" data-i18n-text="control_instructions_58172011">We
+            will send you an email describing how to activate your newsletter subscription.</dt>
+    </div>
 
-<div class="form-group">
-    <button (click)="add()" class="btn btn-primary">Agregar</button>
-</div>
+
+    <div class="form-group">
+        <button (click)="add()" class="btn btn-primary">Agregar</button>
+    </div>

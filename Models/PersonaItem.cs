@@ -9,6 +9,7 @@ namespace UPC.Modelos
 {
     public class PersonaItem
     {
+        /* 
         public PersonaItem() { }
         [JsonProperty("tipo_Documento")]
         public string Tipo_Documento { get; set; }
@@ -77,6 +78,6 @@ namespace UPC.Modelos
             {
                 return Primer_Nombre + " " + Segundo_Nombre + " " + Primer_Apellido + " " + Segundo_Apellido;
             }
-        }
+        }*/
     }
 }

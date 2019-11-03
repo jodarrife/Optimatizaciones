@@ -1,5 +1,5 @@
 export class Persona {
-    Tipo_Documento: string;
+    /*Tipo_Documento: string;
     Identificacion: number;
     Primer_Nombre: string;
     Segundo_Nombre: string;
@@ -12,5 +12,5 @@ export class Persona {
     Telefono: number;
     Cargo: string;
     Fecha_Vinculacion: Date;
-    EstadoSys: string;
+    EstadoSys: string;*/
 }

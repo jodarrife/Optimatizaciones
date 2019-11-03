@@ -7,7 +7,7 @@ namespace UPC.Modelos
         base(options)
         {
         }
-        public DbSet<PersonaItem> Personas { get; set; }
+        //public DbSet<PersonaItem> Personas { get; set; }
         public DbSet<DocenteItem> Docentes { get; set; }
         public DbSet<JefeDepartamento> JefeDepartamentos { get; set; }
         public DbSet<PlanDeAccion> PlanDeAccions { get; set; }
