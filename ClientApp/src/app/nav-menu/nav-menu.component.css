@@ -16,3 +16,15 @@ html {
 .box-shadow {
   box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
 }
+
+.submenu{
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 1.5s;
+}
+
+.menu li a:hover .submenu{
+  visibility: visible;
+  opacity: 1;
+}

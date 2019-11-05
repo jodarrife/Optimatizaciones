@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Acciones } from 'src/app/models/acciones';
+import { AccionesService } from 'src/app/services/acciones.service';
 
 @Component({
   selector: 'app-consulta-acciones',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConsultaAccionesComponent implements OnInit {
 
-  constructor() { }
+  acciones: Acciones[];
+  constructor(private accionesService: AccionesService) { }
 
   ngOnInit() {
+    this.getAll();
+  }
+
+  getAll() {
+    this.accionesService.getAll().subscribe(acciones => this.acciones = acciones);
   }
 
 }

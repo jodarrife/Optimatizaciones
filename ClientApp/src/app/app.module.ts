@@ -19,7 +19,7 @@ import { NavBarraJefeComponent } from './Componentes/Complementos/NavBarras/nav-
 import { RegistroDocenteComponent } from './Componentes/Registrar/registro-docente/registro-docente.component';
 import { RegistroActComplementariasComponent } from './Componentes/Registrar/registro-act-complementarias/registro-act-complementarias.component';
 import { RegistroPlanAccionComponent } from './Componentes/Registrar/registro-plan-accion/registro-plan-accion.component';
-import { RegistroAccionesComponent } from './Componentes/Registrar/registro-acciones/registro-acciones.component';
+import { RegistroAccionesComponent} from './Componentes/Registrar/registro-acciones/registro-acciones.component';
 import { ConsultaDocenteComponent } from './Componentes/Consultas/consulta-docente/consulta-docente.component';
 import { ConsultaActComplementariasComponent } from './Componentes/Consultas/consulta-act-complementarias/consulta-act-complementarias.component';
 import { ConsultaPlanAccionComponent } from './Componentes/Consultas/consulta-plan-accion/consulta-plan-accion.component';

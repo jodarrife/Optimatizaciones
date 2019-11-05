@@ -19,7 +19,7 @@ namespace Proyecto.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("DocenteSharpHTTP.Models.Acciones", b =>
+            modelBuilder.Entity("DocenteSharpHTTP.Models.AccionesItem", b =>
                 {
                     b.Property<int>("Cod_Accion")
                         .ValueGeneratedOnAdd()
@@ -34,7 +34,7 @@ namespace Proyecto.Migrations
 
                     b.HasKey("Cod_Accion");
 
-                    b.ToTable("Accioness");
+                    b.ToTable("Acciones");
                 });
 
             modelBuilder.Entity("DocenteSharpHTTP.Models.ActividadComplementaria", b =>

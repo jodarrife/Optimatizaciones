@@ -1,1 +1,21 @@
-<p>consulta-acciones works!</p>
+<div>
+    <h1 class="h2">LISTA DE ACCIONES</h1>
+</div>
+<div>
+    <table class='table table-striped'>
+        <thead>
+            <tr>
+            <tr>
+                <th>CÓDIGO ACCIÓN</th>
+                <th>NOMBRE ACCIÓN</th>
+                <th>TIPO DE ACCIÓN</th>
+            </tr>
+        </thead>
+        <tr *ngFor="let acciones of acciones">
+            <td>{{acciones.cod_Accion}}</td>
+            <td>{{acciones.nombre_Accion}}</td>
+            <td>{{acciones.tipo_Accion}}</td>
+            <td><a routerLink="/ModificarAcciones/{{acciones.cod_Accion}}">Ver</a></td>
+        </tr>
+    </table>
+</div>

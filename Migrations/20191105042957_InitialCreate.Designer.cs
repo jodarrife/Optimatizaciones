@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Proyecto.Migrations
 {
     [DbContext(typeof(ClassContext))]
-    [Migration("20191104234836_InitialCreate")]
+    [Migration("20191105042957_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -21,7 +21,7 @@ namespace Proyecto.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("DocenteSharpHTTP.Models.Acciones", b =>
+            modelBuilder.Entity("DocenteSharpHTTP.Models.AccionesItem", b =>
                 {
                     b.Property<int>("Cod_Accion")
                         .ValueGeneratedOnAdd()
@@ -36,7 +36,7 @@ namespace Proyecto.Migrations
 
                     b.HasKey("Cod_Accion");
 
-                    b.ToTable("Accioness");
+                    b.ToTable("Acciones");
                 });
 
             modelBuilder.Entity("DocenteSharpHTTP.Models.ActividadComplementaria", b =>

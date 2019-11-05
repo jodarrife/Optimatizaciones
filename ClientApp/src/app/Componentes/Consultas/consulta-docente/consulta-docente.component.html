@@ -2,7 +2,7 @@
     <h1 class="h2">LISTA DE DOCENTES</h1>
     </div>
     <div>
-        <table class='table table-striped'>
+        <table class='table table-bordered table-responsive-md table-striped text-center'>
             <thead>
                 <tr>
                     <tr>
@@ -21,6 +21,7 @@
                         <th>Fecha_Vinculacion</th>
                         <th>EstadoSys</th>
                         <th>Tipo_Docente</th>
+                        <th>Ver</th>
                     </tr>
                 
             </thead>
@@ -40,7 +41,7 @@
                <td>{{docente.fecha_Vinculacion}}</td>
                <td>{{docente.estadoSys}}</td>
                <td>{{docente.tipo_Docente}}</td>
-               <td><a routerLink="/ModificarDocente/{{docente.identificacion}}">Ver</a></td>
+               <td><a routerLink="/ModificarDocente/{{docente.identificacion}}" >Ver</a></td>
             </tr>
         </table>
     </div>

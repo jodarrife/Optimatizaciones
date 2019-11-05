@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DocenteSharpHTTP.Models;
-namespace Acciones.Controllers
+using System;
+
+namespace DocenteSharpHTTP.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -14,20 +16,68 @@ namespace Acciones.Controllers
         public AccionesController(ClassContext context)
         {
             _context = context;
-            if (_context.Accioness.Count() == 0)
+            if (_context.Acciones.Count() == 0)
             {
-                /* 
-                // Crea un nuevo item si la coleccion esta vacia,
-                // lo que significa que no puedes borrar todos los Items.
-                _context.TaskItems.Add(new TaskItem { Id = 1, Title = "Priorizar el proyecto", Description = "Priorizar", Priority = true });
-                _context.TaskItems.Add(new TaskItem { Id = 2, Title = "Calendario el proyecto", Description = "Priorizar", Priority = true });
+                _context.Acciones.Add(new AccionesItem
+                {
+                    Nombre_Accion = "Comite de Evalaución",
+                    Tipo_Accion = "Extensión"
+                });
                 _context.SaveChanges();
-                */
-
             }
         }
-
         // Aquí, despues del constructor de la clase, irán los Métodos HTTP GET,POST, DELETE, PUT
+        // GET: api/Acciones
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<AccionesItem>>> GetAcciones()
+        {
+            return await _context.Acciones.ToListAsync();
+        }
+        // GET: api/Acciones/1
+        [HttpGet("{cod_Accion}")]
+        public async Task<ActionResult<AccionesItem>> GetAcciones(int cod_Accion)
+        {
+            var accionesItem = await _context.Acciones.FindAsync(cod_Accion);
+            if (accionesItem == null)
+            {
+                return NotFound();
+            }
+            return accionesItem;
+        }
+        // POST: api/Acciones
+        [HttpPost]
+        public async Task<ActionResult<AccionesItem>> PostAciones(AccionesItem item)
+        {
+            _context.Acciones.Add(item);
+            await _context.SaveChangesAsync();
+            return CreatedAtAction(nameof(GetAcciones), new { cod_Accion = item.Cod_Accion }, item);
+        }
+        // PUT: api/Acciones/5
+        [HttpPut("{cod_Accion}")]
+        public async Task<IActionResult> PutDocente(int cod_Accion, AccionesItem item)
+        {
+            if (cod_Accion != item.Cod_Accion)
+            {
+                return BadRequest();
+            }
+            _context.Entry(item).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
+            return NoContent();
+        }
+        // DELETE: api/Todo/5
+        [HttpDelete("{cod_Accion}")]
+        public async Task<IActionResult> DeleteDocente(int cod_Accion)
+        {
+            var acciones = await
+            _context.Acciones.FindAsync(cod_Accion);
+            if (acciones == null)
+            {
+                return NotFound();
+            }
 
+            _context.Acciones.Remove(acciones);
+            await _context.SaveChangesAsync();
+            return NoContent();
+        }
     }
 }

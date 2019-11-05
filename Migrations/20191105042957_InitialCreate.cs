@@ -8,7 +8,7 @@ namespace Proyecto.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Accioness",
+                name: "Acciones",
                 columns: table => new
                 {
                     Cod_Accion = table.Column<int>(nullable: false)
@@ -18,7 +18,7 @@ namespace Proyecto.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Accioness", x => x.Cod_Accion);
+                    table.PrimaryKey("PK_Acciones", x => x.Cod_Accion);
                 });
 
             migrationBuilder.CreateTable(
@@ -99,7 +99,7 @@ namespace Proyecto.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Accioness");
+                name: "Acciones");
 
             migrationBuilder.DropTable(
                 name: "ActividadComplementarias");

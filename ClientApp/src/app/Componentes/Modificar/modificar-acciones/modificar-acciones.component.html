@@ -1,1 +1,34 @@
-<p>modificar-acciones works!</p>
+<div *ngIf="acciones">
+    <div>
+        <h1 class="h2">Detalle Acciones</h1>
+    </div>
+    <p>Editar/Eliminar Acciones</p>
+    <div class="form-group">
+        <label>Codigo de Acción:
+            {{accion.cod_Accion}}
+        </label>
+    </div>
+    <div class="form-group">
+        <label>Nombre Acción:
+            <input [(ngModel)]="acciones.nombre_Accion" class="form-control" placeholder="DIGITE NOMBRE ACCIÓN" type="text" />
+        </label>
+    </div>
+    
+    <div class="form-group">
+        <label>tipo_Accion: </label>
+        <select class="form-control" id="exampleFormControlSelect1" [(ngModel)]="acciones.tipo_Accion" type="text">
+            <option>TUTORÍAS</option>
+            <option>INVESTIGACIÓN</option>
+            <option>EXTENCIÓN</option>
+            <option>MATERIAL DE APOYO</option>
+            <option>TRABAJO DE GRADO</option>
+            <option>COOPERACIÓN INTERINSTITUCIONAL</option>
+            <option>CRECIMIENTO PROFESIONAL</option>
+            <option>ENCARGO ADMINISTRATIVO</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <button (click)="update()" class="btn btn-primary">Actualizar</button>
+        <button (click)="delete()" class="btn btn-primary">Eliminar</button>
+    </div>
+</div>

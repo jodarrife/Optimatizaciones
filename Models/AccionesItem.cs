@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations;
 ///
 namespace DocenteSharpHTTP.Models
 {
-    public class Acciones
+    public class AccionesItem
     {/* */
         [Key]
         [JsonProperty("cod_Accion")]
