@@ -3,25 +3,29 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of, observable } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { Docente } from '../models/docente';
+
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
+
 @Injectable({
   providedIn: 'root'
 })
+
 export class DocenteService {
-  constructor(private http: HttpClient, @Inject('BASE_URL') private baseUrl: string) {
+
+  constructor(private http: HttpClient, @Inject('BASE_URL') private baseUrl:string) {
   }
 
-  /** POST: add a new task to the server */
-  addDocente(docentes: Docente): Observable<Docente> {
-    return this.http.post<Docente>(this.baseUrl + 'api/Docente', docentes, httpOptions).pipe(
-      tap((newDocente: Docente) => this.log(`added NewDocente w/ id=${newDocente.Identificacion}`)),
+  /** POST: add a new docente to the server */
+  addDocente(docente: Docente): Observable<Docente> {
+    return this.http.post<Docente>(this.baseUrl + 'api/Docente', docente, httpOptions).pipe(
+      tap((newDocente: Docente) => this.log(`added NewDocente w/ Identificacion=${newDocente.identificacion}`)),
       catchError(this.handleError<Docente>('addDocente'))
     );
   }
 
-  /** GET Task from the server */
+  /** GET Docente from the server */
   getAll(): Observable<Docente[]> {
     return this.http.get<Docente[]>(this.baseUrl + 'api/Docente').pipe(
       tap(_ => this.log('Se Consulta la información')),
@@ -29,30 +33,30 @@ export class DocenteService {
     );
   }
 
-  /** GET task by id. Will 404 if id not found */
+  /** GET Docente by Identificacion. Will 404 if id not found */
   get(Identificacion: number): Observable<Docente> {
     const url = `${this.baseUrl + 'api/Docente'}/${Identificacion}`;
     return this.http.get<Docente>(url).pipe(
-      tap(_ => this.log(`fetched Docente id=${Identificacion}`)),
-      catchError(this.handleError<Docente>(`getDocente id=${Identificacion}`))
+      tap(_ => this.log(`fetched Docente Identificacion=${Identificacion}`)),
+      catchError(this.handleError<Docente>(`getDocente Identificacion=${Identificacion}`))
     );
   }
 
-  /** PUT: update the Task on the server */
+  /** PUT: update the docentes on the server */
   update(docentes: Docente): Observable<any> {
-    const url = `${this.baseUrl + 'api/Docente'}/${docentes.Identificacion}`;
+    const url = `${this.baseUrl + 'api/Docente'}/${docentes.identificacion}`;
     return this.http.put(url, docentes, httpOptions).pipe(
-      tap(_ => this.log(`updated docentes id=${docentes.Identificacion}`)),
-      catchError(this.handleError<any>('docentes'))
+      tap(_ => this.log(`updated docentes identificacion=${docentes.identificacion}`)),
+      catchError(this.handleError<any>('updateDocentes'))
     );
   }
 
-  /** DELETE: delete the task from the server */
-  delete(docentes: Docente | number): Observable<Docente> {
-    const id = typeof docentes === 'number' ? docentes : docentes.Identificacion;
+  /** DELETE: delete the docentes from the server */
+  delete(docentes: Docente | string): Observable<Docente> {
+    const id = typeof docentes === 'string' ? docentes : docentes.identificacion;
     const url = `${this.baseUrl + 'api/Docente'}/${id}`;
     return this.http.delete<Docente>(url, httpOptions).pipe(
-      tap(_ => this.log(`deleted docentes id=${id}`)),
+      tap(_ => this.log(`deleted docentes identificacion=${id}`)),
       catchError(this.handleError<Docente>('deleteDocente'))
     );
   }

@@ -2,11 +2,12 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
-using UPC.Modelos;
+using DocenteSharpHTTP.Models;
 using System.Threading.Tasks;
 using System;
+using System.Data;
 
-namespace Docente.Controllers
+namespace DocenteSharpHTTP.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -31,14 +32,13 @@ namespace Docente.Controllers
                     Segundo_Nombre = "DANIEL",
                     Primer_Apellido = "RINCONES",
                     Segundo_Apellido = "FERNANDEZ",
-                    Fecha_Nacimiento =  "3/11/2000",
+                    Fecha_Nacimiento =  Convert.ToDateTime("3/11/2000").Date,
                     Edad = 19,
                     Genero = "MASCULINO",
                     Email = "jodarrife12@gmail.com",
-                    Telefono = "3004128610",
-                    //Contraseña = "12345",
+                    Telefono = 3004128610,
                     Cargo = "DOCENTE",
-                    Fecha_Vinculacion = "3/11/2019",
+                    Fecha_Vinculacion = Convert.ToDateTime("3/11/2000").Date,
                     EstadoSys = "ACTIVO",
                     Tipo_Docente = "CATEDRATICO"
                 });
@@ -57,30 +57,30 @@ namespace Docente.Controllers
         [HttpGet("{identificacion}")]
         public async Task<ActionResult<DocenteItem>> GetDocentes(string identificacion)
         {
-            var docente = await _context.Docentes.FindAsync(identificacion);
-            if (docente == null)
+            var docenteItem = await _context.Docentes.FindAsync(identificacion);
+            if (docenteItem == null)
             {
                 return NotFound();
             }
-            return docente;
+            return docenteItem;
         }
         // POST: api/Docente
         [HttpPost]
-        public async Task<ActionResult<DocenteItem>> PostDocente(DocenteItem docente)
+        public async Task<ActionResult<DocenteItem>> PostDocente(DocenteItem item)
         {
-            _context.Docentes.Add(docente);
+            _context.Docentes.Add(item);
             await _context.SaveChangesAsync();
-            return CreatedAtAction(nameof(GetDocentes), new { identificacion = docente.Identificacion }, docente);
+            return CreatedAtAction(nameof(GetDocentes), new { identificacion = item.Identificacion }, item);
         }
-        // PUT: api/Task/5
+        // PUT: api/Docente/5
         [HttpPut("{identificacion}")]
-        public async Task<IActionResult> PutDocente(string identificacion, DocenteItem docente)
+        public async Task<IActionResult> PutDocente(string identificacion, DocenteItem item)
         {
-            if (identificacion != docente.Identificacion)
+            if (identificacion != item.Identificacion)
             {
                 return BadRequest();
             }
-            _context.Entry(docente).State = EntityState.Modified;
+            _context.Entry(item).State = EntityState.Modified;
             await _context.SaveChangesAsync();
             return NoContent();
         }

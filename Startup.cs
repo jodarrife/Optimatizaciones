@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.EntityFrameworkCore;
 using Proyecto.Data;
 using Proyecto.Models;
+using DocenteSharpHTTP.Models;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -26,25 +27,12 @@ namespace Proyecto
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
+       // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<ApplicationDbContext>(opt =>
-            opt.UseSqlServer(@"Server=RINCONES\SQLEXPRESS;Database=UPCDataBase;Trusted_Connection=True;"));
-
-            /*services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlite(
-                    Configuration.GetConnectionString("DefaultConnection")));*/
-
-            services.AddDefaultIdentity<ApplicationUser>()
-                .AddEntityFrameworkStores<ApplicationDbContext>();
-
-            services.AddIdentityServer()
-                .AddApiAuthorization<ApplicationUser, ApplicationDbContext>();
-
-            services.AddAuthentication()
-                .AddIdentityServerJwt();
-                        services.AddMvc(option => option.EnableEndpointRouting = false);
+            //services.AddDbContext<TaskContext>(opt => opt.UseInMemoryDatabase("TaskBD"));
+            services.AddDbContext<ClassContext>(opt => opt.UseSqlServer(@"Server=RINCONES\SQLEXPRESS;Database=UPCDataBase;Trusted_Connection=True;"));
+            services.AddMvc(option => option.EnableEndpointRouting = false);
 
             //Register the swagger services
             services.AddSwaggerDocument(config =>
@@ -52,7 +40,7 @@ namespace Proyecto
                 config.PostProcess = document =>
                 {
                     document.Info.Version = "v1";
-                    document.Info.Title = "Task API";
+                    document.Info.Title = "SISI API";
                     document.Info.Description = "A simple ASP.NET Core web API";
                     document.Info.TermsOfService = "None";
                     document.Info.Contact = new NSwag.OpenApiContact
@@ -68,6 +56,19 @@ namespace Proyecto
                     };
                 };
             });
+
+            services.AddDbContext<ApplicationDbContext>(options =>
+                options.UseSqlite(
+                    Configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddDefaultIdentity<ApplicationUser>()
+                .AddEntityFrameworkStores<ApplicationDbContext>();
+
+            services.AddIdentityServer()
+                .AddApiAuthorization<ApplicationUser, ApplicationDbContext>();
+
+            services.AddAuthentication()
+                .AddIdentityServerJwt();
             services.AddControllersWithViews();
             services.AddRazorPages();
             // In production, the Angular files will be served from this directory
@@ -100,6 +101,7 @@ namespace Proyecto
             }
             app.UseOpenApi();
             app.UseSwaggerUi3();
+            app.UseMvc();
             app.UseRouting();
 
             app.UseAuthentication();

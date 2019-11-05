@@ -4,13 +4,15 @@ using Newtonsoft.Json;
 /// </Summary>
 ///
 using System;
+using System.ComponentModel.DataAnnotations;
 
-namespace UPC.Modelos
+namespace DocenteSharpHTTP.Models
 {
     public class ActividadComplementaria
     {
         public ActividadComplementaria() { }
         [JsonProperty("cod_Actividad")]
+        [Key]
         public int Cod_Actividad { get; set; }
         [JsonProperty("informe_Numero")]
         public string Informe_Numero { get; set; }
@@ -34,5 +36,6 @@ namespace UPC.Modelos
             Estado_Actividad = estado_Actividad;
             Fecha_Actividad = fecha_Actividad;
         }
+         
     }
 }

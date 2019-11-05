@@ -4,11 +4,13 @@ using Newtonsoft.Json;
 /// </Summary>
 ///
 using System;
-namespace UPC.Modelos
+using System.ComponentModel.DataAnnotations;
+namespace DocenteSharpHTTP.Models
 {
     public class PlanDeAccion
     {
         public PlanDeAccion() { }
+        [Key]
         [JsonProperty("cod_Plan_Accion")]
         public int Cod_Plan_Accion { get; set; }
         [JsonProperty("tipo_Plan_Accion")]

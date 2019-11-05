@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-namespace UPC.Modelos
+namespace DocenteSharpHTTP.Models
 {
     public class ClassContext : DbContext
     {
@@ -9,7 +9,7 @@ namespace UPC.Modelos
         }
         //public DbSet<PersonaItem> Personas { get; set; }
         public DbSet<DocenteItem> Docentes { get; set; }
-        public DbSet<JefeDepartamento> JefeDepartamentos { get; set; }
+        //public DbSet<JefeDepartamento> JefeDepartamentos { get; set; }
         public DbSet<PlanDeAccion> PlanDeAccions { get; set; }
         public DbSet<Evidencia> Evidencias { get; set; }
         public DbSet<Acciones> Accioness { get; set; }

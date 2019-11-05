@@ -1,16 +1,16 @@
 using Newtonsoft.Json;
 using System;
+using System.Data;
+using System.ComponentModel.DataAnnotations;
 ///<Summary>
-/// Se coloca TaskItem a la Clase en lugar de Task,porque Task es una palabra Reservada de .NetCore
 /// </Summary>
-///
-namespace UPC.Modelos
+namespace DocenteSharpHTTP.Models
 {
     public class DocenteItem 
     {
-        public DocenteItem() { }
         [JsonProperty("tipo_Documento")]
         public string Tipo_Documento { get; set; }
+        [Key]
         [JsonProperty("identificacion")]
         public string Identificacion { get; set; }
         [JsonProperty("primer_Nombre")]
@@ -22,7 +22,7 @@ namespace UPC.Modelos
         [JsonProperty("segundo_Apellido")]
         public string Segundo_Apellido { get; set; }
         [JsonProperty("fecha_Nacimiento")]
-        public string Fecha_Nacimiento { get; set; }
+        public DateTime Fecha_Nacimiento { get; set; }
         [JsonProperty("edad")]
         public int Edad { get; set; }
         [JsonProperty("genero")]
@@ -30,55 +30,15 @@ namespace UPC.Modelos
         [JsonProperty("email")]
         public string Email { get; set; }
         [JsonProperty("telefono")]
-        public string Telefono { get; set; }
+        public uint Telefono { get; set; }
         [JsonProperty("cargo")]
         public string Cargo { get; set; }
         [JsonProperty("fecha_Vinculacion")]
-        public string Fecha_Vinculacion { get; set; }
+        public DateTime Fecha_Vinculacion { get; set; }
         [JsonProperty("estadoSys")]
         public string EstadoSys { get; set; } //estado en el sistema
         [JsonProperty("tipo_Docente")]
         public string Tipo_Docente { get; set; }
-        public DocenteItem(
-            string tipo_Documento,
-            string identificacion,
-            string primer_Nombre,
-            string segundo_Nombre,
-            string primer_Apellido,
-            string segundo_Apellido,
-            string fecha_Nacimiento,
-            int edad,
-            string genero,
-            string email,
-            string telefono,
-            string cargo,
-            string fecha_Vinculacion,
-            string estadoSys,
-            string tipo_docente)
-        {
-            Tipo_Documento = tipo_Documento;
-            Identificacion = identificacion;
-            Primer_Nombre = primer_Nombre;
-            Segundo_Nombre = segundo_Nombre;
-            Primer_Apellido = primer_Apellido;
-            Segundo_Apellido = segundo_Apellido;
-            Fecha_Nacimiento = fecha_Nacimiento;
-            Edad = edad;
-            Genero = genero;
-            Email = email;
-            Telefono = telefono;
-            Cargo = cargo;
-            Fecha_Vinculacion = fecha_Vinculacion;
-            EstadoSys = estadoSys;
-            Tipo_Docente = tipo_docente;
-        }
-
-        public string NombreCompleto
-        {
-            get
-            {
-                return Primer_Nombre + " " + Segundo_Nombre + " " + Primer_Apellido + " " + Segundo_Apellido;
-            }
-        }
+    
     }
 }

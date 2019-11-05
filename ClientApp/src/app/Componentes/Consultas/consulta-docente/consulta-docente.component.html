@@ -1,1 +1,47 @@
-<p>consulta-docente works!</p>
+<div>
+    <h1 class="h2">LISTA DE DOCENTES</h1>
+    </div>
+    <div>
+        <table class='table table-striped'>
+            <thead>
+                <tr>
+                    <tr>
+                        <th>Tipo_Documento</th>
+                        <th>Identificación</th>
+                        <th>Primer_Nombre</th>
+                        <th>Segundo_Nombre</th>
+                        <th>Primer_Apellido</th>
+                        <th>Segundo_Apellido</th>
+                        <th>Fecha_Nacimiento</th>
+                        <th>Edad</th>
+                        <th>Genero</th>
+                        <th>Email</th>
+                        <th>Telefono</th>
+                        <th>Cargo</th>
+                        <th>Fecha_Vinculacion</th>
+                        <th>EstadoSys</th>
+                        <th>Tipo_Docente</th>
+                    </tr>
+                
+            </thead>
+            <tr *ngFor="let docente of docentes">
+               <td>{{docente.tipo_Documento}}</td>
+               <td>{{docente.identificacion}}</td>
+               <td>{{docente.primer_Nombre}}</td>
+               <td>{{docente.segundo_Nombre}}</td>
+               <td>{{docente.primer_Apellido}}</td>
+               <td>{{docente.segundo_Apellido}}</td>
+               <td>{{docente.fecha_Nacimiento}}</td>
+               <td>{{docente.edad}}</td>
+               <td>{{docente.genero}}</td>
+               <td>{{docente.email}}</td>
+               <td>{{docente.telefono}}</td>
+               <td>{{docente.cargo}}</td>
+               <td>{{docente.fecha_Vinculacion}}</td>
+               <td>{{docente.estadoSys}}</td>
+               <td>{{docente.tipo_Docente}}</td>
+               <td><a routerLink="/ModificarDocente/{{docente.identificacion}}">Ver</a></td>
+            </tr>
+        </table>
+    </div>
+<div>

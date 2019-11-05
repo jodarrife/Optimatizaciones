@@ -3,13 +3,15 @@ using Newtonsoft.Json;
 /// Se coloca TaskItem a la Clase en lugar de Task,porque Task es una palabra Reservada de .NetCore
 /// </Summary>
 ///
+using System.ComponentModel.DataAnnotations;
 
-namespace UPC.Modelos
+namespace DocenteSharpHTTP.Models
 {
     public class Evidencia
     {
         public Evidencia() { }
         [JsonProperty("cod_Evidencia")]
+        [Key]
         public int Cod_Evidencia { get; set; }
         [JsonProperty("nombre_Evidencia")]
         public string Nombre_Evidencia { get; set; }
@@ -21,5 +23,6 @@ namespace UPC.Modelos
             Nombre_Evidencia = nombre_Evidencia;
             Tipo_Evidencia = tipo_Evidencia;
         }
+         
     }
 }

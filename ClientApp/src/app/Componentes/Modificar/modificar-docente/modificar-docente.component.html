@@ -1,1 +1,87 @@
-<p>modificar-docente works!</p>
+<div *ngIf="docente">
+    <div>
+        <h1 class="h2">Detalle Docente</h1>
+    </div>
+    <p>Editar/Eliminar docente</p>
+    <div class="form-group">
+        <label>Tipo de documento:
+            {{docente.tipo_Documento}}
+        </label>
+    </div>
+    <div class="form-group">
+        <label>Identificacion:
+            {{docente.identificacion}}
+        </label>
+    </div>
+    <!--Primer Nombre:-->
+    <div class="form-group">
+        <label>Primer Nombre:
+            <input [(ngModel)]="docente.primer_Nombre" class="form-control" placeholder="DIGITE PRIMER NOMBRE"
+                type="text" />
+        </label>
+    </div>
+    <!--SEGUNDO Nombre:-->
+    <div class="form-group">
+        <label>Segundo Nombre:
+            <input [(ngModel)]="docente.segundo_Nombre" class="form-control" placeholder="DIGITE SEGUNDO NOMBRE"
+                type="text" />
+        </label>
+    </div>
+    <!--Primer APELLIDO:-->
+    <div class="form-group">
+        <label>Primer Apellido:
+            <input [(ngModel)]="docente.primer_Apellido" class="form-control" placeholder="DIGITE PRIMER APELLIDO"
+                type="text" />
+        </label>
+    </div>
+    <!--SEGUNDO APELLIDO:-->
+    <div class="form-group">
+        <label>Segundo Apellido:
+            <input [(ngModel)]="docente.segundo_Apellido" class="form-control" placeholder="DIGITE SEGUNDO APELLIDO"
+                type="text" />
+        </label>
+    </div>
+
+    <div class="form-group">
+        <label>Fecha Nacimiento:
+            <input [(ngModel)]="docente.fecha_Nacimiento" class="form-control" placeholder="" type="date" />
+        </label>
+    </div>
+
+    <div class="form-group">
+        <label>Genero: </label>
+        <select class="form-control" id="exampleFormControlSelect1" [(ngModel)]="docente.genero" type="text">
+            <option>FEMENINO</option>
+            <option>MASCULINO</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>Email:
+            <input [(ngModel)]="docente.email" class="form-control" placeholder="DIGITE EMAIL" type="text" />
+        </label>
+    </div>
+
+    <div class="form-group">
+        <label>Telefono:
+            <input [(ngModel)]="docente.telefono" class="form-control" placeholder="DIGITE TELEFONO" type="number" />
+        </label>
+    </div>
+
+    <div class="form-group">
+        <label>Fecha Vinculacion:
+            <input [(ngModel)]="docente.fecha_Vinculacion" class="form-control" placeholder="" type="date" />
+        </label>
+    </div>
+
+    <div class="form-group">
+        <label>Tipo Docente:
+            <input [(ngModel)]="docente.tipo_Docente" class="form-control" placeholder="DIGITE TIPO DE DOCENTE"
+                type="text" />
+        </label>
+    </div>
+    <div class="form-group">
+        <button (click)="update()" class="btn btn-primary">Actualizar</button>
+        <button (click)="delete()" class="btn btn-primary">Eliminar</button>
+    </div>
+</div>
