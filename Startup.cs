@@ -40,7 +40,7 @@ namespace Proyecto
                 config.PostProcess = document =>
                 {
                     document.Info.Version = "v1";
-                    document.Info.Title = "SISI API";
+                    document.Info.Title = "AcomUPC API";
                     document.Info.Description = "A simple ASP.NET Core web API";
                     document.Info.TermsOfService = "None";
                     document.Info.Contact = new NSwag.OpenApiContact

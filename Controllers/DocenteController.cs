@@ -20,7 +20,7 @@ namespace DocenteSharpHTTP.Controllers
             _context = context;
             if (_context.Docentes.Count() == 0)
             {
-                
+
                 // Crea un nuevo item si la coleccion esta vacia,
                 // lo que significa que no puedes borrar todos los Items.
                 //_context.Docentes.Add(new DocenteItem { Tipo_Docente = "CATEDRATICO" });
@@ -32,7 +32,7 @@ namespace DocenteSharpHTTP.Controllers
                     Segundo_Nombre = "DANIEL",
                     Primer_Apellido = "RINCONES",
                     Segundo_Apellido = "FERNANDEZ",
-                    Fecha_Nacimiento =  Convert.ToDateTime("3/11/2000").Date,
+                    Fecha_Nacimiento = Convert.ToDateTime("3/11/2000").Date,
                     Edad = 19,
                     Genero = "MASCULINO",
                     Email = "jodarrife12@gmail.com",
@@ -68,36 +68,50 @@ namespace DocenteSharpHTTP.Controllers
         [HttpPost]
         public async Task<ActionResult<DocenteItem>> PostDocente(DocenteItem item)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            /**var docenteItem = await _context.Docentes.FindAsync(identificacion);
+            if (docenteItem != null)
+            {
+                return BadRequest();
+            }*/
+
             _context.Docentes.Add(item);
             await _context.SaveChangesAsync();
             return CreatedAtAction(nameof(GetDocentes), new { identificacion = item.Identificacion }, item);
         }
-        // PUT: api/Docente/5
-        [HttpPut("{identificacion}")]
-        public async Task<IActionResult> PutDocente(string identificacion, DocenteItem item)
-        {
-            if (identificacion != item.Identificacion)
-            {
-                return BadRequest();
-            }
-            _context.Entry(item).State = EntityState.Modified;
-            await _context.SaveChangesAsync();
-            return NoContent();
-        }
-        // DELETE: api/Todo/5
-        [HttpDelete("{identificacion}")]
-        public async Task<IActionResult> DeleteDocente(string identificacion)
-        {
-            var docente = await
-            _context.Docentes.FindAsync(identificacion);
-            if (docente == null)
-            {
-                return NotFound();
-            }
 
-            _context.Docentes.Remove(docente);
-            await _context.SaveChangesAsync();
-            return NoContent();
+
+    
+    // PUT: api/Docente/5
+    [HttpPut("{identificacion}")]
+    public async Task<IActionResult> PutDocente(string identificacion, DocenteItem item)
+    {
+        if (identificacion != item.Identificacion)
+        {
+            return BadRequest();
         }
+        _context.Entry(item).State = EntityState.Modified;
+        await _context.SaveChangesAsync();
+        return NoContent();
+    }
+    // DELETE: api/Todo/5
+    [HttpDelete("{identificacion}")]
+    public async Task<IActionResult> DeleteDocente(string identificacion)
+    {
+        var docente = await
+        _context.Docentes.FindAsync(identificacion);
+        if (docente == null)
+        {
+            return NotFound();
+        }
+
+        _context.Docentes.Remove(docente);
+        await _context.SaveChangesAsync();
+        return NoContent();
+    }
     }
 }
