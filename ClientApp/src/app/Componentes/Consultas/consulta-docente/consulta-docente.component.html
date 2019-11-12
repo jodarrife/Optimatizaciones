@@ -3,14 +3,21 @@
 <br>
 <br>
 <br>
+
 <div>
-    <h1 class="h2">LISTA DE DOCENTES</h1>
-    </div>
-    <div>
-        <table class='table table-bordered table-responsive-md table-striped text-center'>
-            <thead>
-                <tr>
+    <h1 class="h2">LISTA DE ACCIONES</h1>
+</div>
+<!-- DataTables Example -->
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fas fa-table"></i>
+        Tabla de Docentes</div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
                     <tr>
+                        <th>Ver</th>
                         <th>Tipo Documento</th>
                         <th>Identificación</th>
                         <th>Primer Nombre</th>
@@ -22,33 +29,60 @@
                         <th>Genero</th>
                         <th>Email</th>
                         <th>Telefono</th>
-                        <th>Cargo</th>
+                        <!--<th>Cargo</th>-->
                         <th>Fecha Vinculacion</th>
                         <th>EstadoSys</th>
                         <th>Tipo Docente</th>
-                        <th>Ver</th>
                     </tr>
-                
-            </thead>
-            <tr *ngFor="let docente of docentes">
-               <td>{{docente.tipo_Documento}}</td>
-               <td>{{docente.identificacion}}</td>
-               <td>{{docente.primer_Nombre}}</td>
-               <td>{{docente.segundo_Nombre}}</td>
-               <td>{{docente.primer_Apellido}}</td>
-               <td>{{docente.segundo_Apellido}}</td>
-               <!--<td>{{docente.fecha_Nacimiento}}</td>-->
-               <td>{{docente.edad}}</td>
-               <td>{{docente.genero}}</td>
-               <td>{{docente.email}}</td>
-               <td>{{docente.telefono}}</td>
-               <td>{{docente.cargo}}</td>
-               <td>{{docente.fecha_Vinculacion}}</td>
-               <td>{{docente.estadoSys}}</td>
-               <td>{{docente.tipo_Docente}}</td>
-               <td><a routerLink="/ModificarDocente/{{docente.identificacion}}" ><span class="table-remove"><button type="button"
-                class="btn btn-success btn-rounded btn-sm my-0">Editar</button></span></a></td>
-            </tr>
-        </table>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>Ver</th>
+                        <th>Tipo Documento</th>
+                        <th>Identificación</th>
+                        <th>Primer Nombre</th>
+                        <th>Segundo Nombre</th>
+                        <th>Primer Apellido</th>
+                        <th>Segundo Apellido</th>
+                        <!--<th>Fecha_Nacimiento</th>-->
+                        <th>Edad</th>
+                        <th>Genero</th>
+                        <th>Email</th>
+                        <th>Telefono</th>
+                        <!--<th>Cargo</th>-->
+                        <th>Fecha Vinculacion</th>
+                        <th>EstadoSys</th>
+                        <th>Tipo Docente</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    <tr *ngFor="let docente of docentes">
+                        <td><a routerLink="/ModificarDocente/{{docente.identificacion}}"><span
+                                    class="table-remove"><button type="button"
+                                        class="btn btn-success btn-rounded btn-sm my-0">Editar</button></span></a>
+                        </td>
+                        <td>{{docente.tipo_Documento}}</td>
+                        <td>{{docente.identificacion}}</td>
+                        <td>{{docente.primer_Nombre}}</td>
+                        <td>{{docente.segundo_Nombre}}</td>
+                        <td>{{docente.primer_Apellido}}</td>
+                        <td>{{docente.segundo_Apellido}}</td>
+                        <!--<td>{{docente.fecha_Nacimiento}}</td>-->
+                        <td>{{docente.edad}}</td>
+                        <td>{{docente.genero}}</td>
+                        <td>{{docente.email}}</td>
+                        <td>{{docente.telefono}}</td>
+                        <!--<td>{{docente.cargo}}</td>-->
+                        <td>{{docente.fecha_Vinculacion}}</td>
+                        <td>{{docente.estadoSys}}</td>
+                        <td>{{docente.tipo_Docente}}</td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
-<div>
+    <div class="card-footer small text-muted">
+        Modificación Continua
+    </div>
+</div>

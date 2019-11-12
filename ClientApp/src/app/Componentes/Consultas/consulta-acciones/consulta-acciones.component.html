@@ -7,23 +7,45 @@
 <div>
     <h1 class="h2">LISTA DE ACCIONES</h1>
 </div>
-<div>
-    <table class='table table-bordered table-responsive-md table-striped text-center'>
-        <thead>
-            <tr>
-            <tr>
-                <th>CÓDIGO ACCIÓN</th>
-                <th>NOMBRE ACCIÓN</th>
-                <th>TIPO DE ACCIÓN</th>
-                <th>VER</th>
-            </tr>
-        </thead>
-        <tr *ngFor="let acciones of acciones">
-            <td>{{acciones.cod_Accion}}</td>
-            <td>{{acciones.nombre_Accion}}</td>
-            <td>{{acciones.tipo_Accion}}</td>
-            <td><a routerLink="/ModificarAcciones/{{acciones.cod_Accion}}"><span class="table-remove"><button type="button"
-                class="btn btn-success btn-rounded btn-sm my-0">Editar</button></span></a></td>
-        </tr>
-    </table>
+<!-- DataTables Example -->
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fas fa-table"></i>
+        Tabla de Acciones</div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Ver</th>
+                        <th>Código Acción</th>
+                        <th>Nombre Acción</th>
+                        <th>Tipo de Acción</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>Ver</th>
+                        <th>Código Acción</th>
+                        <th>Nombre Acción</th>
+                        <th>Tipo de Acción</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    <tr *ngFor="let acciones of acciones">
+                        <td><a routerLink="/ModificarAcciones/{{acciones.cod_Accion}}"><span
+                            class="table-remove"><button type="button"
+                            class="btn btn-success btn-rounded btn-sm my-0">Editar</button></span></a>
+                        </td>
+                        <td>{{acciones.cod_Accion}}</td>
+                        <td>{{acciones.nombre_Accion}}</td>
+                        <td>{{acciones.tipo_Accion}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="card-footer small text-muted">
+        Modificación Continua
+    </div>
 </div>

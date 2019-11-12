@@ -10,11 +10,10 @@ namespace DocenteSharpHTTP.Models
     public class AccionesItem
     {/* */
         [Key]
-        [JsonProperty("cod_Accion")]
         public int Cod_Accion { get; set; }
-        [JsonProperty("nombre_Accion")]
+        [Required, MaxLength(50)]
         public string Nombre_Accion { get; set; }
-        [JsonProperty("tipo_Accion")]
+        [Required]
         public string Tipo_Accion { get; set; }
     }
 }
