@@ -1,26 +1,63 @@
-<div class="d-flex jusrify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-    <h1 class="h2">AGREGAR ACCIÓN</h1>
-</div>
-<p>AGREGAR</p>
-<div class="form-group">
-    <label>Nombre Acción:</label>
-        <input [(ngModel)]="acciones.nombre_Accion" class="form-control" placeholder="DIGITE NOMBRE ACCIÓN" type="text" />
-    
-</div>
+<body>
 
-<div class="form-group">
-    <label>tipo_Accion: </label>
-    <select class="form-control" id="exampleFormControlSelect1" [(ngModel)]="acciones.tipo_Accion" type="text">
-        <option>TUTORÍAS</option>
-        <option>INVESTIGACIÓN</option>
-        <option>EXTENCIÓN</option>
-        <option>MATERIAL DE APOYO</option>
-        <option>TRABAJO DE GRADO</option>
-        <option>COOPERACIÓN INTERINSTITUCIONAL</option>
-        <option>CRECIMIENTO PROFESIONAL</option>
-        <option>ENCARGO ADMINISTRATIVO</option>
-    </select>
-</div>
-<div class="form-group">
-    <button (click)="add()" class="btn btn-primary">Agregar</button>
-</div>
+    <div class="contenido">
+        <header class="masthead bg-primary text-white text-center">
+            <div class="container d-flex align-items-center flex-column">
+                <!-- Masthead Heading -->
+                <h1 class="masthead-heading text-uppercase mb-0">ACCIONES</h1>
+
+                <!-- Icon Divider -->
+                <div class="divider-custom divider-light">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="divider-custom-line"></div>
+                </div>
+            </div>
+        </header>
+        <br>
+        <!-- FORMATO-->
+        <div
+            class="d-flex jusrify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h1 class="h2">AGREGAR ACCIÓN</h1>
+        </div>
+        <!-- Contact Section Form -->
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
+                <form name="sentMessage" id="contactForm" novalidate="novalidate">
+                    <div class="control-group">
+                        <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                            <label>Nombre de Acción:</label>
+                            <input [(ngModel)]="acciones.nombre_Accion" class="form-control"
+                                placeholder="DIGITE NOMBRE ACCIÓN" type="text" />
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                            <label>tipo de Acción: </label>
+                            <select class="form-control" id="exampleFormControlSelect1"
+                                [(ngModel)]="acciones.tipo_Accion" type="text">
+                                <option>TUTORÍAS</option>
+                                <option>INVESTIGACIÓN</option>
+                                <option>EXTENCIÓN</option>
+                                <option>MATERIAL DE APOYO</option>
+                                <option>TRABAJO DE GRADO</option>
+                                <option>COOPERACIÓN INTERINSTITUCIONAL</option>
+                                <option>CRECIMIENTO PROFESIONAL</option>
+                                <option>ENCARGO ADMINISTRATIVO</option>
+                            </select>
+                        </div>
+                    </div>
+                    <br>
+                    <div id="success"></div>
+                    <div class="form-group">
+                        <button type="submit" (click)="add()" class="btn btn-primary btn-xl"
+                            id="sendMessageButton">AGREGAR</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>

@@ -1,31 +1,43 @@
+<head>
+  <title Document></title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery-latest.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Signika&display=swap" rel="stylesheet">
+  <script src="header.js"></script>
+</head>
+
 <header>
-  <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+<!-- 
+  <div class=wrapper>
+   <div class="logo">
+    <a class="nav-link" routerLink="/home"> Auditiva</a>
+   </div>
+   <nav>
+    <ul class="nav nav-pills">
+    <li role="presentation"><a routerLink="/user/login"><span class="glyphicon glyphicon-log-in"></span> Iniciar Sesion</a> </li>
+    <li role="presentation" class="active"><a class="nav-link"  routerLink="/user/register"><span class="glyphicon glyphicon-user"></span> REGISTRARSE </a>  </li>
+  </ul>
+  </nav>
+  </div> -->
+
+  <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
     <div class="container">
-      <a class="navbar-brand" [routerLink]="['/HomePrincipal']"><span class="text-success">A</span>com<span class="text-success">UPC</span></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse"
-        aria-label="Toggle navigation" [attr.aria-expanded]="isExpanded" (click)="toggle()">
-        <span class="navbar-toggler-icon"></span>
+      <a class="navbar-brand js-scroll-trigger"  routerLink="/HomePrincipal"><span class="text-success">A</span>com<span class="text-success">UPC</span></a>
+      <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
       </button>
-      <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse" [ngClass]="{ show: isExpanded }">
-        <app-login-menu></app-login-menu>
-        <ul class="navbar-nav flex-grow">
-          <li class="nav-item" [routerLinkActive]="['link-active']" [routerLinkActiveOptions]="{ exact: true }">
-            <a class="nav-link text-dark" [routerLink]="['/HomePrincipal']">Home</a>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" routerLink="/user/login">INICIAR SESION</a>
           </li>
-          <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark" [routerLink]="['/RegistroDocente']">Registro Docente</a>
-          </li>
-          <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark" [routerLink]="['/ConsultaDocente']">Consultar Docentes</a>
-          </li>
-          <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark" [routerLink]="['/RegistroAcciones']">Registro Accion</a>
-          </li>
-          <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark" [routerLink]="['/ConsultaAcciones']">Consultar Acciones</a>
+          <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" routerLink="/user/register">REGISTRARSE</a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
 </header>
+

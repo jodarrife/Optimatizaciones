@@ -1,117 +1,185 @@
-<div class="d-flex jusrify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-    <h1 class="h2">AGREGAR DOCENTE</h1>
-</div>
+<body>
 
+    <div class="contenido">
+        <header class="masthead bg-primary text-white text-center">
+            <div class="container d-flex align-items-center flex-column">
 
-<div Class="row">
-    <div class="col-md-6">
-        <div class="main-container">
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label>Tipo de Documento: </label>
-                    <select class="form-control" id="exampleFormControlSelect1" [(ngModel)]="docente.Tipo_Documento"
-                        type="text">
-                        <option>CÉDULA DE CIUDADANIA</option>
-                        <option>CÉDULA DE EXTRANJERÍA</option>
-                        <option>TARJETA DE IDENTIDAD</option>
-                        <option>DNI</option>
-                        <option>REGISTRO CIVIL</option>
-                    </select>
-                </div>
-                <!--IDENTIFICACION-->
-                <div class="form-group col-md-6">
-                    <label>Identificacion:</label>
-                    <input [(ngModel)]="docente.Identificacion" class="form-control" placeholder="DIGITE DOCUMENTO"
-                        type="text" />
+                <!-- Masthead Heading -->
+                <h1 class="masthead-heading text-uppercase mb-0">DOCENTE</h1>
 
+                <!-- Icon Divider -->
+                <div class="divider-custom divider-light">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="divider-custom-line"></div>
                 </div>
 
             </div>
-            <div class="form-row">
-                <!--Primer Nombre:-->
-                <div class="form-group col-md-6">
-                    <label>Primer Nombre:</label>
-                    <input [(ngModel)]="docente.Primer_Nombre" class="form-control" placeholder="DIGITE PRIMER NOMBRE"
-                        type="text" />
+        </header>
 
+        <br>
+        <!-- FORMATO-->
+        <!-- Contact Section -->
+        <section class="page-section" id="contact">
+            <div class="container">
+
+                <!-- Contact Section Heading -->
+                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">AGREGAR DOCENTE</h2>
+
+                <!-- Icon Divider -->
+                <div class="divider-custom">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="divider-custom-line"></div>
                 </div>
-                <!--SEGUNDO Nombre:-->
-                <div class="form-group col-md-6">
-                    <label>Segundo Nombre:</label>
-                    <input [(ngModel)]="docente.Segundo_Nombre" class="form-control" placeholder="DIGITE SEGUNDO NOMBRE"
-                        type="text" />
 
+                <!-- Contact Section Form -->
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
+                        <form name="sentMessage" id="contactForm" novalidate="novalidate">
+                            <div class="form-row">
+                                <div class="col">
+                                    <div class="control-group">
+                                        <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                            <label>Tipo de Documento: </label>
+                                            <select class="form-control" id="exampleFormControlSelect1"
+                                                [(ngModel)]="docente.Tipo_Documento" type="text">
+                                                <option>CÉDULA DE CIUDADANIA</option>
+                                                <option>CÉDULA DE EXTRANJERÍA</option>
+                                                <option>TARJETA DE IDENTIDAD</option>
+                                                <option>DNI</option>
+                                                <option>REGISTRO CIVIL</option>
+                                            </select>
+                                            <p class="help-block text-danger"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="control-group">
+                                        <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                            <label>Identificación:</label>
+                                            <input [(ngModel)]="docente.Identificacion" class="form-control"
+                                                placeholder="DIGITE IDENTIFICACIÓN" type="text" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col">
+                                    <div class="control-group">
+                                        <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                            <label>Primer Nombre:</label>
+                                            <input [(ngModel)]="docente.Primer_Nombre" class="form-control"
+                                                placeholder="DIGITE PRIMER NOMBRE" type="text" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="control-group">
+                                        <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                            <label>Segundo Nombre:</label>
+                                            <input [(ngModel)]="docente.Segundo_Nombre" class="form-control"
+                                                placeholder="DIGITE SEGUNDO NOMBRE" type="text" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col">
+                                    <div class="control-group">
+                                        <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                            <label>Primer Apellido:</label>
+                                            <input [(ngModel)]="docente.Primer_Apellido" class="form-control"
+                                                placeholder="DIGITE PRIMER APELLIDO" type="text" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="control-group">
+                                        <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                            <label>Segundo Apellido:</label>
+                                            <input [(ngModel)]="docente.Segundo_Apellido" class="form-control"
+                                                placeholder="DIGITE SEGUNDO APELLIDO" type="text" />
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col">
+                                    <div class="control-group">
+                                        <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                            <label>Fecha Nacimiento: </label>
+                                            <input [(ngModel)]="docente.Fecha_Nacimiento" class="form-control"
+                                                placeholder="" type="date" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="control-group">
+                                        <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                            <label>Genero: </label>
+                                            <select class="form-control" id="exampleFormControlSelect1"
+                                                [(ngModel)]="docente.Genero" type="text">
+                                                <option>FEMENINO</option>
+                                                <option>MASCULINO</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                    <label>Email:</label>
+                                    <input [(ngModel)]="docente.Email" class="form-control" placeholder="DIGITE EMAIL"
+                                        type="text" />
+
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col">
+                                    <div class="control-group">
+                                        <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                            <label>Telefono:</label>
+                                            <input [(ngModel)]="docente.Telefono" class="form-control"
+                                                placeholder="DIGITE TELEFONO" type="number" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="control-group">
+                                        <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                            <label>Fecha Vinculacion:</label>
+                                            <input [(ngModel)]="docente.Fecha_Vinculacion" class="form-control"
+                                                placeholder="" type="date" />
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                    <label>Tipo Docente:</label>
+                                    <input [(ngModel)]="docente.Tipo_Docente" class="form-control"
+                                        placeholder="DIGITE TIPO DE DOCENTE" type="text" />
+                                </div>
+                            </div>
+                            <br>
+                            <!--BOTON-->
+                            <div id="success"></div>
+                            <div class="form-group">
+                                <button (click)="add()" type="submit" class="btn btn-primary btn-xl"
+                                    id="sendMessageButton">AGREGAR</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
-            <div class="form-row">
-                <!--Primer APELLIDO:-->
-                <div class="form-group col-md-6">
-                    <label>Primer Apellido:</label>
-                    <input [(ngModel)]="docente.Primer_Apellido" class="form-control"
-                        placeholder="DIGITE PRIMER APELLIDO" type="text" />
-
-                </div>
-                <!--SEGUNDO APELLIDO:-->
-                <div class="form-group col-md-6">
-                    <label>Segundo Apellido:</label>
-                    <input [(ngModel)]="docente.Segundo_Apellido" class="form-control"
-                        placeholder="DIGITE SEGUNDO APELLIDO" type="text" />
-
-                </div>
-            </div>
-
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label>Fecha Nacimiento: </label>
-                    <input [(ngModel)]="docente.Fecha_Nacimiento" class="form-control" placeholder="" type="date" />
-
-                </div>
-
-                <div class="form-group col-md-6">
-                    <label>Genero: </label>
-                    <select class="form-control" id="exampleFormControlSelect1" [(ngModel)]="docente.Genero"
-                        type="text">
-                        <option>FEMENINO</option>
-                        <option>MASCULINO</option>
-                    </select>
-                </div>
-            </div>
-
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label>Email:</label>
-                    <input [(ngModel)]="docente.Email" class="form-control" placeholder="DIGITE EMAIL" type="text" />
-
-                </div>
-
-                <div class="form-group col-md-6">
-                    <label>Telefono:</label>
-                    <input [(ngModel)]="docente.Telefono" class="form-control" placeholder="DIGITE TELEFONO"
-                        type="number" />
-
-                </div>
-            </div>
-
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label>Fecha Vinculacion:</label>
-                    <input [(ngModel)]="docente.Fecha_Vinculacion" class="form-control" placeholder="" type="date" />
-
-                </div>
-
-                <div class="form-group col-md-6">
-                    <label>Tipo Docente:</label>
-                    <input [(ngModel)]="docente.Tipo_Docente" class="form-control" placeholder="DIGITE TIPO DE DOCENTE"
-                        type="text" />
-
-                </div>
-            </div>
-        </div>
-
-
-        <!--BOTON-->
-        <div class="form-group">
-            <button (click)="add()" class="btn btn-primary">Agregar</button>
-        </div>
+        </section>
     </div>
-</div>
+</body>
