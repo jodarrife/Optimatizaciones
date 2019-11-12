@@ -1,16 +1,16 @@
 export class Persona {
-    Tipo_Documento: string;
+    tipo_Documento: string;
     identificacion: string;
-    Primer_Nombre: string;
-    Segundo_Nombre: string;
-    Primer_Apellido: string;
-    Segundo_Apellido: string;
-    Fecha_Nacimiento: Date;
-    Edad: number;
-    Genero: string;
-    Email: string;
-    Telefono: number;
-    Cargo: string;
-    Fecha_Vinculacion: Date;
-    EstadoSys: string;
+    primer_Nombre: string;
+    segundo_Nombre: string;
+    primer_Apellido: string;
+    segundo_Apellido: string;
+    fecha_Nacimiento: Date;
+    edad: number;
+    genero: string;
+    email: string;
+    telefono: number;
+    cargo: string;
+    fecha_Vinculacion: Date;
+    estadoSys: string;
 }

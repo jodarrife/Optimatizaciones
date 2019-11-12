@@ -20,8 +20,8 @@ namespace DocenteSharpHTTP.Controllers
             {
                 _context.Acciones.Add(new AccionesItem
                 {
-                    Nombre_Accion = "Comite de Evalaución",
-                    Tipo_Accion = "Extensión"
+                    nombre_Accion = "Comite de Evalaución",
+                    tipo_Accion = "Extensión"
                 });
                 _context.SaveChanges();
             }
@@ -50,13 +50,13 @@ namespace DocenteSharpHTTP.Controllers
         {
             _context.Acciones.Add(item);
             await _context.SaveChangesAsync();
-            return CreatedAtAction(nameof(GetAcciones), new { cod_Accion = item.Cod_Accion }, item);
+            return CreatedAtAction(nameof(GetAcciones), new { cod_Accion = item.cod_Accion }, item);
         }
         // PUT: api/Acciones/5
         [HttpPut("{cod_Accion}")]
         public async Task<IActionResult> PutDocente(int cod_Accion, AccionesItem item)
         {
-            if (cod_Accion != item.Cod_Accion)
+            if (cod_Accion != item.cod_Accion)
             {
                 return BadRequest();
             }

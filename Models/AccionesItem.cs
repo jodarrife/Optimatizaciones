@@ -10,10 +10,10 @@ namespace DocenteSharpHTTP.Models
     public class AccionesItem
     {/* */
         [Key]
-        public int Cod_Accion { get; set; }
+        public int cod_Accion { get; set; }
         [Required, MaxLength(50)]
-        public string Nombre_Accion { get; set; }
+        public string nombre_Accion { get; set; }
         [Required]
-        public string Tipo_Accion { get; set; }
+        public string tipo_Accion { get; set; }
     }
 }

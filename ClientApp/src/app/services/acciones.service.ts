@@ -15,7 +15,7 @@ export class AccionesService {
   /** POST: add a new Acciones to the server */
   addAcciones(acciones: Acciones): Observable<Acciones> {
     return this.http.post<Acciones>(this.baseUrl + 'api/Acciones', acciones, httpOptions).pipe(
-      tap((newAcciones: Acciones) => this.log(`added NewAcciones w/ Identificacion=${newAcciones.cod_Accion}`)),
+      tap((newAcciones: Acciones) => this.log(`added NewAcciones w/ Codigo=${newAcciones.cod_Accion}`)),
       catchError(this.handleError<Acciones>('addAcciones'))
     );
   }

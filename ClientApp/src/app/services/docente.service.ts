@@ -34,11 +34,11 @@ export class DocenteService {
   }
 
   /** GET Docente by Identificacion. Will 404 if id not found */
-  get(Identificacion: number): Observable<Docente> {
-    const url = `${this.baseUrl + 'api/Docente'}/${Identificacion}`;
+  get(identificacion: number): Observable<Docente> {
+    const url = `${this.baseUrl + 'api/Docente'}/${identificacion}`;
     return this.http.get<Docente>(url).pipe(
-      tap(_ => this.log(`fetched Docente Identificacion=${Identificacion}`)),
-      catchError(this.handleError<Docente>(`getDocente Identificacion=${Identificacion}`))
+      tap(_ => this.log(`fetched Docente Identificacion=${identificacion}`)),
+      catchError(this.handleError<Docente>(`getDocente Identificacion=${identificacion}`))
     );
   }
 

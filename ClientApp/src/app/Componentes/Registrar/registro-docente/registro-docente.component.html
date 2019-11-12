@@ -1,3 +1,4 @@
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 <body>
     <div class="contenido">
         <header class="masthead bg-primary text-white text-center">
@@ -10,7 +11,7 @@
                 <div class="divider-custom divider-light">
                     <div class="divider-custom-line"></div>
                     <div class="divider-custom-icon">
-                        <i class="fas fa-star"></i>
+                        <i class="fa fa-star"></i>
                     </div>
                     <div class="divider-custom-line"></div>
                 </div>
@@ -31,7 +32,7 @@
                 <div class="divider-custom">
                     <div class="divider-custom-line"></div>
                     <div class="divider-custom-icon">
-                        <i class="fas fa-star"></i>
+                        <i class="fa fa-star"></i>
                     </div>
                     <div class="divider-custom-line"></div>
                 </div>
@@ -40,17 +41,16 @@
                 <div class="row">
                     <div class="col-lg-8 mx-auto">
                         <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
-                        <form name="sentMessage" id="contactForm" novalidate="novalidate">
+                        <form name="sentMessage" id="contactForm" novalidate="novalidate" name="registar" >
                             <div class="form-row">
                                 <div class="col">
                                     <div class="control-group">
                                         <div class="form-group floating-label-form-group controls mb-0 pb-2">
                                             <label>Tipo de Documento: </label>
-                                            <select class="form-control" id="exampleFormControlSelect1"
-                                                [(ngModel)]="docente.Tipo_Documento" type="text">
+                                            <select class="form-control" id="exampleFormControlSelect1" name="Tipo Documento"
+                                                [(ngModel)]="docente.tipo_Documento" type="text">
                                                 <option>CÉDULA DE CIUDADANIA</option>
                                                 <option>CÉDULA DE EXTRANJERÍA</option>
-                                                <option>TARJETA DE IDENTIDAD</option>
                                                 <option>DNI</option>
                                                 <option>REGISTRO CIVIL</option>
                                             </select>
@@ -62,7 +62,7 @@
                                     <div class="control-group">
                                         <div class="form-group floating-label-form-group controls mb-0 pb-2">
                                             <label>Identificación:</label>
-                                            <input [(ngModel)]="docente.Identificacion" class="form-control"
+                                            <input [(ngModel)]="docente.identificacion" class="form-control" name="id"
                                                 placeholder="DIGITE IDENTIFICACIÓN" type="text" />
                                         </div>
                                     </div>
@@ -73,7 +73,7 @@
                                     <div class="control-group">
                                         <div class="form-group floating-label-form-group controls mb-0 pb-2">
                                             <label>Primer Nombre:</label>
-                                            <input [(ngModel)]="docente.Primer_Nombre" class="form-control"
+                                            <input [(ngModel)]="docente.primer_Nombre" class="form-control" name="Priemr Nombre"
                                                 placeholder="DIGITE PRIMER NOMBRE" type="text" />
                                         </div>
                                     </div>
@@ -82,7 +82,7 @@
                                     <div class="control-group">
                                         <div class="form-group floating-label-form-group controls mb-0 pb-2">
                                             <label>Segundo Nombre:</label>
-                                            <input [(ngModel)]="docente.Segundo_Nombre" class="form-control"
+                                            <input [(ngModel)]="docente.segundo_Nombre" class="form-control" name="Segundo Nombre"
                                                 placeholder="DIGITE SEGUNDO NOMBRE" type="text" />
                                         </div>
                                     </div>
@@ -93,7 +93,7 @@
                                     <div class="control-group">
                                         <div class="form-group floating-label-form-group controls mb-0 pb-2">
                                             <label>Primer Apellido:</label>
-                                            <input [(ngModel)]="docente.Primer_Apellido" class="form-control"
+                                            <input [(ngModel)]="docente.primer_Apellido" class="form-control" name="Primer Apellido"
                                                 placeholder="DIGITE PRIMER APELLIDO" type="text" />
                                         </div>
                                     </div>
@@ -102,7 +102,7 @@
                                     <div class="control-group">
                                         <div class="form-group floating-label-form-group controls mb-0 pb-2">
                                             <label>Segundo Apellido:</label>
-                                            <input [(ngModel)]="docente.Segundo_Apellido" class="form-control"
+                                            <input [(ngModel)]="docente.segundo_Apellido" class="form-control" name="Segundo Apellido"
                                                 placeholder="DIGITE SEGUNDO APELLIDO" type="text" />
 
                                         </div>
@@ -114,7 +114,7 @@
                                     <div class="control-group">
                                         <div class="form-group floating-label-form-group controls mb-0 pb-2">
                                             <label>Fecha Nacimiento: </label>
-                                            <input [(ngModel)]="docente.Fecha_Nacimiento" class="form-control"
+                                            <input [(ngModel)]="docente.fecha_Nacimiento" class="form-control" name="fecha NAcimiento"
                                                 placeholder="" type="date" />
                                         </div>
                                     </div>
@@ -123,8 +123,8 @@
                                     <div class="control-group">
                                         <div class="form-group floating-label-form-group controls mb-0 pb-2">
                                             <label>Genero: </label>
-                                            <select class="form-control" id="exampleFormControlSelect1"
-                                                [(ngModel)]="docente.Genero" type="text">
+                                            <select class="form-control" id="exampleFormControlSelect1" name="Genero"
+                                                [(ngModel)]="docente.genero" type="text">
                                                 <option>FEMENINO</option>
                                                 <option>MASCULINO</option>
                                             </select>
@@ -135,7 +135,7 @@
                             <div class="control-group">
                                 <div class="form-group floating-label-form-group controls mb-0 pb-2">
                                     <label>Email:</label>
-                                    <input [(ngModel)]="docente.Email" class="form-control" placeholder="DIGITE EMAIL"
+                                    <input [(ngModel)]="docente.email" class="form-control" placeholder="DIGITE EMAIL" name="Email"
                                         type="text" />
 
                                 </div>
@@ -145,7 +145,7 @@
                                     <div class="control-group">
                                         <div class="form-group floating-label-form-group controls mb-0 pb-2">
                                             <label>Telefono:</label>
-                                            <input [(ngModel)]="docente.Telefono" class="form-control"
+                                            <input [(ngModel)]="docente.telefono" class="form-control" name="Telefono"
                                                 placeholder="DIGITE TELEFONO" type="number" />
                                         </div>
                                     </div>
@@ -154,7 +154,7 @@
                                     <div class="control-group">
                                         <div class="form-group floating-label-form-group controls mb-0 pb-2">
                                             <label>Fecha Vinculacion:</label>
-                                            <input [(ngModel)]="docente.Fecha_Vinculacion" class="form-control"
+                                            <input [(ngModel)]="docente.fecha_Vinculacion" class="form-control" name="fecha Vinculacion"
                                                 placeholder="" type="date" />
 
                                         </div>
@@ -164,7 +164,7 @@
                             <div class="control-group">
                                 <div class="form-group floating-label-form-group controls mb-0 pb-2">
                                     <label>Tipo Docente:</label>
-                                    <input [(ngModel)]="docente.Tipo_Docente" class="form-control"
+                                    <input [(ngModel)]="docente.tipo_Docente" class="form-control" name="Tipo Docente"
                                         placeholder="DIGITE TIPO DE DOCENTE" type="text" />
                                 </div>
                             </div>
@@ -172,7 +172,7 @@
                             <!--BOTON-->
                             <div id="success"></div>
                             <div class="form-group">
-                                <button (click)="add()" type="submit" class="btn btn-primary btn-xl"
+                                <button (click)="add()" type="submit" class="btn btn-primary btn-xl" name="boton"
                                     id="sendMessageButton">AGREGAR</button>
                             </div>
                         </form>

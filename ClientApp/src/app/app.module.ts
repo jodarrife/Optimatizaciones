@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
-
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
@@ -33,6 +33,8 @@ import { ModificarActComplementariasComponent } from './Componentes/Modificar/mo
 import { ModificarPlanAccionComponent } from './Componentes/Modificar/modificar-plan-accion/modificar-plan-accion.component';
 import { ModificarAccionesComponent } from './Componentes/Modificar/modificar-acciones/modificar-acciones.component';
 import { AppRoutingModule } from './app-routing.module';
+import { ModalEditarDocenteComponent } from './Componentes/Modals/modal-editar-docente/modal-editar-docente.component';
+import { ModalEditarAccionesComponent } from './Componentes/Modals/modal-editar-acciones/modal-editar-acciones.component';
 
 @NgModule({
   declarations: [
@@ -59,9 +61,12 @@ import { AppRoutingModule } from './app-routing.module';
     ModificarDocenteComponent,
     ModificarActComplementariasComponent,
     ModificarPlanAccionComponent,
-    ModificarAccionesComponent
+    ModificarAccionesComponent,
+    ModalEditarDocenteComponent,
+    ModalEditarAccionesComponent
   ],
   imports: [
+    NgbModule,
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,

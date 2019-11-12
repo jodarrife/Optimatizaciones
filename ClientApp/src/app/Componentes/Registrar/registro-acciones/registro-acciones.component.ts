@@ -17,10 +17,12 @@ export class RegistroAccionesComponent implements OnInit {
   }
 
   add() {
+    
     this.accionesService.addAcciones(this.acciones)
       .subscribe(acciones => {
         alert('Se agrego un nuevo acciones')
       });
+      
   }
 }
 

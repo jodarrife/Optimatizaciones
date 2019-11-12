@@ -26,21 +26,21 @@ namespace DocenteSharpHTTP.Controllers
                 //_context.Docentes.Add(new DocenteItem { Tipo_Docente = "CATEDRATICO" });
                 _context.Docentes.Add(new DocenteItem
                 {
-                    Tipo_Documento = "CEDULA",
-                    Identificacion = "1003242276",
-                    Primer_Nombre = "JORGE",
-                    Segundo_Nombre = "DANIEL",
-                    Primer_Apellido = "RINCONES",
-                    Segundo_Apellido = "FERNANDEZ",
-                    Fecha_Nacimiento = Convert.ToDateTime("3/11/2000").Date,
-                    Edad = 19,
-                    Genero = "MASCULINO",
-                    Email = "jodarrife12@gmail.com",
-                    Telefono = 3004128610,
-                    Cargo = "DOCENTE",
-                    Fecha_Vinculacion = Convert.ToDateTime("3/11/2000").Date,
-                    EstadoSys = "ACTIVO",
-                    Tipo_Docente = "CATEDRATICO"
+                    tipo_Documento = "CEDULA",
+                    identificacion = "1003242276",
+                    primer_Nombre = "JORGE",
+                    segundo_Nombre = "DANIEL",
+                    primer_Apellido = "RINCONES",
+                    segundo_Apellido = "FERNANDEZ",
+                    fecha_Nacimiento = Convert.ToDateTime("3/11/2000").Date,
+                    edad = 19,
+                    genero = "MASCULINO",
+                    email = "jodarrife12@gmail.com",
+                    telefono = 3004128610,
+                    cargo = "DOCENTE",
+                    fecha_Vinculacion = Convert.ToDateTime("3/11/2000").Date,
+                    estadoSys = "ACTIVO",
+                    tipo_Docente = "CATEDRATICO"
                 });
                 _context.SaveChanges();
             }
@@ -81,7 +81,7 @@ namespace DocenteSharpHTTP.Controllers
 
             _context.Docentes.Add(item);
             await _context.SaveChangesAsync();
-            return CreatedAtAction(nameof(GetDocentes), new { identificacion = item.Identificacion }, item);
+            return CreatedAtAction(nameof(GetDocentes), new { identificacion = item.identificacion }, item);
         }
 
 
@@ -90,7 +90,7 @@ namespace DocenteSharpHTTP.Controllers
     [HttpPut("{identificacion}")]
     public async Task<IActionResult> PutDocente(string identificacion, DocenteItem item)
     {
-        if (identificacion != item.Identificacion)
+        if (identificacion != item.identificacion)
         {
             return BadRequest();
         }

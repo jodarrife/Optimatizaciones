@@ -29,6 +29,10 @@ import { ModificarDocenteComponent } from './Componentes/Modificar/modificar-doc
 import { ModificarAccionesComponent } from './Componentes/Modificar/modificar-acciones/modificar-acciones.component';
 
 
+
+//Modals
+import { ModalEditarAccionesComponent } from './Componentes/Modals/modal-editar-acciones/modal-editar-acciones.component';
+import { ModalEditarDocenteComponent } from './Componentes/Modals/modal-editar-docente/modal-editar-docente.component';
 // Desactivar Acciones
 //crearemos varios objetos para crear las rutas
 const routes: Routes = [
@@ -58,6 +62,10 @@ const routes: Routes = [
   { path: 'ModificarAcciones/:cod_Accion', component: ModificarAccionesComponent},
 
 
+  //Modal Acicones
+  { path: 'ModalAcciones', component: ModalEditarAccionesComponent},
+  //Modal Docente
+  { path: 'ModalDocente', component: ModalEditarDocenteComponent},
   //error en url
   {path: '**', component: NotFountPageComponent},
 ];
