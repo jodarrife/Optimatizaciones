@@ -28,7 +28,7 @@ export class DocenteService {
   /** GET Docente from the server */
   getAll(): Observable<Docente[]> {
     return this.http.get<Docente[]>(this.baseUrl + 'api/Docente').pipe(
-      tap(_ => this.log('Se Consulta la información')),
+      tap(),
       catchError(this.handleError<Docente[]>('getAll', []))
     );
   }
@@ -71,7 +71,7 @@ export class DocenteService {
   }
   /** Log a HeroService message with the MessageService */
   private log(message: string) {
-    alert(`DocenteService: ${message}`);
+    alert(`SERVIDOR: ${message}`);
   }
 
 }

@@ -33,8 +33,8 @@ import { ModificarActComplementariasComponent } from './Componentes/Modificar/mo
 import { ModificarPlanAccionComponent } from './Componentes/Modificar/modificar-plan-accion/modificar-plan-accion.component';
 import { ModificarAccionesComponent } from './Componentes/Modificar/modificar-acciones/modificar-acciones.component';
 import { AppRoutingModule } from './app-routing.module';
-import { ModalEditarDocenteComponent } from './Componentes/Modals/modal-editar-docente/modal-editar-docente.component';
-import { ModalEditarAccionesComponent } from './Componentes/Modals/modal-editar-acciones/modal-editar-acciones.component';
+import { MDocenteTableComponent } from './Componentes/Modals/mdocente-table/mdocente-table.component';
+import { MAccionesTableComponent } from './Componentes/Modals/macciones-table/macciones-table.component';
 
 @NgModule({
   declarations: [
@@ -62,8 +62,8 @@ import { ModalEditarAccionesComponent } from './Componentes/Modals/modal-editar-
     ModificarActComplementariasComponent,
     ModificarPlanAccionComponent,
     ModificarAccionesComponent,
-    ModalEditarDocenteComponent,
-    ModalEditarAccionesComponent
+    MDocenteTableComponent,
+    MAccionesTableComponent
   ],
   imports: [
     NgbModule,

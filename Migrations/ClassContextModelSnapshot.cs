@@ -21,18 +21,21 @@ namespace Proyecto.Migrations
 
             modelBuilder.Entity("DocenteSharpHTTP.Models.AccionesItem", b =>
                 {
-                    b.Property<int>("Cod_Accion")
+                    b.Property<int>("cod_Accion")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Nombre_Accion")
+                    b.Property<string>("nombre_Accion")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
+
+                    b.Property<string>("tipo_Accion")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Tipo_Accion")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Cod_Accion");
+                    b.HasKey("cod_Accion");
 
                     b.ToTable("Acciones");
                 });
@@ -69,52 +72,61 @@ namespace Proyecto.Migrations
 
             modelBuilder.Entity("DocenteSharpHTTP.Models.DocenteItem", b =>
                 {
-                    b.Property<string>("Identificacion")
+                    b.Property<string>("identificacion")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("Cargo")
+                    b.Property<string>("cargo")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Edad")
+                    b.Property<int>("edad")
                         .HasColumnType("int");
 
-                    b.Property<string>("Email")
+                    b.Property<string>("email")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("EstadoSys")
+                    b.Property<string>("estadoSys")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("Fecha_Nacimiento")
+                    b.Property<DateTime>("fecha_Nacimiento")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("Fecha_Vinculacion")
+                    b.Property<DateTime>("fecha_Vinculacion")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Genero")
+                    b.Property<string>("genero")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Primer_Apellido")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<string>("primer_Apellido")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(30)")
+                        .HasMaxLength(30);
 
-                    b.Property<string>("Primer_Nombre")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<string>("primer_Nombre")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(30)")
+                        .HasMaxLength(30);
 
-                    b.Property<string>("Segundo_Apellido")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<string>("segundo_Apellido")
+                        .HasColumnType("nvarchar(30)")
+                        .HasMaxLength(30);
 
-                    b.Property<string>("Segundo_Nombre")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<string>("segundo_Nombre")
+                        .HasColumnType("nvarchar(30)")
+                        .HasMaxLength(30);
 
-                    b.Property<long>("Telefono")
+                    b.Property<long>("telefono")
                         .HasColumnType("bigint");
 
-                    b.Property<string>("Tipo_Docente")
+                    b.Property<string>("tipo_Docente")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Tipo_Documento")
+                    b.Property<string>("tipo_Documento")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Identificacion");
+                    b.HasKey("identificacion");
 
                     b.ToTable("Docentes");
                 });

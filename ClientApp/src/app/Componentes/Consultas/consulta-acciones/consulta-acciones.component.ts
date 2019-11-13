@@ -20,4 +20,6 @@ export class ConsultaAccionesComponent implements OnInit {
     this.accionesService.getAll().subscribe(acciones => this.acciones = acciones);
   }
 
+
+
 }

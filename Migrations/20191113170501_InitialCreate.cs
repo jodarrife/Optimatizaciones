@@ -11,14 +11,14 @@ namespace Proyecto.Migrations
                 name: "Acciones",
                 columns: table => new
                 {
-                    Cod_Accion = table.Column<int>(nullable: false)
+                    cod_Accion = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Nombre_Accion = table.Column<string>(nullable: true),
-                    Tipo_Accion = table.Column<string>(nullable: true)
+                    nombre_Accion = table.Column<string>(maxLength: 50, nullable: false),
+                    tipo_Accion = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Acciones", x => x.Cod_Accion);
+                    table.PrimaryKey("PK_Acciones", x => x.cod_Accion);
                 });
 
             migrationBuilder.CreateTable(
@@ -43,25 +43,25 @@ namespace Proyecto.Migrations
                 name: "Docentes",
                 columns: table => new
                 {
-                    Identificacion = table.Column<string>(nullable: false),
-                    Tipo_Documento = table.Column<string>(nullable: true),
-                    Primer_Nombre = table.Column<string>(nullable: true),
-                    Segundo_Nombre = table.Column<string>(nullable: true),
-                    Primer_Apellido = table.Column<string>(nullable: true),
-                    Segundo_Apellido = table.Column<string>(nullable: true),
-                    Fecha_Nacimiento = table.Column<DateTime>(nullable: false),
-                    Edad = table.Column<int>(nullable: false),
-                    Genero = table.Column<string>(nullable: true),
-                    Email = table.Column<string>(nullable: true),
-                    Telefono = table.Column<long>(nullable: false),
-                    Cargo = table.Column<string>(nullable: true),
-                    Fecha_Vinculacion = table.Column<DateTime>(nullable: false),
-                    EstadoSys = table.Column<string>(nullable: true),
-                    Tipo_Docente = table.Column<string>(nullable: true)
+                    identificacion = table.Column<string>(nullable: false),
+                    tipo_Documento = table.Column<string>(nullable: false),
+                    primer_Nombre = table.Column<string>(maxLength: 30, nullable: false),
+                    segundo_Nombre = table.Column<string>(maxLength: 30, nullable: true),
+                    primer_Apellido = table.Column<string>(maxLength: 30, nullable: false),
+                    segundo_Apellido = table.Column<string>(maxLength: 30, nullable: true),
+                    fecha_Nacimiento = table.Column<DateTime>(nullable: false),
+                    edad = table.Column<int>(nullable: false),
+                    genero = table.Column<string>(nullable: true),
+                    email = table.Column<string>(nullable: false),
+                    telefono = table.Column<long>(nullable: false),
+                    cargo = table.Column<string>(nullable: true),
+                    fecha_Vinculacion = table.Column<DateTime>(nullable: false),
+                    estadoSys = table.Column<string>(nullable: true),
+                    tipo_Docente = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Docentes", x => x.Identificacion);
+                    table.PrimaryKey("PK_Docentes", x => x.identificacion);
                 });
 
             migrationBuilder.CreateTable(

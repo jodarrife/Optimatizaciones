@@ -1,9 +1,8 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 <head>
   <title Document></title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-  <script src="https://code.jquery.com/jquery-latest.js"></script>
-  <link href="https://fonts.googleapis.com/css?family=Signika&display=swap" rel="stylesheet">
-  <script src="header.js"></script>
+
+
 </head>
 
 <header>
@@ -25,19 +24,18 @@
       <a class="navbar-brand js-scroll-trigger"  routerLink="/HomePrincipal"><span class="text-success">A</span>com<span class="text-success">UPC</span></a>
       <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         Menu
-        <i class="fas fa-bars"></i>
+        <i class="fa fa-bars" aria-hidden="true"></i>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item mx-0 mx-lg-1">
-            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" routerLink="/user/login">INICIAR SESION</a>
+            <a class="nav-link text-white" [routerLink]='["/authentication/login"]'>INICIAR SESION</a>
           </li>
           <li class="nav-item mx-0 mx-lg-1">
-            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" routerLink="/user/register">REGISTRARSE</a>
+            <a a class="nav-link text-white" [routerLink]='["/authentication/register"]'>REGISTRARSE</a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
 </header>
-

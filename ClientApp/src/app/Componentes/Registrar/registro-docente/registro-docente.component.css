@@ -274,3 +274,11 @@
  th, td {
     width: 25%;
  }
+
+.select {
+  position: relative;
+  background: #fff;
+  border: 1px solid #1cbe9d;
+  height: 50px;
+  cursor: pointer;
+}

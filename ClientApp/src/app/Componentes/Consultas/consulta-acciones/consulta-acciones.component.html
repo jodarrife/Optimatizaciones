@@ -33,10 +33,27 @@
                 </tfoot>
                 <tbody>
                     <tr *ngFor="let acciones of acciones">
-                        <td><a routerLink="/ModificarAcciones/{{acciones.cod_Accion}}"><span
-                            class="table-remove"><button type="button"
-                            class="btn btn-success btn-rounded btn-sm my-0">Editar</button></span></a>
+                        <td><a routerLink="/ModificarAcciones/{{acciones.cod_Accion}}">
+                                <span class="table-remove">
+                                    <button type="button" class="btn btn-success btn-rounded btn-sm my-0">Editar
+                                    </button>
+                                </span>
+                            </a>
                         </td>
+                        <!--
+                           
+
+                          <td>
+                            <button class="btn btn-lg btn-outline-primary" (click)="open(content)">Launch demo modal</button>
+                            <a routerLink="/ModalAcciones">
+                                <span class="table-remove">
+                                    <button type="button" class="btn btn-success btn-rounded btn-sm my-0">
+                                        Editar
+                                    </button>
+                                </span>
+                            </a>
+                        </td>
+                        -->
                         <td>{{acciones.cod_Accion}}</td>
                         <td>{{acciones.nombre_Accion}}</td>
                         <td>{{acciones.tipo_Accion}}</td>

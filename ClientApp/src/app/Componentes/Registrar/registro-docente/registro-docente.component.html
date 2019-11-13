@@ -1,4 +1,5 @@
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
 <body>
     <div class="contenido">
         <header class="masthead bg-primary text-white text-center">
@@ -41,14 +42,14 @@
                 <div class="row">
                     <div class="col-lg-8 mx-auto">
                         <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
-                        <form name="sentMessage" id="contactForm" novalidate="novalidate" name="registar" >
+                        <form name="sentMessage" id="contactForm" novalidate="novalidate" name="registar">
                             <div class="form-row">
                                 <div class="col">
                                     <div class="control-group">
                                         <div class="form-group floating-label-form-group controls mb-0 pb-2">
                                             <label>Tipo de Documento: </label>
-                                            <select class="form-control" id="exampleFormControlSelect1" name="Tipo Documento"
-                                                [(ngModel)]="docente.tipo_Documento" type="text">
+                                            <select class="browser-default custom-select" id="exampleFormControlSelect1"
+                                                name="Tipo Documento" [(ngModel)]="docente.tipo_Documento" type="text">
                                                 <option>CÉDULA DE CIUDADANIA</option>
                                                 <option>CÉDULA DE EXTRANJERÍA</option>
                                                 <option>DNI</option>
@@ -73,8 +74,8 @@
                                     <div class="control-group">
                                         <div class="form-group floating-label-form-group controls mb-0 pb-2">
                                             <label>Primer Nombre:</label>
-                                            <input [(ngModel)]="docente.primer_Nombre" class="form-control" name="Priemr Nombre"
-                                                placeholder="DIGITE PRIMER NOMBRE" type="text" />
+                                            <input [(ngModel)]="docente.primer_Nombre" class="form-control"
+                                                name="Priemr Nombre" placeholder="DIGITE PRIMER NOMBRE" type="text" />
                                         </div>
                                     </div>
                                 </div>
@@ -82,8 +83,8 @@
                                     <div class="control-group">
                                         <div class="form-group floating-label-form-group controls mb-0 pb-2">
                                             <label>Segundo Nombre:</label>
-                                            <input [(ngModel)]="docente.segundo_Nombre" class="form-control" name="Segundo Nombre"
-                                                placeholder="DIGITE SEGUNDO NOMBRE" type="text" />
+                                            <input [(ngModel)]="docente.segundo_Nombre" class="form-control"
+                                                name="Segundo Nombre" placeholder="DIGITE SEGUNDO NOMBRE" type="text" />
                                         </div>
                                     </div>
                                 </div>
@@ -93,8 +94,9 @@
                                     <div class="control-group">
                                         <div class="form-group floating-label-form-group controls mb-0 pb-2">
                                             <label>Primer Apellido:</label>
-                                            <input [(ngModel)]="docente.primer_Apellido" class="form-control" name="Primer Apellido"
-                                                placeholder="DIGITE PRIMER APELLIDO" type="text" />
+                                            <input [(ngModel)]="docente.primer_Apellido" class="form-control"
+                                                name="Primer Apellido" placeholder="DIGITE PRIMER APELLIDO"
+                                                type="text" />
                                         </div>
                                     </div>
                                 </div>
@@ -102,8 +104,9 @@
                                     <div class="control-group">
                                         <div class="form-group floating-label-form-group controls mb-0 pb-2">
                                             <label>Segundo Apellido:</label>
-                                            <input [(ngModel)]="docente.segundo_Apellido" class="form-control" name="Segundo Apellido"
-                                                placeholder="DIGITE SEGUNDO APELLIDO" type="text" />
+                                            <input [(ngModel)]="docente.segundo_Apellido" class="form-control"
+                                                name="Segundo Apellido" placeholder="DIGITE SEGUNDO APELLIDO"
+                                                type="text" />
 
                                         </div>
                                     </div>
@@ -114,8 +117,8 @@
                                     <div class="control-group">
                                         <div class="form-group floating-label-form-group controls mb-0 pb-2">
                                             <label>Fecha Nacimiento: </label>
-                                            <input [(ngModel)]="docente.fecha_Nacimiento" class="form-control" name="fecha NAcimiento"
-                                                placeholder="" type="date" />
+                                            <input [(ngModel)]="docente.fecha_Nacimiento" class="form-control"
+                                                name="fecha NAcimiento" placeholder="" type="date" />
                                         </div>
                                     </div>
                                 </div>
@@ -123,7 +126,7 @@
                                     <div class="control-group">
                                         <div class="form-group floating-label-form-group controls mb-0 pb-2">
                                             <label>Genero: </label>
-                                            <select class="form-control" id="exampleFormControlSelect1" name="Genero"
+                                            <select class="browser-default custom-select" id="exampleFormControlSelect1" name="Genero"
                                                 [(ngModel)]="docente.genero" type="text">
                                                 <option>FEMENINO</option>
                                                 <option>MASCULINO</option>
@@ -135,8 +138,8 @@
                             <div class="control-group">
                                 <div class="form-group floating-label-form-group controls mb-0 pb-2">
                                     <label>Email:</label>
-                                    <input [(ngModel)]="docente.email" class="form-control" placeholder="DIGITE EMAIL" name="Email"
-                                        type="text" />
+                                    <input [(ngModel)]="docente.email" class="form-control" placeholder="DIGITE EMAIL"
+                                        name="Email" type="text" />
 
                                 </div>
                             </div>
@@ -154,20 +157,25 @@
                                     <div class="control-group">
                                         <div class="form-group floating-label-form-group controls mb-0 pb-2">
                                             <label>Fecha Vinculacion:</label>
-                                            <input [(ngModel)]="docente.fecha_Vinculacion" class="form-control" name="fecha Vinculacion"
-                                                placeholder="" type="date" />
+                                            <input [(ngModel)]="docente.fecha_Vinculacion" class="form-control"
+                                                name="fecha Vinculacion" placeholder="" type="date" />
 
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="control-group">
-                                <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                <div class="form-group floating-label-form-group controls mb-0 pb-2 ">
                                     <label>Tipo Docente:</label>
-                                    <input [(ngModel)]="docente.tipo_Docente" class="form-control" name="Tipo Docente"
-                                        placeholder="DIGITE TIPO DE DOCENTE" type="text" />
+                                    <select class="browser-default custom-select" 
+                                            [(ngModel)]="docente.tipo_Docente"
+                                            name="tipo" placeholder="DIGITE TIPO DE DOCENTE" type="text">
+                                        <option>CATEDRATICO</option>
+                                        <option>PLANTA</option>
+                                    </select>
                                 </div>
                             </div>
+
                             <br>
                             <!--BOTON-->
                             <div id="success"></div>

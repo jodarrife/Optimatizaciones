@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ModalEditarDocenteComponent } from './modal-editar-docente.component';
+import { MAccionesTableComponent } from './macciones-table.component';
 
-describe('ModalEditarDocenteComponent', () => {
-  let component: ModalEditarDocenteComponent;
-  let fixture: ComponentFixture<ModalEditarDocenteComponent>;
+describe('MAccionesTableComponent', () => {
+  let component: MAccionesTableComponent;
+  let fixture: ComponentFixture<MAccionesTableComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ModalEditarDocenteComponent ]
+      declarations: [ MAccionesTableComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ModalEditarDocenteComponent);
+    fixture = TestBed.createComponent(MAccionesTableComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

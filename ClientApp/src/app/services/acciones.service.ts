@@ -23,7 +23,7 @@ export class AccionesService {
   /** GET Acciones from the server */
   getAll(): Observable<Acciones[]> {
     return this.http.get<Acciones[]>(this.baseUrl + 'api/Acciones').pipe(
-      tap(_ => this.log('Se Consulta la información')),
+      tap(),
       catchError(this.handleError<Acciones[]>('getAll', []))
     );
   }
@@ -66,7 +66,7 @@ export class AccionesService {
   }
   /** Log a HeroService message with the MessageService */
   private log(message: string) {
-    alert(`DocenteService: ${message}`);
+    alert(`SERVIDOR: ${message}`);
   }
 
 }

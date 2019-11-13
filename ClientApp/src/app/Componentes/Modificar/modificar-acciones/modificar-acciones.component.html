@@ -38,15 +38,15 @@
                     <div class="control-group">
                         <div class="form-group floating-label-form-group controls mb-0 pb-2">
                             <label>Nombre de Acción:</label>
-                            <input [(ngModel)]="acciones.nombre_Accion" class="form-control"
+                            <input [(ngModel)]="acciones.nombre_Accion" name="nombre" class="form-control"
                                 placeholder="DIGITE NOMBRE ACCIÓN" type="text" />
                         </div>
                     </div>
                     <div class="control-group">
                         <div class="form-group floating-label-form-group controls mb-0 pb-2">
                             <label>tipo de Acción: </label>
-                            <select class="form-control" id="exampleFormControlSelect1"
-                                [(ngModel)]="acciones.tipo_Accion" type="text">
+                            <select class="browser-default custom-select" id="exampleFormControlSelect1"
+                                [(ngModel)]="acciones.tipo_Accion" name="tipo" type="text">
                                 <option>TUTORÍAS</option>
                                 <option>INVESTIGACIÓN</option>
                                 <option>EXTENCIÓN</option>

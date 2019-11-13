@@ -19,9 +19,8 @@ export class RegistroDocenteComponent implements OnInit {
 
   add() {
     this.docenteService.addDocente(this.docente)
-      .subscribe(docente => {
-        alert('Se agrego un nuevo docente')
-      });
+      .subscribe(
+      );
   }
 }
 

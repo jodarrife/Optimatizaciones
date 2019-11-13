@@ -31,8 +31,8 @@ import { ModificarAccionesComponent } from './Componentes/Modificar/modificar-ac
 
 
 //Modals
-import { ModalEditarAccionesComponent } from './Componentes/Modals/modal-editar-acciones/modal-editar-acciones.component';
-import { ModalEditarDocenteComponent } from './Componentes/Modals/modal-editar-docente/modal-editar-docente.component';
+import { MAccionesTableComponent } from './Componentes/Modals/macciones-table/macciones-table.component';
+import { MDocenteTableComponent } from './Componentes/Modals/mdocente-table/mdocente-table.component';
 // Desactivar Acciones
 //crearemos varios objetos para crear las rutas
 const routes: Routes = [
@@ -63,9 +63,9 @@ const routes: Routes = [
 
 
   //Modal Acicones
-  { path: 'ModalAcciones', component: ModalEditarAccionesComponent},
+  { path: 'ModalAcciones', component: MAccionesTableComponent},
   //Modal Docente
-  { path: 'ModalDocente', component: ModalEditarDocenteComponent},
+  { path: 'ModalDocente', component: MDocenteTableComponent},
   //error en url
   {path: '**', component: NotFountPageComponent},
 ];
