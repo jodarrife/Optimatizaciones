@@ -1,9 +1,5 @@
-using Newtonsoft.Json;
-///<Summary>
-/// Se coloca TaskItem a la Clase en lugar de Task,porque Task es una palabra Reservada de .NetCore
-/// </Summary>
-///
 using System;
+using System.Data;
 using System.ComponentModel.DataAnnotations;
 namespace DocenteSharpHTTP.Models
 {
@@ -11,26 +7,19 @@ namespace DocenteSharpHTTP.Models
     {
         public PlanDeAccion() { }
         [Key]
-        [JsonProperty("cod_Plan_Accion")]
-        public int Cod_Plan_Accion { get; set; }
-        [JsonProperty("tipo_Plan_Accion")]
-        public string Tipo_Plan_Accion { get; set; }
-        [JsonProperty("descripcion")]
-        public string Descripcion { get; set; }
-        [JsonProperty("fecha_Inicio")]
-        public DateTime Fecha_Inicio { get; set; }
-        [JsonProperty("fecha_Final")]
-        public DateTime Fecha_Final { get; set; }
-        [JsonProperty("estado_Plan_Accion")]
-        public string Estado_Plan_Accion { get; set; }
-        public PlanDeAccion(int cod_Plan_Accion, string tipo_Plan_Accion, string descripcion, DateTime fecha_Inicio, DateTime fecha_Final, string estado_Plan_Accion)
-        {
-            Cod_Plan_Accion = cod_Plan_Accion;
-            tipo_Plan_Accion = Tipo_Plan_Accion;
-            Descripcion = descripcion;
-            Fecha_Inicio = fecha_Inicio;
-            Fecha_Final = fecha_Final;
-            Estado_Plan_Accion = estado_Plan_Accion;
-        }
+        public string cod_Plan_Accion { get; set; }
+        [Required, MaxLength(50), MinLength(3)]
+        public string nombre_Plan_Accion { get; set; }
+        [Required]
+        public string tipo_Plan_Accion { get; set; }
+        [Required, MinLength(10)]
+        public string descripcion { get; set; }
+        [Required]
+        public DateTime fecha_Inicio { get; set; }
+        [Required]
+        public DateTime fecha_Final { get; set; }
+        [Required]
+        public string idDocente { get; set; }
+        public string estado_Plan_Accion { get; set; }
     }
 }

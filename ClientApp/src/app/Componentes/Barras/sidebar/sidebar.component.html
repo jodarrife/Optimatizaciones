@@ -1,0 +1,102 @@
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+  integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+<nav class="navbar navbar-expand fixed-top" style="background-color: #09B76B;"><a href="#"><img src=""
+      class="logo"></a><a href="#menu-toggle" id="menu-toggle" class="navbar-brand"><i class="fa fa-bars"
+      id="barra-menu"></i></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample02"
+    aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation"> <span
+      class="navbar-toggler-icon"></span> </button>
+  <div class="collapse navbar-collapse" id="navbarsExample02">
+    <ul class="nav__links">
+      <li><a href="#" routerLink="/Login" class="botonesDerecha">Login</a></li>
+      <li><a href="" class="botonesDerecha">Salir</a></li>
+      <li>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-md-0"> </form>
+  </div>
+</nav>
+<div id="wrapper" class="toggled">
+  <!-- Sidebar -->
+  <div id="sidebar-wrapper">
+    <div class="sidebar">
+      <div class="contenedor-menu">
+        <ul class="menu">
+          <!-- JEFE-->
+          <li><a href="#"><i class="icono izquierda fa fa-graduation-cap"></i>Gestionar Docente<i
+                class="icono derecha fa fa-chevron-down"></i></a>
+            <ul>
+              <li><a href="#" routerLink="/RegistroDocente" routerLinkActive="active">Registrar
+                  Docente</a></li>
+              <li><a href="#" routerLink="/ConsultaDocente" routerLinkActive="active">Consultar
+                  Docentes</a></li>
+            </ul>
+          </li>
+          <li><a href="#"><i class="icono izquierda fa fa-graduation-cap"></i>Gestionar Actividades<i
+                class="icono derecha fa fa-chevron-down"></i></a>
+            <ul>
+              <li><a href="#" routerLink="/RegistroDocente" routerLinkActive="active">Registrar
+                  Tipo de Actividad</a></li>
+              <li><a href="#" routerLink="/ConsultaDocente" routerLinkActive="active">Asignar Tipo de Actividad</a></li>
+              <li><a href="#" routerLink="/ConsultaDocente" routerLinkActive="active">Consultar Act. Complementarias</a>
+              </li>
+              <li><a href="#"><i class="icono izquierda fa fa-star"></i>Verificar Actividades<i
+                    class="icono derecha fa fa-chevron-down"></i></a>
+              <li><a href="#"><i class="icono izquierda fa fa-envelope"></i>Estado de Actividades</a></li>
+            </ul>
+          </li>
+
+          <li><a href="#" routerLink="/RegistroDocente" routerLinkActive="active">Revisar Act. Complementarias</a></li>
+          <li><a href="#"><i class="icono izquierda fa fa-envelope"></i>Reporte Estadisticas</a></li>
+
+          <!-- DOCENTE-->
+          <li><a href="#"><i class="icono izquierda fa fa-star"></i>Gestionar Plan de Acicón<i
+                class="icono derecha fa fa-chevron-down"></i></a>
+            <ul>
+              <li><a href="#" routerLink="/RegistroDocente" routerLinkActive="active">Registrar
+                  Plan de Acicón</a></li>
+              <li><a href="#" routerLink="/ConsultaDocente" routerLinkActive="active">Acciones
+                  Plan de Acicón</a></li>
+            </ul>
+          </li>
+          <li><a href="#"><i class="icono izquierda fa fa-star"></i>Gestionar Act. Complementarias<i
+                class="icono derecha fa fa-chevron-down"></i></a>
+            <ul>
+              <li><a href="#" routerLink="/RegistroDocente" routerLinkActive="active">Registrar
+                  Act. Complementarias</a></li>
+              <li><a href="#" routerLink="/ConsultaDocente" routerLinkActive="active">Acciones
+                  Act. Complementarias</a></li>
+            </ul>
+          </li>
+          <li><a href="#"><i class="icono izquierda fa fa-star"></i>Gestionar Acciones<i
+                class="icono derecha fa fa-chevron-down"></i></a>
+            <ul>
+              <li><a href="#" routerLink="/RegistroAcciones" routerLinkActive="active">Registrar
+                  Acciones</a></li>
+              <li><a href="#" routerLink="/ConsultaAcciones" routerLinkActive="active">Acciones
+                  Acciones</a></li>
+            </ul>
+          </li>
+          <li><a href="#"><i class="icono izquierda fa fa-envelope"></i>Estado de Actividades</a></li>
+          <li><a href="#"><i class="icono izquierda fa fa-star"></i>Gestionar Evidencias<i
+                class="icono derecha fa fa-chevron-down"></i></a>
+            <ul>
+              <li><a href="#" routerLink="/RegistroDocente" routerLinkActive="active">Registrar
+                  Evidencias</a></li>
+              <li><a href="#" routerLink="/ConsultaDocente" routerLinkActive="active">Acciones
+                  Evidencias</a></li>
+            </ul>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- Page Content -->
+  <div id="page-content-wrapper">
+    <div class="container-fluid">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

@@ -1,5 +1,6 @@
 .contenido {
     padding-top: 2px;
+    
    }
 
    table {
@@ -14,6 +15,7 @@
     color: #212529;
     text-align: left;
     background-color: #fff;
+    
   }
   
   
@@ -68,7 +70,7 @@
 
   
   .bg-primary {
-    background-color: #1abc9c !important;
+    background-color: #09b76b !important;
   }
 
   .text-secondary {

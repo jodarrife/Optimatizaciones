@@ -3,6 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 //IMPORTAR LOS FICHEROS
 //HOME DEL LOGIN
 import { HomeComponent } from "./home/home.component";
+// Login
+import { LoginComponent } from "./Componentes/Complementos/login/login.component"
 //para cada ruta nos servira cada fichero de estos 
 import { NotFountPageComponent } from "./Componentes/Complementos/not-fount-page/not-fount-page.component";
 
@@ -15,13 +17,15 @@ import { RegistroActComplementariasComponent } from "./Componentes/Registrar/reg
 import { RegistroPlanAccionComponent } from "./Componentes/Registrar/registro-plan-accion/registro-plan-accion.component";
 // Registrar Acciones
 import { RegistroAccionesComponent } from './Componentes/Registrar/registro-acciones/registro-acciones.component';
-
+//Registro de Tipo de Actividad
+import { RegistroTipoDeActividadComponent } from './Componentes/Registrar/registro-tipo-de-actividad/registro-tipo-de-actividad.component';
 
 //consulta docente
 import { ConsultaDocenteComponent } from "./Componentes/Consultas/consulta-docente/consulta-docente.component";
 // Consultar Acciones
 import { ConsultaAccionesComponent } from './Componentes/Consultas/consulta-acciones/consulta-acciones.component';
-
+//Consultar Tipo de Actividad
+import { ConsultaTipoDeActividadComponent } from './Componentes/Consultas/consulta-tipo-de-actividad/consulta-tipo-de-actividad.component';
 
 //Modificar docente
 import { ModificarDocenteComponent } from './Componentes/Modificar/modificar-docente/modificar-docente.component';
@@ -29,16 +33,14 @@ import { ModificarDocenteComponent } from './Componentes/Modificar/modificar-doc
 import { ModificarAccionesComponent } from './Componentes/Modificar/modificar-acciones/modificar-acciones.component';
 
 
-
-//Modals
-import { MAccionesTableComponent } from './Componentes/Modals/macciones-table/macciones-table.component';
-import { MDocenteTableComponent } from './Componentes/Modals/mdocente-table/mdocente-table.component';
 // Desactivar Acciones
 //crearemos varios objetos para crear las rutas
 const routes: Routes = [
+  
   //HOME LOGIN
-  {path: 'HomePrincipal', component: HomeComponent},
-
+  {path: '', component: HomeComponent},
+  //LOGIN
+  {path: 'Login', component: LoginComponent},
 
   //Registro Docente
   {path: 'RegistroDocente', component: RegistroDocenteComponent},
@@ -48,12 +50,15 @@ const routes: Routes = [
   {path: 'RegistroPlanDeAccion', component: RegistroPlanAccionComponent},
   //Registro Acciones
   {path: 'RegistroAcciones', component: RegistroAccionesComponent},
-
+  //Registrar Tipo de Actividades
+  {path: 'RegistroTipodeActividad', component: RegistroTipoDeActividadComponent},
 
   //Consulta Docente
   { path: 'ConsultaDocente', component: ConsultaDocenteComponent},
   //Consulta Acciones
   { path: 'ConsultaAcciones', component: ConsultaAccionesComponent},
+  //Consulta Tipo de Actividad
+  { path: 'ConsultaTipodeActividad', component: ConsultaTipoDeActividadComponent},
   
   
   //Modificar Docente
@@ -62,10 +67,6 @@ const routes: Routes = [
   { path: 'ModificarAcciones/:cod_Accion', component: ModificarAccionesComponent},
 
 
-  //Modal Acicones
-  { path: 'ModalAcciones', component: MAccionesTableComponent},
-  //Modal Docente
-  { path: 'ModalDocente', component: MDocenteTableComponent},
   //error en url
   {path: '**', component: NotFountPageComponent},
 ];

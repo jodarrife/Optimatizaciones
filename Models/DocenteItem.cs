@@ -37,5 +37,8 @@ namespace DocenteSharpHTTP.Models
         [Required]
         public string tipo_Docente { get; set; }
 
+        //agregacion
+         
+         
     }
 }

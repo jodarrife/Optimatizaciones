@@ -9,12 +9,13 @@ namespace DocenteSharpHTTP.Models
         }
         //public DbSet<PersonaItem> Personas { get; set; }
         public DbSet<DocenteItem> Docentes { get; set; }
-         public DbSet<AccionesItem> Acciones { get; set; }
+        public DbSet<AccionesItem> Acciones { get; set; }
+        public DbSet<TipoAccionesItem> TipoAcciones { get; set; }
         //public DbSet<JefeDepartamento> JefeDepartamentos { get; set; }
         public DbSet<PlanDeAccion> PlanDeAccions { get; set; }
         public DbSet<Evidencia> Evidencias { get; set; }
-       
         public DbSet<ActividadComplementaria> ActividadComplementarias { get; set; }
+        public DbSet<TipoActividad> TipoActividades { get; set; }
     }
 
 }

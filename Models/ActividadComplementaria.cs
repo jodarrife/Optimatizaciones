@@ -26,16 +26,7 @@ namespace DocenteSharpHTTP.Models
         public string Estado_Actividad { get; set; }
         [JsonProperty("fecha_Actividad")]
         public DateTime Fecha_Actividad { get; set; }
-        public ActividadComplementaria(int cod_Actividad, string informe_Numero, string tipo_Actividad, string nombre_Actividad, string descripcion, string estado_Actividad, DateTime fecha_Actividad)
-        {
-            Cod_Actividad = cod_Actividad;
-            Informe_Numero = informe_Numero;
-            Tipo_Actividad = tipo_Actividad;
-            Nombre_Actividad = nombre_Actividad;
-            Descripcion = descripcion;
-            Estado_Actividad = estado_Actividad;
-            Fecha_Actividad = fecha_Actividad;
-        }
+       
          
     }
 }
