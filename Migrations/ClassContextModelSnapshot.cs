@@ -151,29 +151,72 @@ namespace Proyecto.Migrations
 
             modelBuilder.Entity("DocenteSharpHTTP.Models.PlanDeAccion", b =>
                 {
-                    b.Property<int>("Cod_Plan_Accion")
+                    b.Property<string>("cod_Plan_Accion")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("descripcion")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("estado_Plan_Accion")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("fecha_Final")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("fecha_Inicio")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("idDocente")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("nombre_Plan_Accion")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
+
+                    b.Property<string>("tipo_Plan_Accion")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("cod_Plan_Accion");
+
+                    b.ToTable("PlanDeAccions");
+                });
+
+            modelBuilder.Entity("DocenteSharpHTTP.Models.TipoAccionesItem", b =>
+                {
+                    b.Property<int>("cod_TipoAcciones")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Descripcion")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<string>("nombre_Acciones")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
 
-                    b.Property<string>("Estado_Plan_Accion")
-                        .HasColumnType("nvarchar(max)");
+                    b.HasKey("cod_TipoAcciones");
 
-                    b.Property<DateTime>("Fecha_Final")
-                        .HasColumnType("datetime2");
+                    b.ToTable("TipoAcciones");
+                });
 
-                    b.Property<DateTime>("Fecha_Inicio")
-                        .HasColumnType("datetime2");
+            modelBuilder.Entity("DocenteSharpHTTP.Models.TipoActividad", b =>
+                {
+                    b.Property<int>("cod_TipoActividad")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Tipo_Plan_Accion")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<string>("nombre_Actividad")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
 
-                    b.HasKey("Cod_Plan_Accion");
+                    b.HasKey("cod_TipoActividad");
 
-                    b.ToTable("PlanDeAccions");
+                    b.ToTable("TipoActividades");
                 });
 #pragma warning restore 612, 618
         }

@@ -71,6 +71,4 @@ export class TipoDeActividadService {
   private log(message: string) {
     alert(`SERVIDOR: ${message}`);
   }
-
-}
 }
