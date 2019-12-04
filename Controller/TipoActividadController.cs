@@ -41,16 +41,16 @@ namespace DocenteSharpHTTP.Controllers
         [HttpGet("{cod_TipoActividad}")]
         public async Task<ActionResult<TipoActividad>> GetTipoActividades(int cod_TipoActividad)
         {
-            var TipoActividades = await _context.TipoActividades.FindAsync(cod_TipoActividad);
-            if (TipoActividades == null)
+            var tipoActividad = await _context.TipoActividades.FindAsync(cod_TipoActividad);
+            if (tipoActividad == null)
             {
                 return NotFound();
             }
-            return TipoActividades;
+            return tipoActividad;
         }
         // POST: api/Acciones
         [HttpPost]
-        public async Task<ActionResult<TipoActividad>> PostTipoAcciones(TipoActividad item)
+        public async Task<ActionResult<TipoActividad>> PostTipoActividad(TipoActividad item)
         {
             _context.TipoActividades.Add(item);
             await _context.SaveChangesAsync();
@@ -58,7 +58,7 @@ namespace DocenteSharpHTTP.Controllers
         }
         // PUT: api/Acciones/5
         [HttpPut("{cod_TipoActividad}")]
-        public async Task<IActionResult> PutTipoAcciones(int cod_TipoActividad, TipoActividad item)
+        public async Task<IActionResult> PutTipoActividad(int cod_TipoActividad, TipoActividad item)
         {
             if (cod_TipoActividad != item.cod_TipoActividad)
             {
@@ -70,16 +70,16 @@ namespace DocenteSharpHTTP.Controllers
         }
         // DELETE: api/Todo/5
         [HttpDelete("{cod_TipoActividad}")]
-        public async Task<IActionResult> DeleteTipoAcciones(int cod_TipoActividad)
+        public async Task<IActionResult> DeleteTipoActividad(int cod_TipoActividad)
         {
-            var TipoActividades = await
+            var tipoActividades = await
             _context.TipoActividades.FindAsync(cod_TipoActividad);
-            if (TipoActividades == null)
+            if (tipoActividades == null)
             {
                 return NotFound();
             }
 
-            _context.TipoActividades.Remove(TipoActividades);
+            _context.TipoActividades.Remove(tipoActividades);
             await _context.SaveChangesAsync();
             return NoContent();
         }

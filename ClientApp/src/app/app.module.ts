@@ -20,7 +20,6 @@ import { RegistroDocenteComponent } from './Componentes/Registrar/registro-docen
 import { RegistroActComplementariasComponent } from './Componentes/Registrar/registro-act-complementarias/registro-act-complementarias.component';
 import { RegistroPlanAccionComponent } from './Componentes/Registrar/registro-plan-accion/registro-plan-accion.component';
 import { RegistroAccionesComponent} from './Componentes/Registrar/registro-acciones/registro-acciones.component';
-import { RegistroTipoDeActividadComponent } from './Componentes/Registrar/registro-tipo-de-actividad/registro-tipo-de-actividad.component';
 
 
 import { ConsultaDocenteComponent } from './Componentes/Consultas/consulta-docente/consulta-docente.component';
@@ -47,35 +46,46 @@ import { LoginComponent } from './Componentes/Complementos/login/login.component
 
 
 import { RegTipoDeActividadComponent } from './Componentes/Modals/reg-tipo-de-actividad/reg-tipo-de-actividad.component';
-import { ConsultaTipoDeActividadComponent } from './Componentes/Consultas/consulta-tipo-de-actividad/consulta-tipo-de-actividad.component';
-
+import { AsignarTipoDeActividadComponent } from './Componentes/Registrar/asignar-tipo-de-actividad/asignar-tipo-de-actividad.component';
+import { ConsultaTipoActividadComponent } from './Componentes/Consultas/consulta-tipo-actividad/consulta-tipo-actividad.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     NotFountPageComponent,
+
+
+    AsignarTipoDeActividadComponent,
     RegistroDocenteComponent,
     RegistroActComplementariasComponent,
     RegistroPlanAccionComponent,
     RegistroAccionesComponent,
+
+
     ConsultaDocenteComponent,
     ConsultaActComplementariasComponent,
     ConsultaPlanAccionComponent,
     ConsultaAccionesComponent,
+    ConsultaTipoActividadComponent,
+
     DesactivarDocenteComponent,
     DesactivarActComplementariasComponent,
     DesactivarPlanAccionComponent,
     DesactivarAccionesComponent,
+
+
     ModificarDocenteComponent,
     ModificarActComplementariasComponent,
     ModificarPlanAccionComponent,
     ModificarAccionesComponent,
+
+
     SidebarComponent,
     LoginComponent,
-    RegistroTipoDeActividadComponent,
-    RegTipoDeActividadComponent,
-    ConsultaTipoDeActividadComponent,
+    RegTipoDeActividadComponent
+
+   
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

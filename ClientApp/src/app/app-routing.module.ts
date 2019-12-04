@@ -18,14 +18,17 @@ import { RegistroPlanAccionComponent } from "./Componentes/Registrar/registro-pl
 // Registrar Acciones
 import { RegistroAccionesComponent } from './Componentes/Registrar/registro-acciones/registro-acciones.component';
 //Registro de Tipo de Actividad
-import { RegistroTipoDeActividadComponent } from './Componentes/Registrar/registro-tipo-de-actividad/registro-tipo-de-actividad.component';
+//import { RegistroTipoActividadComponent } from '';
+//asignar tipo de actividad
+import { AsignarTipoDeActividadComponent } from './Componentes/Registrar/asignar-tipo-de-actividad/asignar-tipo-de-actividad.component';
+
 
 //consulta docente
 import { ConsultaDocenteComponent } from "./Componentes/Consultas/consulta-docente/consulta-docente.component";
 // Consultar Acciones
 import { ConsultaAccionesComponent } from './Componentes/Consultas/consulta-acciones/consulta-acciones.component';
 //Consultar Tipo de Actividad
-import { ConsultaTipoDeActividadComponent } from './Componentes/Consultas/consulta-tipo-de-actividad/consulta-tipo-de-actividad.component';
+import { ConsultaTipoActividadComponent } from './Componentes/Consultas/consulta-tipo-actividad/consulta-tipo-actividad.component';
 
 //Modificar docente
 import { ModificarDocenteComponent } from './Componentes/Modificar/modificar-docente/modificar-docente.component';
@@ -51,14 +54,16 @@ const routes: Routes = [
   //Registro Acciones
   {path: 'RegistroAcciones', component: RegistroAccionesComponent},
   //Registrar Tipo de Actividades
-  {path: 'RegistroTipodeActividad', component: RegistroTipoDeActividadComponent},
+  //{path: 'RegistroTipodeActividad', component: RegistroTipoDeActividadComponent},
+  //ASIGNAR TIPO
+  {path: 'AsignarTipodeActividad', component: AsignarTipoDeActividadComponent},
 
   //Consulta Docente
   { path: 'ConsultaDocente', component: ConsultaDocenteComponent},
   //Consulta Acciones
   { path: 'ConsultaAcciones', component: ConsultaAccionesComponent},
   //Consulta Tipo de Actividad
-  { path: 'ConsultaTipodeActividad', component: ConsultaTipoDeActividadComponent},
+  { path: 'ConsultaTipoActividad', component: ConsultaTipoActividadComponent},
   
   
   //Modificar Docente

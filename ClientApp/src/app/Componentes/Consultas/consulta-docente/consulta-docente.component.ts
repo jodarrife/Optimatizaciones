@@ -17,7 +17,8 @@ export class ConsultaDocenteComponent implements OnInit {
   }
 
   getAll(){
-    this.docenteService.getAll().subscribe(docentes=>this.docentes=docentes);
+    this.docenteService.getAll().subscribe(
+      docentes=>this.docentes=docentes);
   }
 
 }
