@@ -50,6 +50,7 @@ import { RegTipoDeActividadComponent } from './Componentes/Modals/reg-tipo-de-ac
 import { AsignarTipoDeActividadComponent } from './Componentes/Registrar/asignar-tipo-de-actividad/asignar-tipo-de-actividad.component';
 import { ConsultaTipoActividadComponent } from './Componentes/Consultas/consulta-tipo-actividad/consulta-tipo-actividad.component';
 import { RegistroTipoDeActividadComponent } from './Componentes/Registrar/registro-tipo-de-actividad/registro-tipo-de-actividad.component';
+import { ModalConsultaDocenteComponent } from './Componentes/Modals/modal-consulta-docente/modal-consulta-docente.component';
 
 @NgModule({
   declarations: [
@@ -86,7 +87,8 @@ import { RegistroTipoDeActividadComponent } from './Componentes/Registrar/regist
     SidebarComponent,
     LoginComponent,
     RegTipoDeActividadComponent,
-    RegistroTipoDeActividadComponent
+    RegistroTipoDeActividadComponent,
+    ModalConsultaDocenteComponent
 
    
   ],

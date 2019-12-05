@@ -32,7 +32,7 @@
                 </thead>
                 <tfoot>
                     <tr>
-                        <th>Ver</th>
+                        <th>Acciones</th>
                         <th>Tipo Documento</th>
                         <th>Identificación</th>
                         <th>Primer Nombre</th>
@@ -52,10 +52,21 @@
                 </tfoot>
                 <tbody>
                     <tr *ngFor="let docente of docentes">
-                        <td><a routerLink="/ModificarDocente/{{docente.identificacion}}"><span
+                        <!--
+                            <td>
+                            <a routerLink="/ModificarDocente/{{docente.identificacion}}"><span
                                     class="table-remove"><button type="button"
                                         class="btn btn-success btn-rounded btn-sm my-0">Editar</button></span></a>
                         </td>
+                        -->
+                        <td>
+                                <a class="btn btn-sm btn-outline-lightning rounded-0 mr-2 ">
+                                  <i class="far fa-edit"></i>
+                                </a>
+                                <a class="btn btn-sm btn-outline-lightning rounded-0">
+                                  <i class="far fa-trash-alt"></i>
+                                </a>
+                              </td>
                         <td>{{docente.tipo_Documento}}</td>
                         <td>{{docente.identificacion}}</td>
                         <td>{{docente.primer_Nombre}}</td>

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Docente } from 'src/app/models/docente';
 
 @Component({
   selector: 'app-registro-tipo-de-actividad',
@@ -6,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./registro-tipo-de-actividad.component.css']
 })
 export class RegistroTipoDeActividadComponent implements OnInit {
+  docentes: Docente;
+  
+  @Input() identificacion:number;
 
   constructor() { }
 

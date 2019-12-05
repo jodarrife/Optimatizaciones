@@ -71,7 +71,7 @@
                                         <div class="form-group">
                                             <label>Identificación:</label>
                                             <input formControlName="identificacion" class="form-control"
-                                                placeholder="DIGITE IDENTIFICACIÓN" type="number"
+                                                placeholder="DIGITE IDENTIFICACIÓN" type="text"
                                                 [ngClass]="{ 'is-invalid': submitted && f.identificacion.errors }" />
                                             <div *ngIf="submitted && f.identificacion.errors" class="invalid-feedback">
                                                 <div *ngIf="f.identificacion.errors.required">Identificación es

@@ -16,6 +16,11 @@ export class ConsultaTipoActividadComponent implements OnInit {
   }
 
   getAll() {
-    this.tipoActividadService.getAll().subscribe(tipoActividad => this.tipoActividad = tipoActividad);
+    this.tipoActividadService.getAll().subscribe(tipoActividad => 
+      {
+        
+        this.tipoActividad = tipoActividad
+
+      });
   }
 }

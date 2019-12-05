@@ -27,19 +27,20 @@
                     </tr>
                 </tfoot>
                 <tbody>
-                    <tr *ngFor="let tipoactividad of tipoactividades">
+                    <tr *ngFor="let item of tipoActividad">
                         <td>
                             <button (click)="open()">
                                 Ver
                             </button>
                         </td>
-                        <td>{{tipoactividad.cod_TipoActividad}}</td>
-                        <td>{{tipoactividad.nombre_Actividad}}</td>
+                        <td>{{item.cod_TipoActividad}}</td>
+                        <td>{{item.nombre_Actividad}}</td>
                     </tr>
                 </tbody>
             </table>
         </div>
     </div>
+    
     <div class="card-footer small text-muted">
         Modificación Continua
     </div>
