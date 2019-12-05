@@ -10,19 +10,20 @@ namespace DocenteSharpHTTP.Models
     {
         [Required]
         public string tipo_Documento { get; set; }
-        [Key]
+        [Key, MinLength(5)]
         public string identificacion { get; set; }
-        [Required, MaxLength(30)]
+        [Required, MinLength(2)]
         public string primer_Nombre { get; set; }
-        [MaxLength(30)]
+        [MinLength(2)]
         public string segundo_Nombre { get; set; }
-        [Required, MaxLength(30)]
+        [Required, MinLength(2)]
         public string primer_Apellido { get; set; }
-        [MaxLength(30)]
+        [Required, MinLength(2)]
         public string segundo_Apellido { get; set; }
         [Required]
         public DateTime fecha_Nacimiento { get; set; }
         public int edad { get; set; }
+        [Required]
         public string genero { get; set; }
         [Required, EmailAddress]
         public string email { get; set; }

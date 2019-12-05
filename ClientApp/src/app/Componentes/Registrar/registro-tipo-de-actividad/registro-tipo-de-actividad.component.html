@@ -1,0 +1,37 @@
+<!-- FORMATO-->
+<div class="d-flex jusrify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">ASIGNAR TIPO DE ACTIVIDAD</h1>
+</div>
+<!-- Contact Section Form -->
+<div class="row">
+    <div class="col-lg-8 mx-auto">
+        <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
+        <form name="sentMessage" id="contactForm" novalidate="novalidate" name="registar">
+            <div class="control-group">
+                <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                    <label>DOCENTE:</label>
+                    <input  name="Nombre" class="form-control" readonly="readonly"
+                        placeholder="SELECCIONE DOCENTE" type="text">
+                </div>
+            </div>
+            <div class="control-group">
+                <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                    <label>TIPO DE ACTIVIDAD:</label>
+                    <input  name="Nombre" class="form-control" readonly="readonly"
+                        placeholder="SELECCIONE TIPO DE ACTIVIDAD" type="text">
+                </div>
+            </div>
+            <div class="control-group">
+                <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                    <label>CANTIDAD DE HORAS:</label>
+                    <input [(ngModel)]="acciones.nombre_Accion" name="Nombre" class="form-control"
+                        placeholder="DIGITE NOMBRE ACCIÓN" type="text">
+                </div>
+            </div>
+            <div class="form-group">
+                <button (click)="add()" type="submit" class="btn btn-primary btn-xl" name="Boton"
+                    id="sendMessageButton">AGREGAR</button>
+            </div>
+        </form>
+    </div>
+</div>

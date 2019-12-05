@@ -5,6 +5,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 import { ApiAuthorizationModule } from 'src/api-authorization/api-authorization.module';
@@ -48,6 +49,7 @@ import { LoginComponent } from './Componentes/Complementos/login/login.component
 import { RegTipoDeActividadComponent } from './Componentes/Modals/reg-tipo-de-actividad/reg-tipo-de-actividad.component';
 import { AsignarTipoDeActividadComponent } from './Componentes/Registrar/asignar-tipo-de-actividad/asignar-tipo-de-actividad.component';
 import { ConsultaTipoActividadComponent } from './Componentes/Consultas/consulta-tipo-actividad/consulta-tipo-actividad.component';
+import { RegistroTipoDeActividadComponent } from './Componentes/Registrar/registro-tipo-de-actividad/registro-tipo-de-actividad.component';
 
 @NgModule({
   declarations: [
@@ -83,7 +85,8 @@ import { ConsultaTipoActividadComponent } from './Componentes/Consultas/consulta
 
     SidebarComponent,
     LoginComponent,
-    RegTipoDeActividadComponent
+    RegTipoDeActividadComponent,
+    RegistroTipoDeActividadComponent
 
    
   ],
@@ -91,6 +94,7 @@ import { ConsultaTipoActividadComponent } from './Componentes/Consultas/consulta
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     NgbModule,
     ApiAuthorizationModule,
     RouterModule.forRoot([

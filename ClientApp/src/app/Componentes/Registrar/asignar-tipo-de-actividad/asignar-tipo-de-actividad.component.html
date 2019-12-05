@@ -1,155 +1,126 @@
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="body">
 
-<body>
-    <div class="contenido">
-        <header class="masthead bg-primary text-white text-center">
-        </header>
-        <br>
-        <!-- FORMATO-->
-        <section class="page-section" id="contact">
-            <div class="container">
-                <!-- Contact Section Form -->
-                <div class="row">
-                    <div class="col-lg-8 mx-auto">
+    <body>
+        <div class="contenido height: 100px">
+            <header class="masthead bg-primary text-white text-center height: 100px">
+                <div class="container d-flex align-items-center flex-column height: 100px">
+                    <!-- Masthead Heading -->
+                    <h1 class="masthead-heading text-uppercase mb-0 height: 100px ">ASIGNAR TIPO DE ACTIVIDAD</h1>
 
-                        <div class="form-row">
-                            <!--COLUMNA 1-->
-                            <div class="col">
-                                <div class="control-group">
-                                    <!-- DataTables Example -->
-                                    <div class="card mb-3">
-                                        <div class="card-header">
-                                            <i class="fa fa-table"></i>
-                                            Tabla de Docentes</div>
-                                        <div class="card-body">
-                                            <div class="table-responsive">
-                                                <table class="table table-bordered" id="dataTable" width="100%"
-                                                    cellspacing="0">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>Ver</th>
-                                                            <th>Tipo Documento</th>
-                                                            <th>Identificación</th>
-                                                            <th>Primer Nombre</th>
-                                                            <th>Segundo Nombre</th>
-                                                            <th>Primer Apellido</th>
-                                                            <th>Segundo Apellido</th>
-                                                            <th>Genero</th>
-                                                            <th>Email</th>
-                                                            <th>Telefono</th>
-
-                                                            <th>Tipo Docente</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tfoot>
-                                                        <tr>
-                                                            <th>Ver</th>
-                                                            <th>Tipo Documento</th>
-                                                            <th>Identificación</th>
-                                                            <th>Primer Nombre</th>
-                                                            <th>Segundo Nombre</th>
-                                                            <th>Primer Apellido</th>
-                                                            <th>Segundo Apellido</th>
-                                                            <th>Genero</th>
-                                                            <th>Email</th>
-                                                            <th>Telefono</th>
-                                                            <th>Tipo Docente</th>
-                                                        </tr>
-                                                    </tfoot>
-                                                    <tbody>
-                                                        <tr *ngFor="let docente of docentes">
-                                                            <td><a
-                                                                    routerLink="/ModificarDocente/{{docente.identificacion}}"><span
-                                                                        class="table-remove"><button type="button"
-                                                                            class="btn btn-success btn-rounded btn-sm my-0">Editar</button></span></a>
-                                                            </td>
-                                                            <td>{{docente.tipo_Documento}}</td>
-                                                            <td>{{docente.identificacion}}</td>
-                                                            <td>{{docente.primer_Nombre}}</td>
-                                                            <td>{{docente.segundo_Nombre}}</td>
-                                                            <td>{{docente.primer_Apellido}}</td>
-                                                            <td>{{docente.segundo_Apellido}}</td>
-                                                            <td>{{docente.genero}}</td>
-                                                            <td>{{docente.email}}</td>
-                                                            <td>{{docente.telefono}}</td>
-                                                            <td>{{docente.tipo_Docente}}</td>
-
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--COLUMNA 2-->
-                            <div class="col">
-                                <!-- DataTables Example -->
-                                <div class="card mb-3">
-                                    <div class="card-header">
-                                        <i class="fa fa-table"></i>
-                                        Tabla de Tipo Actividad</div>
-                                    <div class="card-body">
-                                        <div class="table-responsive">
-                                            <table class="table table-bordered" id="dataTable" width="100%"
-                                                cellspacing="0">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Ver</th>
-                                                        <th>Código Tipo Actividad</th>
-                                                        <th>Nombre Tipo Actividad</th>
-
-                                                    </tr>
-                                                </thead>
-                                                <tfoot>
-                                                    <tr>
-                                                        <th>Ver</th>
-                                                        <th>Código Tipo Actividad</th>
-                                                        <th>Nombre Tipo Actividad</th>
-
-                                                    </tr>
-                                                </tfoot>
-                                                <tbody>
-                                                    <tr *ngFor="let tipoactividad of tipoactividades">
-                                                        <td>
-                                                            <button (click)="open()">
-                                                                Ver
-                                                            </button>
-                                                        </td>
-                                                        <td>{{tipoactividad.cod_TipoActividad}}</td>
-                                                        <td>{{tipoactividad.nombre_Actividad}}</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                    <div class="card-footer small text-muted">
-                                        Modificación Continua
-                                    </div>
-                                </div>
-                            </div>
+                    <!-- Icon Divider -->
+                    <div class="divider-custom divider-light">
+                        <div class="divider-custom-line"></div>
+                        <div class="divider-custom-icon">
+                            <i class="fa fa-star"></i>
                         </div>
-
-
-                        <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
-                        <form name="sentMessage" id="contactForm" novalidate="novalidate" name="registar">
-                            <div class="control-group">
-                                <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                                    <label>Nombre de Actividad:</label>
-                                    <input [(ngModel)]="acciones.nombre_Accion" name="Nombre" class="form-control"
-                                        placeholder="DIGITE NOMBRE ACCIÓN" type="text">
-                                </div>
-                            </div>
-                            <br>
-                            <div id="success"></div>
-                            <div class="form-group">
-                                <button (click)="add()" type="submit" class="btn btn-primary btn-xl" name="Boton"
-                                    id="sendMessageButton">AGREGAR</button>
-                            </div>
-                        </form>
+                        <div class="divider-custom-line"></div>
                     </div>
                 </div>
+            </header>
+        </div>
+    </body>
+    <hr>
+    <!-- FORMATO-->
+    <div class="BodyTablas">
+        <div class="Izquierda">
+            <!-- DataTables Example -->
+            <div class="card mb-3">
+                <div class="card-header">
+                    <i class="fa fa-table"></i>
+                    Tabla de Tipo Actividad</div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Ver</th>
+                                    <th>Código Tipo Actividad</th>
+                                    <th>Nombre Tipo Actividad</th>
+                                </tr>
+                            </thead>
+                            <tfoot>
+                                <tr>
+                                    <th>Ver</th>
+                                    <th>Código Tipo Actividad</th>
+                                    <th>Nombre Tipo Actividad</th>
+                                </tr>
+                            </tfoot>
+                            <tbody>
+                                <tr *ngFor="let tipoactividad of tipoactividades">
+
+                                    <td>
+                                        <button type="button"
+                                            class="btn btn-success btn-rounded btn-sm my-0">Seleccionar
+                                        </button>
+                                    </td>
+                                    <td>{{tipoactividad.cod_TipoActividad}}</td>
+                                    <td>{{tipoactividad.nombre_Actividad}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="card-footer small text-muted">
+                    Modificación Continua
+                </div>
             </div>
-        </section>
+        </div>
+
+        <div class="Derecha">
+            <!-- DataTables Example -->
+            <div class="card mb-3">
+                <div class="card-header">
+                    <i class="fa fa-table"></i>
+                    Tabla de Docentes</div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Ver</th>
+                                    <th>Tipo Documento</th>
+                                    <th>Identificación</th>
+                                    <th>Primer Nombre</th>
+                                    <th>Segundo Nombre</th>
+                                    <th>Primer Apellido</th>
+                                    <th>Segundo Apellido</th>
+                                    <th>Email</th>
+                                    <th>Estado</th>
+                                    <th>Tipo Docente</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr *ngFor="let docente of docentes">
+                                    <td><button type="button"
+                                            class="btn btn-success btn-rounded btn-sm my-0">Seleccionar
+                                        </button>
+                                    </td>
+                                    <td>{{docente.tipo_Documento}}</td>
+                                    <td>{{docente.identificacion}}</td>
+                                    <td>{{docente.primer_Nombre}}</td>
+                                    <td>{{docente.segundo_Nombre}}</td>
+                                    <td>{{docente.primer_Apellido}}</td>
+                                    <td>{{docente.segundo_Apellido}}</td>
+                                    <td>{{docente.email}}</td>
+                                    <td>{{docente.estadoSys}}</td>
+                                    <td>{{docente.tipo_Docente}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="card-footer small text-muted">
+                    Modificación Continua
+                </div>
+            </div>
+        </div>
     </div>
-</body>
+
+    <hr>
+    <hr>
+
+    <p>COMPONENTE HIJO</p>
+    <app-registro-tipo-de-actividad></app-registro-tipo-de-actividad>
+</div>

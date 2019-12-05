@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DocenteService } from 'src/app/services/docente.service';
 import { Docente } from '../../../models/docente';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 
 @Component({
@@ -10,17 +11,55 @@ import { Docente } from '../../../models/docente';
 })
 export class RegistroDocenteComponent implements OnInit {
 
-  constructor(private docenteService: DocenteService) { }
+  registerForm: FormGroup;
+  submitted = false;
+
+  constructor(private docenteService: DocenteService, private formBuilder: FormBuilder) { }
   docente: Docente;
 
   ngOnInit() {
-  this.docente = new Docente();
+    //this.docente = new Docente();
+    this.registerForm = this.formBuilder.group({
+      tipo_Documento: ['', Validators.required],
+      identificacion: ['', [Validators.required, Validators.minLength(5)]],
+      primer_Nombre: ['', [Validators.required, Validators.minLength(2)]],
+      segundo_Nombre: ['', Validators.minLength(2)],
+      primer_Apellido: ['', [Validators.required, Validators.minLength(2)]],
+      segundo_Apellido: ['', [Validators.required, Validators.minLength(2)]],
+      fecha_Nacimiento: ['', [Validators.required]],
+      //edad: [19],
+      genero: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.email]],
+      telefono: ['', [Validators.required]],
+      //cargo: ["DOCENTE"],
+      fecha_Vinculacion: ['', [Validators.required]],
+      //estadoSys: ["ACTIVO"],
+      tipo_Docente: ['', [Validators.required]]
+
+    });
   }
 
   add() {
+    this.docente = this.registerForm.value;
+    alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value, null, 4));
     this.docenteService.addDocente(this.docente)
       .subscribe(
       );
   }
-}
 
+  get f() { return this.registerForm.controls; }
+
+  onSubmit() {
+    this.submitted = true;
+    // stop here if form is invalid
+    if (this.registerForm.invalid) {
+      return;
+    }
+    this.add();
+  }
+
+  onReset() {
+    this.submitted = false;
+    this.registerForm.reset();
+  }
+}

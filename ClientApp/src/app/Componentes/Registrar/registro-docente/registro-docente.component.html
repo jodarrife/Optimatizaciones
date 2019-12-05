@@ -1,72 +1,84 @@
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
 <body>
-    <div class="contenido ">
-        <div class="masthead bg-primary text-white text-center   ">
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <div class="contenido ">
+            <div class="masthead bg-primary text-white text-center   ">
                 <div class="container d-flex align-items-center flex-column " class="conta color">
 
-                        <!-- Masthead Heading -->
-                        <h1 class="masthead-heading text-uppercase mb-0">DOCENTE</h1>
-        
-                        <!-- Icon Divider -->
-                        <div class="divider-custom divider-light">
-                            <div class="divider-custom-line"></div>
-                            <div class="divider-custom-icon">
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <div class="divider-custom-line"></div>
+                    <!-- Masthead Heading -->
+                    <h1 class="masthead-heading text-uppercase mb-0">DOCENTE</h1>
+
+                    <!-- Icon Divider -->
+                    <div class="divider-custom divider-light">
+                        <div class="divider-custom-line"></div>
+                        <div class="divider-custom-icon">
+                            <i class="fa fa-star"></i>
                         </div>
-        
+                        <div class="divider-custom-line"></div>
                     </div>
-        </div>
-        <header >
-           
-        </header>
 
-        <!-- FORMATO-->
-        <!-- Contact Section -->
-        <section class="page-section" id="contact">
-            <div class="container">
-
-                <!-- Contact Section Heading -->
-                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">AGREGAR DOCENTE</h2>
-
-                <!-- Icon Divider -->
-                <div class="divider-custom">
-                    <div class="divider-custom-line"></div>
-                    <div class="divider-custom-icon">
-                        <i class="fa fa-star"></i>
-                    </div>
-                    <div class="divider-custom-line"></div>
                 </div>
+            </div>
+            <header>
 
-                <!-- Contact Section Form -->
-                <div class="row">
-                    <div class="col-lg-8 mx-auto">
-                        <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
-                        <form name="sentMessage" id="contactForm" novalidate="novalidate" name="registar">
+            </header>
+
+            <!-- FORMATO-->
+            <!-- Contact Section -->
+            <section class="page-section" id="contact">
+
+                <div class="container">
+
+                    <!-- Contact Section Heading -->
+                    <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">AGREGAR DOCENTE</h2>
+
+                    <!-- Icon Divider -->
+                    <div class="divider-custom">
+                        <div class="divider-custom-line"></div>
+                        <div class="divider-custom-icon">
+                            <i class="fa fa-star"></i>
+                        </div>
+                        <div class="divider-custom-line"></div>
+                    </div>
+                    <!-- Contact Section Form -->
+                    <div class="row">
+                        <div class="col-lg-8 mx-auto">
+                            <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
                             <div class="form-row">
                                 <div class="col">
                                     <div class="control-group">
-                                        <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                        <div class="form-group">
                                             <label>Tipo de Documento: </label>
                                             <select class="browser-default custom-select" id="exampleFormControlSelect1"
-                                                name="Tipo Documento" [(ngModel)]="docente.tipo_Documento" type="text">
-                                                <option>CÉDULA DE CIUDADANIA</option>
-                                                <option>CÉDULA DE EXTRANJERÍA</option>
-                                                <option>DNI</option>
-                                                <option>REGISTRO CIVIL</option>
+                                                formControlName="tipo_Documento"
+                                                [ngClass]="{ 'is-invalid': submitted && f.tipo_Documento.errors }"
+                                                type="text">
+                                                <option value="CÉDULA DE CIUDADANIA">CÉDULA DE CIUDADANIA</option>
+                                                <option value="CÉDULA DE EXTRANJERÍA">CÉDULA DE EXTRANJERÍA</option>
+                                                <option value="DNI">DNI</option>
+                                                <option value="REGISTRO CIVIL">REGISTRO CIVIL</option>
                                             </select>
-                                            <p class="help-block text-danger"></p>
+                                            <div *ngIf="submitted && f.tipo_Documento.errors" class="invalid-feedback">
+                                                <div *ngIf="f.tipo_Documento.errors.required">Tipo de documento es
+                                                    requerido</div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="control-group">
-                                        <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                        <div class="form-group">
                                             <label>Identificación:</label>
-                                            <input [(ngModel)]="docente.identificacion" class="form-control" name="id"
-                                                placeholder="DIGITE IDENTIFICACIÓN" type="text" />
+                                            <input formControlName="identificacion" class="form-control"
+                                                placeholder="DIGITE IDENTIFICACIÓN" type="number"
+                                                [ngClass]="{ 'is-invalid': submitted && f.identificacion.errors }" />
+                                            <div *ngIf="submitted && f.identificacion.errors" class="invalid-feedback">
+                                                <div *ngIf="f.identificacion.errors.required">Identificación es
+                                                    requerida</div>
+                                                <div *ngIf="f.identificacion.errors.minlength">Identificación
+                                                    requiere mínimo 5 carácteres</div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -74,19 +86,31 @@
                             <div class="form-row">
                                 <div class="col">
                                     <div class="control-group">
-                                        <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                        <div class="form-group">
                                             <label>Primer Nombre:</label>
-                                            <input [(ngModel)]="docente.primer_Nombre" class="form-control"
-                                                name="Priemr Nombre" placeholder="DIGITE PRIMER NOMBRE" type="text" />
+                                            <input formControlName="primer_Nombre" class="form-control"
+                                                placeholder="DIGITE PRIMER NOMBRE" type="text"
+                                                [ngClass]="{ 'is-invalid': submitted && f.primer_Nombre.errors }" />
+                                            <div *ngIf="submitted && f.primer_Nombre.errors" class="invalid-feedback">
+                                                <div *ngIf="f.primer_Nombre.errors.required">Primer nombre es
+                                                    requerido</div>
+                                                <div *ngIf="f.primer_Nombre.errors.minlength">Primer nombre requiere
+                                                    mínimo 2 carácteres</div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="control-group">
-                                        <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                        <div class="form-group">
                                             <label>Segundo Nombre:</label>
-                                            <input [(ngModel)]="docente.segundo_Nombre" class="form-control"
-                                                name="Segundo Nombre" placeholder="DIGITE SEGUNDO NOMBRE" type="text" />
+                                            <input formControlName="segundo_Nombre" class="form-control"
+                                                placeholder="DIGITE SEGUNDO NOMBRE" type="text"
+                                                [ngClass]="{ 'is-invalid': submitted && f.segundo_Nombre.errors }" />
+                                            <div *ngIf="submitted && f.segundo_Nombre.errors" class="invalid-feedback">
+                                                <div *ngIf="f.segundo_Nombre.errors.minlength">Segundo nombre
+                                                    requiere mínimo 2 carácteres</div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -94,22 +118,34 @@
                             <div class="form-row">
                                 <div class="col">
                                     <div class="control-group">
-                                        <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                        <div class="form-group">
                                             <label>Primer Apellido:</label>
-                                            <input [(ngModel)]="docente.primer_Apellido" class="form-control"
-                                                name="Primer Apellido" placeholder="DIGITE PRIMER APELLIDO"
-                                                type="text" />
+                                            <input formControlName="primer_Apellido" class="form-control"
+                                                placeholder="DIGITE PRIMER APELLIDO" type="text"
+                                                [ngClass]="{ 'is-invalid': submitted && f.primer_Apellido.errors }" />
+                                            <div *ngIf="submitted && f.primer_Apellido.errors" class="invalid-feedback">
+                                                <div *ngIf="f.primer_Apellido.errors.required">Primer apellido
+                                                    requerido</div>
+                                                <div *ngIf="f.primer_Apellido.errors.minlength">Primer apellido
+                                                    requiere mínimo 2 carácteres</div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="control-group">
-                                        <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                        <div class="form-group">
                                             <label>Segundo Apellido:</label>
-                                            <input [(ngModel)]="docente.segundo_Apellido" class="form-control"
-                                                name="Segundo Apellido" placeholder="DIGITE SEGUNDO APELLIDO"
-                                                type="text" />
-
+                                            <input formControlName="segundo_Apellido" class="form-control"
+                                                placeholder="DIGITE SEGUNDO APELLIDO" type="text"
+                                                [ngClass]="{ 'is-invalid': submitted && f.segundo_Apellido.errors }" />
+                                            <div *ngIf="submitted && f.segundo_Apellido.errors"
+                                                class="invalid-feedback">
+                                                <div *ngIf="f.segundo_Apellido.errors.required">Segundo apellido
+                                                    requerido</div>
+                                                <div *ngIf="f.segundo_Apellido.errors.minlength">Segundo apellido
+                                                    requiere mínimo 2 carácteres</div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -117,78 +153,105 @@
                             <div class="form-row">
                                 <div class="col">
                                     <div class="control-group">
-                                        <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                        <div class="form-group">
                                             <label>Fecha Nacimiento: </label>
-                                            <input [(ngModel)]="docente.fecha_Nacimiento" class="form-control"
-                                                name="fecha NAcimiento" placeholder="" type="date" />
+                                            <input formControlName="fecha_Nacimiento" class="form-control"
+                                                placeholder="" type="date"
+                                                [ngClass]="{ 'is-invalid': submitted && f.fecha_Nacimiento.errors }" />
+                                            <div *ngIf="submitted && f.fecha_Nacimiento.errors"
+                                                class="invalid-feedback">
+                                                <div *ngIf="f.fecha_Nacimiento.errors.required">Fecha de nacimiento
+                                                    es requerida</div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="control-group">
-                                        <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                                            <label>Genero: </label>
-                                            <select class="browser-default custom-select" id="exampleFormControlSelect1" name="Genero"
-                                                [(ngModel)]="docente.genero" type="text">
-                                                <option>FEMENINO</option>
-                                                <option>MASCULINO</option>
+                                        <div class="form-group">
+                                            <label>Género: </label>
+                                            <select class="browser-default custom-select" id="exampleFormControlSelect1"
+                                                formControlName="genero" type="text"
+                                                [ngClass]="{ 'is-invalid': submitted && f.genero.errors }">
+                                                <option value="FEMENINO">FEMENINO</option>
+                                                <option value="MASCULINO">MASCULINO</option>
                                             </select>
+                                            <div *ngIf="submitted && f.genero.errors" class="invalid-feedback">
+                                                <div *ngIf="f.genero.errors.required">Género es requerido</div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="control-group">
-                                <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                <div class="form-group">
                                     <label>Email:</label>
-                                    <input [(ngModel)]="docente.email" class="form-control" placeholder="DIGITE EMAIL"
-                                        name="Email" type="text" />
-
+                                    <input formControlName="email" class="form-control" placeholder="DIGITE EMAIL"
+                                        type="text" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                                    <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                                        <div *ngIf="f.email.errors.required">Email requerido</div>
+                                        <div *ngIf="f.email.errors.email">Debe ser una dirección de correo
+                                            electrónico válida</div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="col">
                                     <div class="control-group">
-                                        <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                                            <label>Telefono:</label>
-                                            <input [(ngModel)]="docente.telefono" class="form-control" name="Telefono"
-                                                placeholder="DIGITE TELEFONO" type="number" />
+                                        <div class="form-group">
+                                            <label>Teléfono:</label>
+                                            <input formControlName="telefono" class="form-control"
+                                                placeholder="DIGITE TELEFONO" type="number"
+                                                [ngClass]="{ 'is-invalid': submitted && f.telefono.errors }" />
+                                            <div *ngIf="submitted && f.telefono.errors" class="invalid-feedback">
+                                                <div *ngIf="f.telefono.errors.required">Teléfono requerido</div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="control-group">
-                                        <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                        <div class="form-group">
                                             <label>Fecha Vinculacion:</label>
-                                            <input [(ngModel)]="docente.fecha_Vinculacion" class="form-control"
-                                                name="fecha Vinculacion" placeholder="" type="date" />
+                                            <input formControlName="fecha_Vinculacion" class="form-control"
+                                                placeholder="" type="date"
+                                                [ngClass]="{ 'is-invalid': submitted && f.fecha_Vinculacion.errors }" />
+                                            <div *ngIf="submitted && f.fecha_Vinculacion.errors"
+                                                class="invalid-feedback">
+                                                <div *ngIf="f.fecha_Vinculacion.errors.required">Fecha vinculación
+                                                    requerida</div>
+                                            </div>
 
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="control-group">
-                                <div class="form-group floating-label-form-group controls mb-0 pb-2 ">
+                                <div class="form-group">
                                     <label>Tipo Docente:</label>
-                                    <select class="browser-default custom-select" 
-                                            [(ngModel)]="docente.tipo_Docente"
-                                            name="tipo" placeholder="DIGITE TIPO DE DOCENTE" type="text">
-                                        <option>CATEDRATICO</option>
-                                        <option>PLANTA</option>
+                                    <select class="browser-default custom-select" formControlName="tipo_Docente"
+                                        placeholder="DIGITE TIPO DE DOCENTE" type="text"
+                                        [ngClass]="{ 'is-invalid': submitted && f.tipo_Docente.errors }">
+                                        <option value="CATEDRATICO">CATEDRATICO</option>
+                                        <option value="PLANTA">PLANTA</option>
                                     </select>
+                                    <div *ngIf="submitted && f.tipo_Docente.errors" class="invalid-feedback">
+                                        <div *ngIf="f.tipo_Docente.errors.required">Tipo de docente requerido</div>
+                                    </div>
                                 </div>
                             </div>
 
                             <br>
                             <!--BOTON-->
-                            <div id="success"></div>
                             <div class="form-group">
-                                <button (click)="add()" type="submit" class="btn btn-primary btn-xl" name="boton"
-                                    id="sendMessageButton">AGREGAR</button>
+                                <button class="btn btn-primary">Agregar</button>
                             </div>
-                        </form>
+                        </div>
                     </div>
+
                 </div>
-            </div>
-        </section>
-    </div>
+            </section>
+
+        </div>
+    </form>
 </body>
