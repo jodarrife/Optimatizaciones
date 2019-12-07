@@ -12,6 +12,6 @@ namespace DocenteSharpHTTP.Models
         public int cod_TipoActividad { get; set; }
         [Required, MaxLength(50)]
         public string nombre_Actividad { get; set; }
-
+      
     }
 }

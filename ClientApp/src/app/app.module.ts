@@ -58,7 +58,9 @@ import { from } from 'rxjs';
 import { FiltroAccionesPipe } from './Componentes/Pipes/filtro-acciones.pipe';
 import { FiltroTipoActividadPipe } from './Componentes/Pipes/filtro-tipo-actividad.pipe';
 import { FiltroPlanAccionPipe } from './Componentes/Pipes/filtro-plan-accion.pipe';
-import {UserService} from  './Componentes/ComponetesLogin/servicesLogin/user.service';
+import {UserService} from  '../app/Componentes/ComponetesLogin/servicesLogin/user.service';
+
+
 
 @NgModule({
   declarations: [
@@ -102,7 +104,8 @@ import {UserService} from  './Componentes/ComponetesLogin/servicesLogin/user.ser
     FiltroAccionesPipe,
     FiltroTipoActividadPipe,
     FiltroPlanAccionPipe,
-  
+
+    
     
    
   ],

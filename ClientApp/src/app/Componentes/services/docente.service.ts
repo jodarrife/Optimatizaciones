@@ -14,11 +14,15 @@ const httpOptions = {
 })
 
 export class DocenteService {
-
+  private isDocenteLoggedIn;
+  public username;
   baseUrl: string;
-  constructor(private http: HttpClient,
+  constructor(
+    private http: HttpClient,
     @Inject('BASE_URL') baseUrl: string,
-    private handleErrorService: HandleErrorService) {
+    private handleErrorService: HandleErrorService,
+   ) {
+    this.isDocenteLoggedIn=false;
     this.baseUrl = baseUrl;
   }
 
@@ -81,4 +85,15 @@ export class DocenteService {
     alert(`SERVIDOR: ${message}`);
   }*/
 
+
+
+  //LOGIN
+   setDocenteLoggedId(){
+     this.isDocenteLoggedIn=true;
+     this.username = 'Docente';
+   }
+   getDocenteLoggedId(){
+    return this.isDocenteLoggedIn;
+  }
 }
+

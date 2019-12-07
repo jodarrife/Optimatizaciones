@@ -21,7 +21,7 @@ namespace DocenteSharpHTTP.Controllers
                 _context.Acciones.Add(new AccionesItem
                 {
                     nombre_Accion = "Comite de Evalaución",
-                    tipo_Accion = "Extensión"
+                    tipoActividadID = 1
                 });
                 _context.SaveChanges();
             }

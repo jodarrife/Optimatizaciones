@@ -5,6 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from "./home/home.component";
 // Login
 import { LoginComponent } from "./Componentes/ComponetesLogin/login/login.component"
+
 //para cada ruta nos servira cada fichero de estos 
 import { NotFountPageComponent } from "./Componentes/Complementos/not-fount-page/not-fount-page.component";
 
@@ -72,6 +73,10 @@ const routes: Routes = [
   { path: 'ModificarDocente/:identificacion', component: ModificarDocenteComponent},
   //Modificar Acciones
   { path: 'ModificarAcciones/:cod_Accion', component: ModificarAccionesComponent},
+
+
+
+
 
 
   //error en url

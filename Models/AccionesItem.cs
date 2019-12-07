@@ -13,7 +13,9 @@ namespace DocenteSharpHTTP.Models
         public int cod_Accion { get; set; }
         [Required, MaxLength(50)]
         public string nombre_Accion { get; set; }
-        [Required]
-        public string tipo_Accion { get; set; }
+        
+
+        //agregacion
+        public int tipoActividadID { get; set; }
     }
 }

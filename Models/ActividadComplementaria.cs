@@ -11,21 +11,19 @@ namespace DocenteSharpHTTP.Models
     public class ActividadComplementaria
     {
         public ActividadComplementaria() { }
-        [JsonProperty("cod_Actividad")]
+  
         [Key]
-        public int Cod_Actividad { get; set; }
-        [JsonProperty("informe_Numero")]
-        public string Informe_Numero { get; set; }
-        [JsonProperty("tipo_Actividad")]
-        public string Tipo_Actividad { get; set; }
-        [JsonProperty("nombre_Actividad")]
+        public int cod_Actividad { get; set; }
+        public string informe_Numero { get; set; }
         public string Nombre_Actividad { get; set; }
-        [JsonProperty("descripcion")]
         public string Descripcion { get; set; }
-        [JsonProperty("estado_Actividad")]
-        public string Estado_Actividad { get; set; }
-        [JsonProperty("fecha_Actividad")]
+        private string _Estado_Actividad = "PLANEADO";
+        public string Estado_Actividad { get { return this._Estado_Actividad; } set { this._Estado_Actividad = value; } }
         public DateTime Fecha_Actividad { get; set; }
+
+
+        //agregar
+        public int PlanDeAccion { get; set; }
        
          
     }

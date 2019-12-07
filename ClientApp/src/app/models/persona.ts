@@ -6,11 +6,11 @@ export class Persona {
     primer_Apellido: string;
     segundo_Apellido: string;
     fecha_Nacimiento: Date;
-    edad: number;
     genero: string;
     email: string;
     telefono: number;
     cargo: string;
-    fecha_Vinculacion: Date;
     estadoSys: string;
+    user_Name: string;
+    contraseña: string;
 }

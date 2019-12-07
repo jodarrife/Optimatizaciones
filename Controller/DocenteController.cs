@@ -33,14 +33,14 @@ namespace DocenteSharpHTTP.Controllers
                     primer_Apellido = "RINCONES",
                     segundo_Apellido = "FERNANDEZ",
                     fecha_Nacimiento = Convert.ToDateTime("3/11/2000").Date,
-                    edad = 19,
                     genero = "MASCULINO",
                     email = "jodarrife12@gmail.com",
                     telefono = 3004128610,
                     cargo = "DOCENTE",
-                    fecha_Vinculacion = Convert.ToDateTime("3/11/2000").Date,
                     estadoSys = "ACTIVO",
-                    tipo_Docente = "CATEDRATICO"
+                    tipo_Docente = "CATEDRATICO",
+                    user_Name = "Docente",
+                    contraseña = "12345"
                 });
                 _context.SaveChanges();
             }

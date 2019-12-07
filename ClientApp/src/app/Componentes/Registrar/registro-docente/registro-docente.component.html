@@ -151,21 +151,7 @@
                                 </div>
                             </div>
                             <div class="form-row">
-                                <div class="col">
-                                    <div class="control-group">
-                                        <div class="form-group">
-                                            <label>Fecha Nacimiento: </label>
-                                            <input formControlName="fecha_Nacimiento" class="form-control"
-                                                placeholder="" type="date"
-                                                [ngClass]="{ 'is-invalid': submitted && f.fecha_Nacimiento.errors }" />
-                                            <div *ngIf="submitted && f.fecha_Nacimiento.errors"
-                                                class="invalid-feedback">
-                                                <div *ngIf="f.fecha_Nacimiento.errors.required">Fecha de nacimiento
-                                                    es requerida</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+
                                 <div class="col">
                                     <div class="control-group">
                                         <div class="form-group">
@@ -180,6 +166,18 @@
                                                 <div *ngIf="f.genero.errors.required">Género es requerido</div>
                                             </div>
                                         </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Tipo Docente:</label>
+                                    <select class="browser-default custom-select" formControlName="tipo_Docente"
+                                        placeholder="DIGITE TIPO DE DOCENTE" type="text"
+                                        [ngClass]="{ 'is-invalid': submitted && f.tipo_Docente.errors }">
+                                        <option value="CATEDRATICO">CATEDRATICO</option>
+                                        <option value="PLANTA">PLANTA</option>
+                                    </select>
+                                    <div *ngIf="submitted && f.tipo_Docente.errors" class="invalid-feedback">
+                                        <div *ngIf="f.tipo_Docente.errors.required">Tipo de docente requerido</div>
                                     </div>
                                 </div>
                             </div>
@@ -226,21 +224,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="control-group">
-                                <div class="form-group">
-                                    <label>Tipo Docente:</label>
-                                    <select class="browser-default custom-select" formControlName="tipo_Docente"
-                                        placeholder="DIGITE TIPO DE DOCENTE" type="text"
-                                        [ngClass]="{ 'is-invalid': submitted && f.tipo_Docente.errors }">
-                                        <option value="CATEDRATICO">CATEDRATICO</option>
-                                        <option value="PLANTA">PLANTA</option>
-                                    </select>
-                                    <div *ngIf="submitted && f.tipo_Docente.errors" class="invalid-feedback">
-                                        <div *ngIf="f.tipo_Docente.errors.required">Tipo de docente requerido</div>
-                                    </div>
-                                </div>
-                            </div>
-
                             <br>
                             <!--BOTON-->
                             <div class="form-group">

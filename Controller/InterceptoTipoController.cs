@@ -10,36 +10,33 @@ namespace DocenteSharpHTTP.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class TipoAccionesController : ControllerBase
+    public class InterceptoTipoController : ControllerBase
     {
         private readonly ClassContext _context;
-        public TipoAccionesController(ClassContext context)
+        public InterceptoTipoController(ClassContext context)
         {
             _context = context;
-            if (_context.TipoAcciones.Count() == 0)
+            if (_context.InterceptoTipos.Count() == 0)
             {
-                _context.TipoAcciones.Add(new TipoAccionesItem { nombre_Acciones = "Comite de Evalaución" } );
-                _context.TipoAcciones.Add(new TipoAccionesItem { nombre_Acciones = "TUTORÍAS" } );
-                _context.TipoAcciones.Add(new TipoAccionesItem { nombre_Acciones = "INVESTIGACIÓN" } );
-                _context.TipoAcciones.Add(new TipoAccionesItem { nombre_Acciones = "EXTENCIÓN" } );
-                _context.TipoAcciones.Add(new TipoAccionesItem { nombre_Acciones = "MATERIAL DE APOYO" } );
-                _context.TipoAcciones.Add(new TipoAccionesItem { nombre_Acciones = "TRABAJO DE GRADO" } );
-                _context.TipoAcciones.Add(new TipoAccionesItem { nombre_Acciones = "COOPERACIÓN INTERISTITUCIONAL" } );
-                _context.TipoAcciones.Add(new TipoAccionesItem { nombre_Acciones = "CRECIMIENTO PROFECIONAL" } );
-                _context.TipoAcciones.Add(new TipoAccionesItem { nombre_Acciones = "ENCARGO ADMINISTRATIVO" } );
+                _context.InterceptoTipos.Add(new InterceptoTipo
+                {
+                    tipoActividadId = 1,
+                    docenteId= "1003242276",
+                    horasAsignadas=60
+                });
                 _context.SaveChanges();
             }
         }
         // Aquí, despues del constructor de la clase, irán los Métodos HTTP GET,POST, DELETE, PUT
-        // GET: api/Acciones
+        /** GET: api/Acciones
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<TipoAccionesItem>>> GetTipoAcciones()
+        public async Task<ActionResult<IEnumerable<IntersectoTipos>>> GetTipoAcciones()
         {
             return await _context.TipoAcciones.ToListAsync();
         }
         // GET: api/Acciones/1
         [HttpGet("{cod_TipoAcciones}")]
-        public async Task<ActionResult<TipoAccionesItem>> GetTipoAcciones(int cod_TipoAcciones)
+        public async Task<ActionResult<IntersectoTipos>> GetTipoAcciones(int cod_TipoAcciones)
         {
             var TipoAcciones = await _context.TipoAcciones.FindAsync(cod_TipoAcciones);
             if (TipoAcciones == null)
@@ -50,7 +47,7 @@ namespace DocenteSharpHTTP.Controllers
         }
         // POST: api/Acciones
         [HttpPost]
-        public async Task<ActionResult<TipoAccionesItem>> PostTipoAcciones(TipoAccionesItem item)
+        public async Task<ActionResult<IntersectoTipos>> PostTipoAcciones(TipoAccionesItem item)
         {
             _context.TipoAcciones.Add(item);
             await _context.SaveChangesAsync();
@@ -58,7 +55,7 @@ namespace DocenteSharpHTTP.Controllers
         }
         // PUT: api/Acciones/5
         [HttpPut("{cod_TipoAcciones}")]
-        public async Task<IActionResult> PutTipoAcciones(int cod_TipoAcciones, TipoAccionesItem item)
+        public async Task<IActionResult> PutTipoAcciones(int cod_TipoAcciones, IntersectoTipos item)
         {
             if (cod_TipoAcciones != item.cod_TipoAcciones)
             {
@@ -82,6 +79,6 @@ namespace DocenteSharpHTTP.Controllers
             _context.TipoAcciones.Remove(TipoAcciones);
             await _context.SaveChangesAsync();
             return NoContent();
-        }
+        }*/
     }
 }

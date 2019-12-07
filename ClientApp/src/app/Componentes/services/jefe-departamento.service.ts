@@ -11,6 +11,20 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class JefeDepartamentoService {
-  constructor(private http: HttpClient, @Inject('BASE_URL') private baseUrl: string) {
+
+  private isJefeDepartamentoLoggedIn;
+  public username;
+  constructor(private http: HttpClient, @Inject('BASE_URL') private baseUrl: string) 
+  {
+    this.isJefeDepartamentoLoggedIn=false;
+  }
+
+   //LOGIN
+   setJefeLoggedId(){
+    this.isJefeDepartamentoLoggedIn=true;
+    this.username = 'Administrador';
+  }
+  getJefeLoggedId(){
+   return this.isJefeDepartamentoLoggedIn;
   }
 }

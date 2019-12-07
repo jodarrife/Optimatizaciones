@@ -2,12 +2,11 @@ using Newtonsoft.Json;
 using System;
 using System.Data;
 using System.ComponentModel.DataAnnotations;
-using System.Collections.Generic;
 ///<Summary>
 /// </Summary>
 namespace DocenteSharpHTTP.Models
 {
-    public class DocenteItem
+    public class JefeDepartamento
     {
          [Required]
         public string tipo_Documento { get; set; }
@@ -39,9 +38,6 @@ namespace DocenteSharpHTTP.Models
         public string user_Name { get; set; }
         [Required, MinLength(2)]
         public string contraseña { get; set; }
-
-
         //agregacion
-        public List<TipoActividad> tipoActividad  { get; set; }
     }
 }
