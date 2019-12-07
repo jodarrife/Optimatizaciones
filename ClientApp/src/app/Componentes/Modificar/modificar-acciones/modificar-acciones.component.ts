@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { Acciones } from 'src/app/models/acciones';
-import { AccionesService } from 'src/app/services/acciones.service';
+import { AccionesService } from '../../services/acciones.service';
 
 @Component({
   selector: 'app-modificar-acciones',

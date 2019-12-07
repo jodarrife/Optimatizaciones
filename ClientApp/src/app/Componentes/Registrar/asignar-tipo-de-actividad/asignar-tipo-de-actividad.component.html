@@ -1,219 +1,28 @@
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-<div class="body">
 
-    <body>
-        <div class="contenido height: 100px">
-            <header class="masthead bg-primary text-white text-center height: 100px">
-                <div class="container d-flex align-items-center flex-column height: 100px">
-                    <!-- Masthead Heading -->
-                    <h1 class="masthead-heading text-uppercase mb-0 height: 100px ">ASIGNAR TIPO DE ACTIVIDAD</h1>
 
-                    <!-- Icon Divider -->
-                    <div class="divider-custom divider-light">
-                        <div class="divider-custom-line"></div>
-                        <div class="divider-custom-icon">
-                            <i class="fa fa-star"></i>
-                        </div>
-                        <div class="divider-custom-line"></div>
-                    </div>
-                </div>
-            </header>
-        </div>
-    </body>
+<hr>
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <label>CONSULTAR DOCENTE: </label>
+    <br>
+    <button type="button" class="btn btn-success " (click)="openModalCliente()">
+        BUSCAR
+    </button>
     <hr>
-    <!-- FORMATO-->
+    <input formControlName="identificacion" placeholder="identificacion" type="text">
 
-    <!-- Contact Section Form -->
-    <div class="row">
-        <div class="col-lg-8 mx-auto">
-            <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
-            <hr>
-            <p>SELECCIONE DOCENTE</p>
-            <hr>
-            <div class="form-row">
-                <div class="col">
-                    <div class="control-group">
-                        <div class="form-group">
-                            <label>Identificación:</label>
-                            <input formControlName="identificacion" class="form-control" readonly="readonly"  (blur)="buscarCliente()" (dblclick)="openModalCliente()" [ngClass]="{ 'is-invalid':  f.identificacion.errors }"
-                                placeholder="DIGITE IDENTIFICACIÓN" type="number"
-                                [ngClass]="{ 'is-invalid': submitted && f.identificacion.errors }" />
-                            <div *ngIf="submitted && f.identificacion.errors" class="invalid-feedback">
-                                <div *ngIf="f.identificacion.errors.required">Identificación es
-                                    requerida</div>
-                                <div *ngIf="f.identificacion.errors.minlength">Identificación
-                                    requiere mínimo 5 carácteres</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="control-group">
-                        <div class="form-group">
-                            <label>CONSULTAR DOCENTE: </label>
-                            <br>
-                            <button type="button" class="btn btn-success btn-rounded btn-sm my-0"(click)="openModalCliente()">BUSCAR
-                                </button>
+    <br>
 
-                        </div>
-                    </div>
-                </div>
+    <input formControlName="primer_Nombre" placeholder="primer_Nombre" type="text">
+    <br>
 
-            </div>
-            <div class="form-row">
-                <div class="col">
-                    <div class="control-group">
-                        <div class="form-group">
-                            <label>Primer Nombre:</label>
-                            <input formControlName="primer_Nombre" class="form-control" readonly="readonly"
-                                placeholder="DIGITE PRIMER NOMBRE" type="text"
-                                [ngClass]="{ 'is-invalid': submitted && f.primer_Nombre.errors }" />
-                            <div *ngIf="submitted && f.primer_Nombre.errors" class="invalid-feedback">
-                                <div *ngIf="f.primer_Nombre.errors.required">Primer nombre es
-                                    requerido</div>
-                                <div *ngIf="f.primer_Nombre.errors.minlength">Primer nombre requiere
-                                    mínimo 2 carácteres</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-               
-            </div>
-            <div class="form-row">
-                <div class="col">
-                    <div class="control-group">
-                        <div class="form-group">
-                            <label>Primer Apellido:</label>
-                            <input formControlName="primer_Apellido" class="form-control" readonly="readonly"
-                                placeholder="DIGITE PRIMER APELLIDO" type="text"
-                                [ngClass]="{ 'is-invalid': submitted && f.primer_Apellido.errors }" />
-                            <div *ngIf="submitted && f.primer_Apellido.errors" class="invalid-feedback">
-                                <div *ngIf="f.primer_Apellido.errors.required">Primer apellido
-                                    requerido</div>
-                                <div *ngIf="f.primer_Apellido.errors.minlength">Primer apellido
-                                    requiere mínimo 2 carácteres</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="control-group">
-                <div class="form-group">
-                    <label>Email:</label>
-                    <input formControlName="email" class="form-control" placeholder="DIGITE EMAIL" type="text" readonly="readonly"
-                        [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
-                    <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
-                        <div *ngIf="f.email.errors.required">Email requerido</div>
-                        <div *ngIf="f.email.errors.email">Debe ser una dirección de correo
-                            electrónico válida</div>
-                    </div>
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="col">
-                    <div class="control-group">
-                        <div class="form-group">
-                            <label>Tipo Docente:</label>
-                            <input formControlName="tipo_Docente" class="form-control" placeholder="TIPO DOCENTE" readonly="readonly"
-                                type="number" [ngClass]="{ 'is-invalid': submitted && f.telefono.errors }" />
-                            <div *ngIf="submitted && f.telefono.errors" class="invalid-feedback">
-                                <div *ngIf="f.telefono.errors.required">Teléfono requerido</div>
-                            </div>
-                            <div *ngIf="submitted && f.tipo_Docente.errors" class="invalid-feedback">
-                                <div *ngIf="f.tipo_Docente.errors.required">Tipo de docente requerido</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                        <div class="control-group">
-                            <div class="form-group">
-                                <label>Estado:</label>
-                                <input formControlName="estadoSys" class="form-control" placeholder="TIPO DOCENTE" readonly="readonly"
-                                    type="number" [ngClass]="{ 'is-invalid': submitted && f.telefono.errors }" />
-                                <div *ngIf="submitted && f.telefono.errors" class="invalid-feedback">
-                                    <div *ngIf="f.telefono.errors.required">Teléfono requerido</div>
-                                </div>
-                                <div *ngIf="submitted && f.tipo_Docente.errors" class="invalid-feedback">
-                                    <div *ngIf="f.tipo_Docente.errors.required">Tipo de docente requerido</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-            </div>
-            <hr>
-            <p>SELECCIONE TIPO DE ACTIVIDAD</p>
-            <hr>
-            <!-- DataTables Example -->
-            <div class="form-row">
-                <div class="col">
-                    <div class="control-group">
-                        <div class="form-group">
-                            <label>Codigo Actividad:</label>
-                            <input formControlName="identificacion" class="form-control" readonly="readonly" 
-                                placeholder="DIGITE IDENTIFICACIÓN" type="number"
-                                [ngClass]="{ 'is-invalid': submitted && f.identificacion.errors }" />
-                            <div *ngIf="submitted && f.identificacion.errors" class="invalid-feedback">
-                                <div *ngIf="f.identificacion.errors.required">Identificación es
-                                    requerida</div>
-                                <div *ngIf="f.identificacion.errors.minlength">Identificación
-                                    requiere mínimo 5 carácteres</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="control-group">
-                        <div class="form-group">
-                            <label>CONSULTAR CTIVIDAD: </label>
-                            <br>
-                            <button type="button" class="btn btn-success btn-rounded btn-sm my-0"(click)="openModalCliente()">BUSCAR
-                                </button>
+    <input formControlName="primer_Apellido" placeholder="primer_Apellido" type="text">
 
-                        </div>
-                    </div>
-                </div>
+    <br>
 
-            </div>
-            <div class="form-row">
-                <div class="col">
-                    <div class="control-group">
-                        <div class="form-group">
-                            <label>Nombre Actividad:</label>
-                            <input formControlName="primer_Nombre" class="form-control" readonly="readonly"
-                                placeholder="DIGITE PRIMER NOMBRE" type="text"
-                                [ngClass]="{ 'is-invalid': submitted && f.primer_Nombre.errors }" />
-                            <div *ngIf="submitted && f.primer_Nombre.errors" class="invalid-feedback">
-                                <div *ngIf="f.primer_Nombre.errors.required">Primer nombre es
-                                    requerido</div>
-                                <div *ngIf="f.primer_Nombre.errors.minlength">Primer nombre requiere
-                                    mínimo 2 carácteres</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <hr>
-            <div>
-                <div>
-                    <div class="control-group">
-                        <div class="form-group">
-                            <label>Horas:</label>
-                            <input formControlName="primer_Nombre" class="form-control"
-                                placeholder="DIGITE PRIMER NOMBRE" type="text"
-                                [ngClass]="{ 'is-invalid': submitted && f.primer_Nombre.errors }" />
-                            <div *ngIf="submitted && f.primer_Nombre.errors" class="invalid-feedback">
-                                <div *ngIf="f.primer_Nombre.errors.required">Primer nombre es
-                                    requerido</div>
-                                <div *ngIf="f.primer_Nombre.errors.minlength">Primer nombre requiere
-                                    mínimo 2 carácteres</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <hr>
+    <input formControlName="tipo_Docente" placeholder="tipo_Docente" type="text">
 
-        </div>
-    </div>
-</div>
+    <br>
+
+    <input formControlName="estadoSys" placeholder="estadoSys" type="text">
+</form>

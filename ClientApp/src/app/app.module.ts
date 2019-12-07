@@ -5,6 +5,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule } from '@angular/forms';
 
 
@@ -21,8 +22,9 @@ import { RegistroDocenteComponent } from './Componentes/Registrar/registro-docen
 import { RegistroActComplementariasComponent } from './Componentes/Registrar/registro-act-complementarias/registro-act-complementarias.component';
 import { RegistroPlanAccionComponent } from './Componentes/Registrar/registro-plan-accion/registro-plan-accion.component';
 import { RegistroAccionesComponent} from './Componentes/Registrar/registro-acciones/registro-acciones.component';
+import { AsignarTipoDeActividadComponent } from './Componentes/Registrar/asignar-tipo-de-actividad/asignar-tipo-de-actividad.component';
 
-
+import { ConsultaTipoActividadComponent } from './Componentes/Consultas/consulta-tipo-actividad/consulta-tipo-actividad.component';
 import { ConsultaDocenteComponent } from './Componentes/Consultas/consulta-docente/consulta-docente.component';
 import { ConsultaActComplementariasComponent } from './Componentes/Consultas/consulta-act-complementarias/consulta-act-complementarias.component';
 import { ConsultaPlanAccionComponent } from './Componentes/Consultas/consulta-plan-accion/consulta-plan-accion.component';
@@ -43,14 +45,20 @@ import { ModificarAccionesComponent } from './Componentes/Modificar/modificar-ac
 
 import { AppRoutingModule } from './app-routing.module';
 import { SidebarComponent } from './Componentes/Barras/sidebar/sidebar.component';
-import { LoginComponent } from './Componentes/Complementos/login/login.component';
+import { LoginComponent } from './Componentes/ComponetesLogin/login/login.component';
 
-
-import { RegTipoDeActividadComponent } from './Componentes/Modals/reg-tipo-de-actividad/reg-tipo-de-actividad.component';
-import { AsignarTipoDeActividadComponent } from './Componentes/Registrar/asignar-tipo-de-actividad/asignar-tipo-de-actividad.component';
-import { ConsultaTipoActividadComponent } from './Componentes/Consultas/consulta-tipo-actividad/consulta-tipo-actividad.component';
+//modal
 import { RegistroTipoDeActividadComponent } from './Componentes/Registrar/registro-tipo-de-actividad/registro-tipo-de-actividad.component';
-import { ModalConsultaDocenteComponent } from './Componentes/Modals/modal-consulta-docente/modal-consulta-docente.component';
+import { AlertModalComponent } from './Componentes/Errores/@base/modals/alert-modal/alert-modal.component';
+
+//pipes
+import { FiltroDocentePipe } from './Componentes/Pipes/filtro-docente.pipe';
+
+import { from } from 'rxjs';
+import { FiltroAccionesPipe } from './Componentes/Pipes/filtro-acciones.pipe';
+import { FiltroTipoActividadPipe } from './Componentes/Pipes/filtro-tipo-actividad.pipe';
+import { FiltroPlanAccionPipe } from './Componentes/Pipes/filtro-plan-accion.pipe';
+import {UserService} from  './Componentes/ComponetesLogin/servicesLogin/user.service';
 
 @NgModule({
   declarations: [
@@ -86,10 +94,16 @@ import { ModalConsultaDocenteComponent } from './Componentes/Modals/modal-consul
 
     SidebarComponent,
     LoginComponent,
-    RegTipoDeActividadComponent,
+    
     RegistroTipoDeActividadComponent,
-    ModalConsultaDocenteComponent
-
+   
+    FiltroDocentePipe,
+    AlertModalComponent,
+    FiltroAccionesPipe,
+    FiltroTipoActividadPipe,
+    FiltroPlanAccionPipe,
+  
+    
    
   ],
   imports: [
@@ -98,15 +112,17 @@ import { ModalConsultaDocenteComponent } from './Componentes/Modals/modal-consul
     FormsModule,
     ReactiveFormsModule,
     NgbModule,
+    NgbModalModule,
     ApiAuthorizationModule,
     RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' }
+      { path: '', component: LoginComponent, pathMatch: 'full' }
     ]),
     AppRoutingModule
   ],
-  providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: AuthorizeInterceptor, multi: true }
-  ],
-  bootstrap: [AppComponent]
+  providers: [UserService],
+  bootstrap: [AppComponent],
+  entryComponents: [
+    AlertModalComponent
+]
 })
 export class AppModule { }

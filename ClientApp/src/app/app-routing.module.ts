@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 //HOME DEL LOGIN
 import { HomeComponent } from "./home/home.component";
 // Login
-import { LoginComponent } from "./Componentes/Complementos/login/login.component"
+import { LoginComponent } from "./Componentes/ComponetesLogin/login/login.component"
 //para cada ruta nos servira cada fichero de estos 
 import { NotFountPageComponent } from "./Componentes/Complementos/not-fount-page/not-fount-page.component";
 
@@ -34,6 +34,7 @@ import { ConsultaTipoActividadComponent } from './Componentes/Consultas/consulta
 import { ModificarDocenteComponent } from './Componentes/Modificar/modificar-docente/modificar-docente.component';
 // Modificar Acciones
 import { ModificarAccionesComponent } from './Componentes/Modificar/modificar-acciones/modificar-acciones.component';
+import { AuthguardGuard } from './Componentes/ComponetesLogin/Guard/authguard.guard';
 
 
 // Desactivar Acciones
@@ -41,29 +42,30 @@ import { ModificarAccionesComponent } from './Componentes/Modificar/modificar-ac
 const routes: Routes = [
   
   //HOME LOGIN
-  {path: '', component: HomeComponent},
+  {path: 'HomePage', canActivate: [AuthguardGuard], component: HomeComponent},
+  
   //LOGIN
-  {path: 'Login', component: LoginComponent},
+  {path: '', component: LoginComponent},
 
   //Registro Docente
-  {path: 'RegistroDocente', component: RegistroDocenteComponent},
+  {path: 'RegistroDocente', canActivate: [AuthguardGuard],component: RegistroDocenteComponent},
   //RegistroActividades complememtarias
-  {path: 'RegistroActividadesComplementarias', component: RegistroActComplementariasComponent},
+  {path: 'RegistroActividadesComplementarias',canActivate: [AuthguardGuard], component: RegistroActComplementariasComponent},
   //Registro plan de accion
-  {path: 'RegistroPlanDeAccion', component: RegistroPlanAccionComponent},
+  {path: 'RegistroPlanDeAccion', canActivate: [AuthguardGuard],component: RegistroPlanAccionComponent},
   //Registro Acciones
-  {path: 'RegistroAcciones', component: RegistroAccionesComponent},
+  {path: 'RegistroAcciones',canActivate: [AuthguardGuard], component: RegistroAccionesComponent},
   //Registrar Tipo de Actividades
   //{path: 'RegistroTipodeActividad', component: RegistroTipoDeActividadComponent},
   //ASIGNAR TIPO
-  {path: 'AsignarTipodeActividad', component: AsignarTipoDeActividadComponent},
+  {path: 'AsignarTipodeActividad',canActivate: [AuthguardGuard], component: AsignarTipoDeActividadComponent},
 
   //Consulta Docente
-  { path: 'ConsultaDocente', component: ConsultaDocenteComponent},
+  { path: 'ConsultaDocente', canActivate: [AuthguardGuard],component: ConsultaDocenteComponent},
   //Consulta Acciones
-  { path: 'ConsultaAcciones', component: ConsultaAccionesComponent},
+  { path: 'ConsultaAcciones',canActivate: [AuthguardGuard], component: ConsultaAccionesComponent},
   //Consulta Tipo de Actividad
-  { path: 'ConsultaTipoActividad', component: ConsultaTipoActividadComponent},
+  { path: 'ConsultaTipoActividad',canActivate: [AuthguardGuard], component: ConsultaTipoActividadComponent},
   
   
   //Modificar Docente

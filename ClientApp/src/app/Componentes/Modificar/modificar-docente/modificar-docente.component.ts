@@ -2,7 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
-import { DocenteService } from 'src/app/services/docente.service';
+import { DocenteService } from '../../services/docente.service';
 import { Docente } from 'src/app/models/docente';
 
 @Component({

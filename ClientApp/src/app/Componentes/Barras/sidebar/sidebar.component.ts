@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as $ from 'jquery';
+import { UserService } from '../../ComponetesLogin/servicesLogin/user.service';
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
@@ -7,9 +8,13 @@ import * as $ from 'jquery';
 })
 export class SidebarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private myAwesomeService: UserService) {
+
+   }
 
   ngOnInit() {
+    
+    console.log('Estas logueado?' ,this.myAwesomeService.getUserLoggedId())
 
     $(document).ready(function () {
       $('.menu li:has(ul)').click(function (e) {

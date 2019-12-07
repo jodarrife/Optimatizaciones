@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DocenteService } from 'src/app/services/docente.service';
+import { DocenteService } from '../../services/docente.service';
 import { Docente } from '../../../models/docente';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 

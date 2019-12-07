@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TipoActividadService } from 'src/app/services/tipo-actividad.service';
+import { TipoActividadService } from '../../services/tipo-actividad.service';
 import { TipoActividad } from 'src/app/models/tipo-actividad';
 
 @Component({
