@@ -140,5 +140,8 @@ return this.isDocenteLoggedIn;
     sessionStorage.clear();
     
   }
+  isAuthenticatedDocente(): boolean {
+    return localStorage.getItem('docente') != null;
+  }
 }
 

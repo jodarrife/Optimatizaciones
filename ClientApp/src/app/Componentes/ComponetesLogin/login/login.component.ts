@@ -22,8 +22,9 @@ export class LoginComponent implements OnInit {
     private docenteService: DocenteService,
     private jefeService: JefeDepartamentoService
   ) { }
+
   docente: Docente;
-  jefeDpto: JefeDepartamento[];
+  jefeDpto: JefeDepartamento;
 
   ngOnInit() {
     const inputs = document.querySelectorAll(".input");
@@ -44,31 +45,16 @@ export class LoginComponent implements OnInit {
     });
   }
 
-
-  /*LOGIN
-  loginUser(e) {
-    e.preventDefault();
-    console.log(e);
-    var username = e.target.elements[0].value;
-    var password = e.target.elements[1].value;
-
-    if (username == 'admin' && password == 'admin') {
-      this.user.serUserLoggedId();
-      this.router.navigate(['/HomePage']);
-    }
-  }
-*/
   ValidarLogin() {
     var tipoCargo = (document.getElementById("tipoCargo") as HTMLInputElement).value;
     if (tipoCargo == "Docente") {
       this.ValidarLoginDocente();
     } else {
-      alert("Elija un Rol");
-      /* if (tipoCargo == "Administrador") {
-         //this.ValidarLoginJefe();
+       if (tipoCargo == "Administrador") {
+         this.ValidarLoginJefe();
        }else{
          alert("Elija un Rol")
-       }*/
+       }
     }
   }
 
@@ -83,19 +69,19 @@ export class LoginComponent implements OnInit {
       }
     });
   }
-  /*
+  
     ValidarLoginJefe() {
       var user = (document.getElementById("username") as HTMLInputElement).value;
-      this.jefeService.get(user).subscribe(jefe => {
-        this.jefeDpto = jefe;
-        if (!isUndefined(this.docente)) {
-          this.ValidarJefe(this.jefe.usuario, this.jefe.password);
-          this.jefeService.AddJefeDepartamentoLS(this.jefe);
+      this.jefeService.getJefeDptoByUser(user).subscribe(jefeDpto => {
+        this.jefeDpto = jefeDpto;
+        if (!isUndefined(this.jefeDpto)) {
+          this.ValidarJefe(this.jefeDpto.user_Name, this.jefeDpto.contrasena);
+          this.jefeService.AddJefeDptoLS(this.jefeDpto);
   
         }
       });
     }
-  */
+  
   ValidarDocente(usuario: string, Contraseña: string) {
     var user = (document.getElementById("username") as HTMLInputElement).value;
     var pass = (document.getElementById("password") as HTMLInputElement).value;
@@ -113,13 +99,17 @@ export class LoginComponent implements OnInit {
   ValidarJefe(usuario: string, Contraseña: string) {
     var user = (document.getElementById("username") as HTMLInputElement).value;
     var pass = (document.getElementById("password") as HTMLInputElement).value;
-
+    console.log("usuario html", user)
+    console.log("contraseña html", pass)
+    console.log("usuario recibido", usuario)
+    console.log("password recibido", Contraseña)
     if (usuario == user && Contraseña == pass) {
-      this.jefeService.setJefeLoggedId();
+      this.jefeService.setJefeDptoLoggedIn();
       this.router.navigate(['/HomePage']);
     } else {
       alert("Contraseña incorrecta")
     }
   }
 
+ 
 }

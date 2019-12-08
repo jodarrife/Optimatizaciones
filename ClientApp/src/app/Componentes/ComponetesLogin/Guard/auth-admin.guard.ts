@@ -14,10 +14,10 @@ export class AuthAdminGuard implements CanActivate {
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    //if(this.jefeService.getJefeLoggedId()==false){
-    //this.router.navigate(["/"]);
-   // }
-    //return this.jefeService.getJefeLoggedId();
+    if(this.jefeService.getJefeDptoLoggedIn()==false){
+    this.router.navigate(["/"]);
+    }
+    return this.jefeService.getJefeDptoLoggedIn();
     return
   }
   

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import * as $ from 'jquery';
 import { UserService } from '../../ComponetesLogin/servicesLogin/user.service';
+import { DocenteService } from '../../services/docente.service';
+import { JefeDepartamentoService } from '../../services/jefe-departamento.service';
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
@@ -8,13 +10,16 @@ import { UserService } from '../../ComponetesLogin/servicesLogin/user.service';
 })
 export class SidebarComponent implements OnInit {
 
-  constructor(private myAwesomeService: UserService) {
+  constructor(
+    private myAwesomeService: UserService,
+    private docenteService: DocenteService,
+    private jefeService: JefeDepartamentoService) {
 
-   }
+  }
 
   ngOnInit() {
-    
-    console.log('Estas logueado?' ,this.myAwesomeService.getUserLoggedId())
+
+    console.log('Estas logueado?', this.myAwesomeService.getUserLoggedId())
 
     $(document).ready(function () {
       $('.menu li:has(ul)').click(function (e) {
@@ -66,6 +71,22 @@ export class SidebarComponent implements OnInit {
         }
       });
     });
+  }
+  //LOGIN
+  logout() {
+    this.jefeService.logoutJefeDpto();
+    this.docenteService.logoutDocente();
+  }
 
+  public isAuthenticated(): boolean {
+    return 
+   /*if (localStorage.getItem('docente') == "docente") {
+      return this.docenteService.isAuthenticatedDocente();
+    } else {
+      if (this.jefeService.getJefeDptoLoggedIn() == true) {
+        return this.jefeService.isAuthenticatedJefe();
+      }
+    }
+*/
   }
 }

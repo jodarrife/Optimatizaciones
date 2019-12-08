@@ -37,7 +37,7 @@ namespace DocenteSharpHTTP.Models
         [Required, MinLength(2)]
         public string user_Name { get; set; }
         [Required, MinLength(2)]
-        public string contraseña { get; set; }
+        public string contrasena { get; set; }
         //agregacion
     }
 }

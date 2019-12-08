@@ -1,6 +1,6 @@
 <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
   integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-
+ 
 <nav class="navbar navbar-expand fixed-top" style="background-color: #09B76B;"><a href="#"><img src=""
       class="logo"></a><a href="#menu-toggle" id="menu-toggle" class="navbar-brand"><i class="fa fa-bars"
       id="barra-menu"></i></a>
@@ -10,14 +10,16 @@
   <div class="collapse navbar-collapse" id="navbarsExample02">
     <ul class="nav__links">
       <li><a href="" routerLink="/" class="botonesDerecha">Login</a></li>
-      <li><a href="" class="botonesDerecha">Salir</a></li>
+      <li><a href="" class="botonesDerecha" (click)="logout()">Logaut</a></li>
       <li><a>Hello {{name}}</a></li>
     </ul>
     <form class="form-inline my-2 my-md-0"> </form>
   </div>
 </nav>
 <div id="wrapper" class="toggled">
-  <!-- Sidebar -->
+  <!-- Sidebar 
+  <div *ngIf="isAuthenticated()"></div>-->
+  
   <div id="sidebar-wrapper">
     <div class="sidebar">
       <div class="contenedor-menu">
@@ -45,7 +47,8 @@
           </li>
           <li><a href="#"><i class="icono izquierda fa fa-envelope"></i>Verificar Actividades</a></li>
           <li><a href="#"><i class="icono izquierda fa fa-envelope"></i>Estado de Actividades</a></li>
-          <li><a href="#" routerLink="/RegistroDocente" routerLinkActive="active">Revisar Act. Complementarias</a></li>
+          <li><a href="#" routerLink="/RegistroDocente" routerLinkActive="active">Revisar Act. Complementarias</a>
+          </li>
           <li><a href="#"><i class="icono izquierda fa fa-envelope"></i>Reporte Estadisticas</a></li>
 
           <!-- DOCENTE-->

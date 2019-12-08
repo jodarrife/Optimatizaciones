@@ -36,7 +36,7 @@ import { ModificarDocenteComponent } from './Componentes/Modificar/modificar-doc
 // Modificar Acciones
 import { ModificarAccionesComponent } from './Componentes/Modificar/modificar-acciones/modificar-acciones.component';
 import { AuthguardGuard } from './Componentes/ComponetesLogin/Guard/authguard.guard';
-
+import { AuthDocenteGuard } from './Componentes/ComponetesLogin/Guard/auth-docente.guard';
 
 // Desactivar Acciones
 //crearemos varios objetos para crear las rutas
@@ -58,7 +58,7 @@ const routes: Routes = [
   component: RegistroDocenteComponent},
   //RegistroActividades complememtarias
   {path: 'RegistroActividadesComplementarias',
-  //canActivate: [AuthguardGuard], 
+  canActivate: [AuthDocenteGuard], 
   component: RegistroActComplementariasComponent},
   //Registro plan de accion
   {path: 'RegistroPlanDeAccion', 

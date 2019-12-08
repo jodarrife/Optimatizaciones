@@ -1,3 +1,3 @@
 import { Persona } from "./persona";
-export class JefeDepartamento{
+export class JefeDepartamento extends Persona{
 }

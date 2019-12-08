@@ -1417,5 +1417,12 @@ body {
   }
 
   .botonesDerecha{
-
+    display: block;
+    margin: 10px 3px;
+    padding: 10px 15px;
+    text-decoration: none;
+    border: none;
+    color: #fff;
+    background: rgb(0, 146, 78);
+    border-radius: 35px;
   }
