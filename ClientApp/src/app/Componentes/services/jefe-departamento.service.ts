@@ -27,4 +27,8 @@ export class JefeDepartamentoService {
   getJefeLoggedId(){
    return this.isJefeDepartamentoLoggedIn;
   }
+  AddJefeDepartamentoLS(jefeDpto: JefeDepartamento)
+  {
+    sessionStorage.setItem("Administrador",JSON.stringify(jefeDpto));
+  }
 }

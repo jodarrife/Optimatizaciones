@@ -34,14 +34,16 @@ export class RegistroDocenteComponent implements OnInit {
       //cargo: ["DOCENTE"],
       fecha_Vinculacion: ['', [Validators.required]],
       //estadoSys: ["ACTIVO"],
-      tipo_Docente: ['', [Validators.required]]
+      tipo_Docente: ['', [Validators.required]],
+      user_Name: ['', Validators.required],
+      contrasena: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(10)]]
 
     });
   }
 
   add() {
     this.docente = this.registerForm.value;
-    alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value, null, 4));
+    //alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value, null, 4));
     this.docenteService.addDocente(this.docente)
       .subscribe(
       );

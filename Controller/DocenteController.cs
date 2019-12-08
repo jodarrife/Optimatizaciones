@@ -113,5 +113,17 @@ namespace DocenteSharpHTTP.Controllers
         await _context.SaveChangesAsync();
         return NoContent();
     }
+    //LOGIN
+    [HttpGet("user={user}")]
+         public async Task<ActionResult<DocenteItem>> GetDocenteByUser(string user)
+        {
+            //prueba linq
+            var docente = await _context.Docentes.FirstOrDefaultAsync(i=>i.user_Name==user);
+            if (docente == null)
+            {
+                return NotFound();
+            }
+                return docente;
+        }
     }
 }

@@ -7,7 +7,6 @@ namespace DocenteSharpHTTP.Models
         base(options)
         {
         }
-        //public DbSet<PersonaItem> Personas { get; set; }
         public DbSet<DocenteItem> Docentes { get; set; }
         public DbSet<AccionesItem> Acciones { get; set; }
         public DbSet<InterceptoTipo> InterceptoTipos { get; set; }

@@ -12,5 +12,5 @@ export class Persona {
     cargo: string;
     estadoSys: string;
     user_Name: string;
-    contraseña: string;
+    contrasena: string;
 }

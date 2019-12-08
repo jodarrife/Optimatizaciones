@@ -43,30 +43,51 @@ import { AuthguardGuard } from './Componentes/ComponetesLogin/Guard/authguard.gu
 const routes: Routes = [
   
   //HOME LOGIN
-  {path: 'HomePage', canActivate: [AuthguardGuard], component: HomeComponent},
+  {path: 'HomePage', 
+  //canActivate: [AuthguardGuard],
+   component: HomeComponent},
   
   //LOGIN
   {path: '', component: LoginComponent},
 
   //Registro Docente
-  {path: 'RegistroDocente', canActivate: [AuthguardGuard],component: RegistroDocenteComponent},
+  {path: 'RegistroDocente', 
+  //
+  //canActivate: [AuthguardGuard],
+  
+  component: RegistroDocenteComponent},
   //RegistroActividades complememtarias
-  {path: 'RegistroActividadesComplementarias',canActivate: [AuthguardGuard], component: RegistroActComplementariasComponent},
+  {path: 'RegistroActividadesComplementarias',
+  //canActivate: [AuthguardGuard], 
+  component: RegistroActComplementariasComponent},
   //Registro plan de accion
-  {path: 'RegistroPlanDeAccion', canActivate: [AuthguardGuard],component: RegistroPlanAccionComponent},
+  {path: 'RegistroPlanDeAccion', 
+  //canActivate: [AuthguardGuard],
+  component: RegistroPlanAccionComponent},
   //Registro Acciones
-  {path: 'RegistroAcciones',canActivate: [AuthguardGuard], component: RegistroAccionesComponent},
+  {path: 'RegistroAcciones',
+  //canActivate: [AuthguardGuard], 
+  component: RegistroAccionesComponent},
   //Registrar Tipo de Actividades
-  //{path: 'RegistroTipodeActividad', component: RegistroTipoDeActividadComponent},
+  //{path: 'RegistroTipodeActividad', 
+  //component: RegistroTipoDeActividadComponent},
   //ASIGNAR TIPO
-  {path: 'AsignarTipodeActividad',canActivate: [AuthguardGuard], component: AsignarTipoDeActividadComponent},
+  {path: 'AsignarTipodeActividad',
+  //canActivate: [AuthguardGuard], 
+  component: AsignarTipoDeActividadComponent},
 
   //Consulta Docente
-  { path: 'ConsultaDocente', canActivate: [AuthguardGuard],component: ConsultaDocenteComponent},
+  { path: 'ConsultaDocente',
+  // canActivate: [AuthguardGuard],
+  component: ConsultaDocenteComponent},
   //Consulta Acciones
-  { path: 'ConsultaAcciones',canActivate: [AuthguardGuard], component: ConsultaAccionesComponent},
+  { path: 'ConsultaAcciones',
+  //canActivate: [AuthguardGuard],
+   component: ConsultaAccionesComponent},
   //Consulta Tipo de Actividad
-  { path: 'ConsultaTipoActividad',canActivate: [AuthguardGuard], component: ConsultaTipoActividadComponent},
+  { path: 'ConsultaTipoActividad',
+  //canActivate: [AuthguardGuard], 
+  component: ConsultaTipoActividadComponent},
   
   
   //Modificar Docente

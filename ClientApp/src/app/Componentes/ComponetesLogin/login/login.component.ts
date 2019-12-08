@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../servicesLogin/auth.service'
 import { Router } from '@angular/router';
-import { User } from 'oidc-client';
 import { UserService } from '../servicesLogin/user.service';
 import { DocenteService } from '../../services/docente.service';
 import { JefeDepartamentoService } from '../../services/jefe-departamento.service';
+import { JefeDepartamento} from 'src/app/models/jefe-departamento'
 import { Docente } from 'src/app/models/docente';
 import { isUndefined } from 'util';
 
@@ -22,8 +22,9 @@ export class LoginComponent implements OnInit {
     private docenteService: DocenteService,
     private jefeService: JefeDepartamentoService
   ) { }
-  docente: Docente[];
-  jefe: JefeDepartamento[];
+  docente: Docente;
+  jefeDpto: JefeDepartamento[];
+
   ngOnInit() {
     const inputs = document.querySelectorAll(".input");
     function addcl() {
@@ -44,7 +45,7 @@ export class LoginComponent implements OnInit {
   }
 
 
-  /*LOGIN*/
+  /*LOGIN
   loginUser(e) {
     e.preventDefault();
     console.log(e);
@@ -56,48 +57,53 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['/HomePage']);
     }
   }
-
-  ValidarLogin() {
+*/
+  ValidarLogin(e) {
+    e.preventDefault();
+    console.log(e);
     var tipoCargo = (document.getElementById("tipoCargo") as HTMLInputElement).value;
     if (tipoCargo == "Docente") {
       this.ValidarLoginDocente();
     } else {
-      if (tipoCargo == "Administrador") {
-        this.ValidarLoginJefe();
-      }
+    alert("Elija un Rol");
+     /* if (tipoCargo == "Administrador") {
+        //this.ValidarLoginJefe();
+      }else{
+        alert("Elija un Rol")
+      }*/
     }
   }
 
   ValidarLoginDocente() {
-    var user = (document.getElementById("username") as HTMLInputElement).value;
-    this.docenteService.get(user).subscribe(docente => {
+    var username = (document.getElementById("username") as HTMLInputElement).value;
+    this.docenteService.getDocenteByUser(username).subscribe(docente => {
       this.docente = docente;
       if (!isUndefined(this.docente)) {
-        this.ValidarDocente(this.docente.usuario, this.docente.password);
-        this.docenteService.addDocente(this.docente);
+        this.ValidarDocente(this.docente.user_Name, this.docente.contrasena);
+        this.docenteService.AddDocenteLS(this.docente);
 
       }
     });
   }
-
+/*
   ValidarLoginJefe() {
     var user = (document.getElementById("username") as HTMLInputElement).value;
     this.jefeService.get(user).subscribe(jefe => {
-      this.jefe = jefe;
+      this.jefeDpto = jefe;
       if (!isUndefined(this.docente)) {
         this.ValidarJefe(this.jefe.usuario, this.jefe.password);
-        this.jefeService.addDocente(this.jefe);
+        this.jefeService.AddJefeDepartamentoLS(this.jefe);
 
       }
     });
   }
-
+*/
   ValidarDocente(usuario: string, Contraseña: string) {
     var user = (document.getElementById("username") as HTMLInputElement).value;
     var pass = (document.getElementById("password") as HTMLInputElement).value;
 
     if (usuario == user && Contraseña == pass) {
-      this.docenteService.setDocenteLoggedId();
+      this.docenteService.setDocenteLoggedIn();
       this.router.navigate(['/HomePage']);
     } else {
       alert("Contraseña incorrecta")

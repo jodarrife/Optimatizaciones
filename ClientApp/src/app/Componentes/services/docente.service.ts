@@ -1,9 +1,12 @@
 import { Injectable, Inject } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, of, observable } from 'rxjs';
+import { Observable, of, observable, Subject } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { Docente } from '../../models/docente';
 import { HandleErrorService } from '../../Componentes/Errores/@base/services/handle-error.service';
+import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
+
+
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -14,15 +17,18 @@ const httpOptions = {
 })
 
 export class DocenteService {
+
   private isDocenteLoggedIn;
   public username;
   baseUrl: string;
+  isDocente = new Subject<boolean>();
+
   constructor(
     private http: HttpClient,
     @Inject('BASE_URL') baseUrl: string,
     private handleErrorService: HandleErrorService,
-   ) {
-    this.isDocenteLoggedIn=false;
+  ) {
+    this.isDocenteLoggedIn = false;
     this.baseUrl = baseUrl;
   }
 
@@ -47,10 +53,10 @@ export class DocenteService {
   get(identificacion: number): Observable<Docente> {
     const url = `${this.baseUrl + 'api/Docente'}/${identificacion}`;
     return this.http.get<Docente>(url)
-    .pipe(
-      tap(_ => this.handleErrorService.log('datos enviados')),
-      catchError(this.handleErrorService.handleError<Docente>('Consulta de Docente', null))
-  );
+      .pipe(
+        tap(_ => this.handleErrorService.log('datos enviados')),
+        catchError(this.handleErrorService.handleError<Docente>('Consulta de Docente', null))
+      );
   }
 
   /** PUT: update the docentes on the server */
@@ -88,12 +94,51 @@ export class DocenteService {
 
 
   //LOGIN
-   setDocenteLoggedId(){
-     this.isDocenteLoggedIn=true;
-     this.username = 'Docente';
-   }
-   getDocenteLoggedId(){
-    return this.isDocenteLoggedIn;
+  setDocenteLoggedIn() {
+    sessionStorage.setItem(
+      "DocenteLoggedIn",
+      JSON.stringify((this.isDocenteLoggedIn = true))
+    );
+    this.isDocente.next(true);
+    /*
+    this.isDocenteLoggedIn=true;
+    this.username = 'Docente';*/
+  }
+
+  getDocenteLoggedIn(): boolean {
+    if (JSON.parse(sessionStorage.getItem("DocenteLoggedIn")) != null) {
+      this.isDocente.next(JSON.parse(sessionStorage.getItem("DocenteLoggedIn")));
+      return JSON.parse(sessionStorage.getItem("DocenteLoggedIn"));
+    } else {
+      this.isDocente.next(false);
+      return false;
+    }
+    /*
+return this.isDocenteLoggedIn;
+  }*/
+  }
+  getDocenteByUser(user: string): Observable<Docente> {
+    const url = `${this.baseUrl + 'api/Docente'}/user=${user}`;
+    return this.http.get<Docente>(url).pipe(
+      tap(_ => this.handleErrorService.log(`Consultado docente user=${user}`)),
+      catchError(err =>{this.handleErrorService.log('usuario incorrecto');
+      return of(undefined);
+    })
+    );
+  }
+ 
+  AddDocenteLS(docente: Docente) {
+    sessionStorage.setItem("docente", JSON.stringify(docente));
+  }
+
+  getDocenteLS(): Docente {
+    return JSON.parse(sessionStorage.getItem("docente"));
+  }
+
+  logoutDocente() {
+    this.isDocente.next(false);
+    sessionStorage.clear();
+    
   }
 }
 
