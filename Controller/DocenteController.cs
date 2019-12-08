@@ -40,7 +40,7 @@ namespace DocenteSharpHTTP.Controllers
                     estadoSys = "ACTIVO",
                     tipo_Docente = "CATEDRATICO",
                     user_Name = "Docente",
-                    contraseña = "12345"
+                    contrasena = "12345"
                 });
                 _context.SaveChanges();
             }

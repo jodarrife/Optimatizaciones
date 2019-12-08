@@ -82,7 +82,7 @@ namespace Proyecto.Migrations
                     b.Property<string>("cargo")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("contraseña")
+                    b.Property<string>("contrasena")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

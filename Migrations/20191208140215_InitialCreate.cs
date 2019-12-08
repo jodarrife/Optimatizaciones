@@ -43,7 +43,7 @@ namespace Proyecto.Migrations
                     estadoSys = table.Column<string>(nullable: true),
                     tipo_Docente = table.Column<string>(nullable: false),
                     user_Name = table.Column<string>(nullable: false),
-                    contraseña = table.Column<string>(nullable: false)
+                    contrasena = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {

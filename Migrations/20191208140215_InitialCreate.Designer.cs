@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Proyecto.Migrations
 {
     [DbContext(typeof(ClassContext))]
-    [Migration("20191208060001_InitialCreate")]
+    [Migration("20191208140215_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -84,7 +84,7 @@ namespace Proyecto.Migrations
                     b.Property<string>("cargo")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("contraseña")
+                    b.Property<string>("contrasena")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

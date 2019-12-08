@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { UserService } from '../servicesLogin/user.service';
 import { DocenteService } from '../../services/docente.service';
 import { JefeDepartamentoService } from '../../services/jefe-departamento.service';
-import { JefeDepartamento} from 'src/app/models/jefe-departamento'
+import { JefeDepartamento } from 'src/app/models/jefe-departamento'
 import { Docente } from 'src/app/models/docente';
 import { isUndefined } from 'util';
 
@@ -58,19 +58,17 @@ export class LoginComponent implements OnInit {
     }
   }
 */
-  ValidarLogin(e) {
-    e.preventDefault();
-    console.log(e);
+  ValidarLogin() {
     var tipoCargo = (document.getElementById("tipoCargo") as HTMLInputElement).value;
     if (tipoCargo == "Docente") {
       this.ValidarLoginDocente();
     } else {
-    alert("Elija un Rol");
-     /* if (tipoCargo == "Administrador") {
-        //this.ValidarLoginJefe();
-      }else{
-        alert("Elija un Rol")
-      }*/
+      alert("Elija un Rol");
+      /* if (tipoCargo == "Administrador") {
+         //this.ValidarLoginJefe();
+       }else{
+         alert("Elija un Rol")
+       }*/
     }
   }
 
@@ -85,23 +83,26 @@ export class LoginComponent implements OnInit {
       }
     });
   }
-/*
-  ValidarLoginJefe() {
-    var user = (document.getElementById("username") as HTMLInputElement).value;
-    this.jefeService.get(user).subscribe(jefe => {
-      this.jefeDpto = jefe;
-      if (!isUndefined(this.docente)) {
-        this.ValidarJefe(this.jefe.usuario, this.jefe.password);
-        this.jefeService.AddJefeDepartamentoLS(this.jefe);
-
-      }
-    });
-  }
-*/
+  /*
+    ValidarLoginJefe() {
+      var user = (document.getElementById("username") as HTMLInputElement).value;
+      this.jefeService.get(user).subscribe(jefe => {
+        this.jefeDpto = jefe;
+        if (!isUndefined(this.docente)) {
+          this.ValidarJefe(this.jefe.usuario, this.jefe.password);
+          this.jefeService.AddJefeDepartamentoLS(this.jefe);
+  
+        }
+      });
+    }
+  */
   ValidarDocente(usuario: string, Contraseña: string) {
     var user = (document.getElementById("username") as HTMLInputElement).value;
     var pass = (document.getElementById("password") as HTMLInputElement).value;
-
+    console.log("usuario html", user)
+    console.log("contraseña html", pass)
+    console.log("usuario recibido", usuario)
+    console.log("password recibido", Contraseña)
     if (usuario == user && Contraseña == pass) {
       this.docenteService.setDocenteLoggedIn();
       this.router.navigate(['/HomePage']);
