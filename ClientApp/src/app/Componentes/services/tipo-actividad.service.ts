@@ -42,6 +42,13 @@ export class TipoActividadService {
       catchError(this.handleError<TipoActividad>(`getTipoActividad cod_TipoActividad=${cod_TipoActividad}`))
     );
   }
+  get2(cod_TipoActividad: number): Observable<TipoActividad> {
+    
+    return this.http.get<TipoActividad>(this.baseUrl+ 'api/TipoActividad').pipe(
+      tap(_ => this.log(`fetched Tipo Actividad cod_TipoActividad=${cod_TipoActividad}`)),
+      catchError(this.handleError<TipoActividad>(`getTipoActividad cod_TipoActividad=${cod_TipoActividad}`))
+    );
+  }
 
   /** PUT: update the TipoDeActividad on the server */
   update(tipoActividad: TipoActividad): Observable<any> {

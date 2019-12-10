@@ -1,52 +1,171 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+<div class="body">
+
+  <body>
+    <div class="contenido height: 100px">
+      <header class="masthead bg-primary text-white text-center height: 100px">
+        <div class="container d-flex align-items-center flex-column height: 100px">
+          <!-- Masthead Heading -->
+          <h1 class="masthead-heading text-uppercase mb-0 height: 100px ">ASIGNAR TIPO DE ACTIVIDAD</h1>
+
+          <!-- Icon Divider -->
+          <div class="divider-custom divider-light">
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-icon">
+              <i class="fa fa-star"></i>
+            </div>
+            <div class="divider-custom-line"></div>
+          </div>
+        </div>
+      </header>
+    </div>
+  </body>
+  <hr>
+  <!-- FORMATO-->
+  <!-- DataTables tipoact -->
+  <div class="table-container">
+    <table class="table table-hover table-custom border-radius-total-5 no-margin" id="tablelistaReservas">
+      <thead class="backGris-light-be">
+        <tr class="s20">
+          <th class="no-borders"></th>
+          <th class="no-borders">Código Tipo Actividad</th>
+          <th class="no-borders">Nombre Tipo Actividad</th>
+        </tr>
+      </thead>
+      <tbody class="backWhite">
+        <tr class="s18 colorGrayLight" *ngFor="let item of tipoActividad">
+          <td>
+            <div class="margin-l-15 checkbox checkboxStyle-table checkColorGreenLight">
+              <input type="checkbox" class="tableid" name="tableid" id="tableid" class="click">
+              <label class="s18 text-normal"></label>
+            </div>
+          </td>
+          <td class="no-pad-top no-pad-bot align-middle">{{item.cod_TipoActividad}}</td>
+          <td class="no-pad-top no-pad-bot align-middle">{{item.nombre_Actividad}}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <br>
+    <hr>
+    <!-- DataTables doc -->
+
+    <table class="table table-hover table-custom border-radius-total-5 no-margin" id="tablelistaReservas">
+      <thead class="backGris-light-be">
+        <tr class="s20">
+          <th class="no-borders"></th>
+          <th class="no-borders">Tipo Documento</th>
+          <th class="no-borders">Identificación</th>
+          <th class="no-borders">Primer Nombre</th>
+          <th class="no-borders">Primer Apellido</th>
+          <th class="no-borders">Email</th>
+          <th class="no-borders">Telefono</th>
+          <th class="no-borders">Estado</th>
+          <th class="no-borders">Tipo Docente</th>
+        </tr>
+      </thead>
+      <tbody class="backWhite">
+        <tr class="s18 colorGrayLight" *ngFor="let item of docentes">
+          <td>
+            <div class="margin-l-15 checkbox checkboxStyle-table checkColorGreenLight">
+              <input type="radio" class="tableid" name="tableid" id="tableid" class="click">
+              <label class="s18 text-normal"></label>
+            </div>
+          </td>
+          <td class="no-pad-top no-pad-bot align-middle">{{item.tipo_Documento}}</td>
+          <td class="no-pad-top no-pad-bot align-middle">{{item.identificacion}}</td>
+          <td class="no-pad-top no-pad-bot align-middle">{{item.primer_Nombre}}</td>
+          <td class="no-pad-top no-pad-bot align-middle">{{item.primer_Apellido}}</td>
+          <td class="no-pad-top no-pad-bot align-middle">{{item.email}}</td>
+          <td class="no-pad-top no-pad-bot align-middle">{{item.telefono}}</td>
+          <td class="no-pad-top no-pad-bot align-middle">{{item.estadoSys}}</td>
+          <td class="no-pad-top no-pad-bot align-middle">{{item.tipo_Docente}}</td>
+        </tr>
+      </tbody>
+    </table>
+
+
+    <hr>
+    <input type="button" value="Enviar Seleccion" onclick="location.reload()" style="font-family:Arial;font-size:10pt;width:200px;height:30px;
+    background:#777777;color:#fff444;cursor:pointer;" />
+    <hr>
+    <h1>DATOS CARGADDOS</h1>
+    <div>
+      <a>{{ CodTipo() }}</a>
+      <hr>
+      <input (click)="logoutTipo()" type="button" value="cancelar tipoo" onclick="location.reload()" style="font-family:Arial;font-size:10pt;width:200px;height:30px;
+      background:#777777;color:#fff444;cursor:pointer;" />
+      <hr>
+      <br>
+      <a>{{ CCdoc() }}</a>
+      <hr>
+      <input (click)="logoutDoc()" type="button" value="cancelar docente" onclick="location.reload()" style="font-family:Arial;font-size:10pt;width:200px;height:30px;
+    background:#777777;color:#fff444;cursor:pointer;" />
+      <hr>
+      <div>
+        <label>CANTIDAD DE HORAS:</label>
+        <input>
+      </div>
+      <button (click)="add()" type="submit" class="btn btn-primary btn-xl" name="Boton"
+        id="sendMessageButton">AGREGAR</button>
+    </div>
+
+    <!--aqui-->
+
+  </div>
+</div>
+<!--
+
 
 <div class="table-container">
-<table class="table table-hover table-custom border-radius-total-5 no-margin" id="tablelistaReservas">
-<thead class="backGris-light-be">
-    <tr class="s20">
-      <th class="no-borders">RESERVACION</th>
-      <th class="no-borders">NOMBRE</th>
-      <th class="no-borders">LOC_EXTERNO</th>
-      <th class="no-borders">PICKUP</th>
-      <th class="no-borders">RETURN</th>
-      <th class="no-borders">CANAL</th>
-      <th class="no-borders">AUTO</th>
-      <th class="no-borders"></th>
-    </tr>
-</thead>
-<tbody class="backWhite">
-  <tr class="s18 colorGrayLight">
-    <td class="no-pad-top no-pad-bot align-middle">1</td>
-    <td class="no-pad-top no-pad-bot align-middle">Pedro Canche Angulo</td>
-    <td class="no-pad-top no-pad-bot align-middle">34577567856</td>
-    <td class="no-pad-top no-pad-bot align-middle">28/may/2018</td>
-    <td class="no-pad-top no-pad-bot align-middle">30/mayo/2018</td>
-    <td class="no-pad-top no-pad-bot align-middle">Web</td>
-    <td class="no-pad-top no-pad-bot align-middle">Jetta</td>
-    <td class="no-pad-top no-pad-bot align-middle">
-    <div class="margin-l-15 checkbox checkboxStyle-table checkColorGreenLight">
-      <input type="checkbox" class="tableid" name="tableid" id="tableid" class="click">
-      <label class="s18 text-normal"></label>
-    </div>
-    </td>
-  </tr>
-  <tr class="s18 colorGrayLight"> 
-    <td class="no-pad-top no-pad-bot align-middle">2</td>
-    <td class="no-pad-top no-pad-bot align-middle">Pablo Canche Angulo</td>
-    <td class="no-pad-top no-pad-bot align-middle">34577567856</td>
-    <td class="no-pad-top no-pad-bot align-middle">28/may/2018</td>
-    <td class="no-pad-top no-pad-bot align-middle">30/mayo/2018</td>
-    <td class="no-pad-top no-pad-bot align-middle">Web</td>
-    <td class="no-pad-top no-pad-bot align-middle">Jetta</td>
-    <td class="no-pad-top no-pad-bot align-middle">
-    <div class="margin-l-15 checkbox checkboxStyle-table checkColorGreenLight">
-      <input type="checkbox" class="tableid" name="tableid" id="tableid" class="click">
-      <label class="s18 text-normal"></label>
-    </div>
-    </td>
-  </tr>
-</tbody>
-</table>
+  <table class="table table-hover table-custom border-radius-total-5 no-margin" id="tablelistaReservas">
+    <thead class="backGris-light-be">
+      <tr class="s20">
+        <th class="no-borders">RESERVACION</th>
+        <th class="no-borders">NOMBRE</th>
+        <th class="no-borders">LOC_EXTERNO</th>
+        <th class="no-borders">PICKUP</th>
+        <th class="no-borders">RETURN</th>
+        <th class="no-borders">CANAL</th>
+        <th class="no-borders">AUTO</th>
+        <th class="no-borders"></th>
+      </tr>
+    </thead>
+    <tbody class="backWhite">
+      <tr class="s18 colorGrayLight">
+        <td class="no-pad-top no-pad-bot align-middle">1</td>
+        <td class="no-pad-top no-pad-bot align-middle">Pedro Canche Angulo</td>
+        <td class="no-pad-top no-pad-bot align-middle">34577567856</td>
+        <td class="no-pad-top no-pad-bot align-middle">28/may/2018</td>
+        <td class="no-pad-top no-pad-bot align-middle">30/mayo/2018</td>
+        <td class="no-pad-top no-pad-bot align-middle">Web</td>
+        <td class="no-pad-top no-pad-bot align-middle">Jetta</td>
+        <td class="no-pad-top no-pad-bot align-middle">
+          <div class="margin-l-15 checkbox checkboxStyle-table checkColorGreenLight">
+            <input onclick="location.reload()" type="checkbox" class="tableid" name="tableid" id="tableid"
+              class="click">
+            <label class="s18 text-normal"></label>
+          </div>
+        </td>
+      </tr>
+      <tr class="s18 colorGrayLight">
+        <td class="no-pad-top no-pad-bot align-middle">2</td>
+        <td class="no-pad-top no-pad-bot align-middle">Pablo Canche Angulo</td>
+        <td class="no-pad-top no-pad-bot align-middle">34577567856</td>
+        <td class="no-pad-top no-pad-bot align-middle">28/may/2018</td>
+        <td class="no-pad-top no-pad-bot align-middle">30/mayo/2018</td>
+        <td class="no-pad-top no-pad-bot align-middle">Web</td>
+        <td class="no-pad-top no-pad-bot align-middle">Jetta</td>
+        <td class="no-pad-top no-pad-bot align-middle">
+          <div class="margin-l-15 checkbox checkboxStyle-table checkColorGreenLight">
+            <input type="checkbox" class="tableid" name="tableid" id="tableid" class="click">
+            <label class="s18 text-normal"></label>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
-
-<div id="mensaje"></div>
+-->

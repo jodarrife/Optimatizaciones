@@ -8,6 +8,7 @@ import * as $ from 'jquery';
 import { FormGroup } from '@angular/forms';
 
 import { AlertModalComponent } from '../../Errores/@base/modals/alert-modal/alert-modal.component';
+import { JefeDepartamentoService } from '../../services/jefe-departamento.service';
 
 @Component({
   selector: 'app-asignar-tipo-de-actividad',
@@ -21,44 +22,99 @@ export class AsignarTipoDeActividadComponent implements OnInit {
   registerForm: FormGroup;
   tipoAct: TipoActividad;
   submitted = false;
+  
 
   constructor(
     private docenteService: DocenteService,
     private tipoActividadService: TipoActividadService,
+    private jefe:JefeDepartamentoService,
     private modalService: NgbModal) { }
 
-  public identificacion2: Number
+  public identificacion2: Number;
   ngOnInit() {
-    
+    this.getAll();
+
+    $(document).ready(function () {
+      $('input[type="checkbox"]').change(function () {
+        if ($(this).is(':checked')) {
+          $('input[type="checkbox"]').not(this).prop('checked', false);
+
+          var tr = $(this).closest('tr');
+
+          var Selección = $(tr).find('td:nth-child(1)').text();
+          var codTipoActividad = $(tr).find('td:nth-child(2)').text();
+          var nombreTipoActividad = $(tr).find('td:nth-child(3)').text();
+          
+          sessionStorage.setItem('codTipoActividad', codTipoActividad);
+
+          this.CodTipo();
+          
+        }
+      })
+    })
+   
     $(document).ready(function(){
-      $('input[type="checkbox"]').change(function(){
+      $('input[type="radio"]').change(function(){
           if($(this).is(':checked')){
-              $('input[type="checkbox"]').not(this).prop('checked', false);
+              $('input[type="radio"]').not(this).prop('checked', false);
               
               var tr = $(this).closest('tr');
-              
-              var reservacion =$(tr).find('td:nth-child(1)').text();
-              var nombre = $(tr).find('td:nth-child(2)').text();
-              var loc_externo = $(tr).find('td:nth-child(3)').text();
-              var pickup = $(tr).find('td:nth-child(4)').text();
-              var retorno =$(tr).find('td:nth-child(5)').text();
-              var canal = $(tr).find('td:nth-child(6)').text();
-              var auto = $(tr).find('td:nth-child(7)').text();
-               
-              console.log('reservacion: ' + reservacion + ' - nombre: ' + nombre + ' - loc_externo: ' + loc_externo + ' - pickup: ' + pickup + ' - retorno: ' + retorno + ' - canal: ' + canal + ' - auto:' + auto);
+
+              var Selección = $(tr).find('td:nth-child(1)').text();
+              var tipo_Documento =$(tr).find('td:nth-child(2)').text();
+              var identificacion = $(tr).find('td:nth-child(3)').text();
+              var primer_Nombre = $(tr).find('td:nth-child(4)').text();
+              var primer_Apellido = $(tr).find('td:nth-child(5)').text();
+              var email =$(tr).find('td:nth-child(6)').text();
+              var telefono = $(tr).find('td:nth-child(7)').text();
+              var estadoSys = $(tr).find('td:nth-child(8)').text();
+              var tipo_Docente = $(tr).find('td:nth-child(9)').text();
+
+              sessionStorage.setItem('identificacion', identificacion);
+
+              this.CCdoc();
           }
       })
   })
-
+  
 
   }
-  /* convenience getter for easy access to form fields
-  get f() { return this.registerForm.controls; }
+                                      //TIPO
+  //obtento el name
+  getUserNameTipo(): string {
+    return sessionStorage.getItem('codTipoActividad') != null ? sessionStorage.getItem('codTipoActividad') : 'Nohay';
+  }
+  //mando el name 
+  CodTipo(): string {
+    return this.getUserNameTipo();
+  }
+
+  logoutTipo() {
+    this.jefe.isJefeDpto.next(false);
+    sessionStorage.removeItem('codTipoActividad');
+  }
+                                          //DOC
+  //obtento el name
+  getUserNameDoc(): string {
+    return sessionStorage.getItem('identificacion') != null ? sessionStorage.getItem('identificacion') : 'Nohay';
+  }
+  //mando el name 
+  CCdoc(): string {
+    return this.getUserNameDoc();
+  }
+  logoutDoc() {
+    this.jefe.isJefeDpto.next(false);
+    sessionStorage.removeItem('identificacion');
+  }
+  //lleno las tablas
 
   getAll() {
     this.docenteService.getAll().subscribe(docentes => this.docentes = docentes);
     this.tipoActividadService.getAll().subscribe(tipoActividad => { this.tipoActividad = tipoActividad });
   }
+  /* convenience getter for easy access to form fields
+  get f() { return this.registerForm.controls; }
+
 
   buscarCliente() {
     this.docenteService.get(this.registerForm.value.identificacion).subscribe(docente => {
