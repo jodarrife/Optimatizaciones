@@ -141,7 +141,12 @@ return this.isDocenteLoggedIn;
     
   }
   isAuthenticatedDocente(): boolean {
-    return localStorage.getItem('docente') != null;
+    return sessionStorage.getItem('docente') != null;
   }
+    //traer el nombre
+    getUserName(): string {
+      var docente= JSON.parse(sessionStorage.getItem('docente'));
+      return docente.user_Name;
+    }
 }
 

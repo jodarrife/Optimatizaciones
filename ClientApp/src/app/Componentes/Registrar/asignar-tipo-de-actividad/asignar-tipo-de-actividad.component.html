@@ -1,28 +1,52 @@
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
+<div class="table-container">
+<table class="table table-hover table-custom border-radius-total-5 no-margin" id="tablelistaReservas">
+<thead class="backGris-light-be">
+    <tr class="s20">
+      <th class="no-borders">RESERVACION</th>
+      <th class="no-borders">NOMBRE</th>
+      <th class="no-borders">LOC_EXTERNO</th>
+      <th class="no-borders">PICKUP</th>
+      <th class="no-borders">RETURN</th>
+      <th class="no-borders">CANAL</th>
+      <th class="no-borders">AUTO</th>
+      <th class="no-borders"></th>
+    </tr>
+</thead>
+<tbody class="backWhite">
+  <tr class="s18 colorGrayLight">
+    <td class="no-pad-top no-pad-bot align-middle">1</td>
+    <td class="no-pad-top no-pad-bot align-middle">Pedro Canche Angulo</td>
+    <td class="no-pad-top no-pad-bot align-middle">34577567856</td>
+    <td class="no-pad-top no-pad-bot align-middle">28/may/2018</td>
+    <td class="no-pad-top no-pad-bot align-middle">30/mayo/2018</td>
+    <td class="no-pad-top no-pad-bot align-middle">Web</td>
+    <td class="no-pad-top no-pad-bot align-middle">Jetta</td>
+    <td class="no-pad-top no-pad-bot align-middle">
+    <div class="margin-l-15 checkbox checkboxStyle-table checkColorGreenLight">
+      <input type="checkbox" class="tableid" name="tableid" id="tableid" class="click">
+      <label class="s18 text-normal"></label>
+    </div>
+    </td>
+  </tr>
+  <tr class="s18 colorGrayLight"> 
+    <td class="no-pad-top no-pad-bot align-middle">2</td>
+    <td class="no-pad-top no-pad-bot align-middle">Pablo Canche Angulo</td>
+    <td class="no-pad-top no-pad-bot align-middle">34577567856</td>
+    <td class="no-pad-top no-pad-bot align-middle">28/may/2018</td>
+    <td class="no-pad-top no-pad-bot align-middle">30/mayo/2018</td>
+    <td class="no-pad-top no-pad-bot align-middle">Web</td>
+    <td class="no-pad-top no-pad-bot align-middle">Jetta</td>
+    <td class="no-pad-top no-pad-bot align-middle">
+    <div class="margin-l-15 checkbox checkboxStyle-table checkColorGreenLight">
+      <input type="checkbox" class="tableid" name="tableid" id="tableid" class="click">
+      <label class="s18 text-normal"></label>
+    </div>
+    </td>
+  </tr>
+</tbody>
+</table>
+</div>
 
-<hr>
-<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-    <label>CONSULTAR DOCENTE: </label>
-    <br>
-    <button type="button" class="btn btn-success " (click)="openModalCliente()">
-        BUSCAR
-    </button>
-    <hr>
-    <input formControlName="identificacion" placeholder="identificacion" type="text">
-
-    <br>
-
-    <input formControlName="primer_Nombre" placeholder="primer_Nombre" type="text">
-    <br>
-
-    <input formControlName="primer_Apellido" placeholder="primer_Apellido" type="text">
-
-    <br>
-
-    <input formControlName="tipo_Docente" placeholder="tipo_Docente" type="text">
-
-    <br>
-
-    <input formControlName="estadoSys" placeholder="estadoSys" type="text">
-</form>
+<div id="mensaje"></div>

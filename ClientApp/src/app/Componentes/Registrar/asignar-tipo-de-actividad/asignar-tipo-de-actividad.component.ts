@@ -29,7 +29,26 @@ export class AsignarTipoDeActividadComponent implements OnInit {
 
   public identificacion2: Number
   ngOnInit() {
-    //this.getAll();
+    
+    $(document).ready(function(){
+      $('input[type="checkbox"]').change(function(){
+          if($(this).is(':checked')){
+              $('input[type="checkbox"]').not(this).prop('checked', false);
+              
+              var tr = $(this).closest('tr');
+              
+              var reservacion =$(tr).find('td:nth-child(1)').text();
+              var nombre = $(tr).find('td:nth-child(2)').text();
+              var loc_externo = $(tr).find('td:nth-child(3)').text();
+              var pickup = $(tr).find('td:nth-child(4)').text();
+              var retorno =$(tr).find('td:nth-child(5)').text();
+              var canal = $(tr).find('td:nth-child(6)').text();
+              var auto = $(tr).find('td:nth-child(7)').text();
+               
+              console.log('reservacion: ' + reservacion + ' - nombre: ' + nombre + ' - loc_externo: ' + loc_externo + ' - pickup: ' + pickup + ' - retorno: ' + retorno + ' - canal: ' + canal + ' - auto:' + auto);
+          }
+      })
+  })
 
 
   }

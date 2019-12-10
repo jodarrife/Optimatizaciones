@@ -77,16 +77,26 @@ export class SidebarComponent implements OnInit {
     this.jefeService.logoutJefeDpto();
     this.docenteService.logoutDocente();
   }
-
-  public isAuthenticated(): boolean {
-    return 
-   /*if (localStorage.getItem('docente') == "docente") {
-      return this.docenteService.isAuthenticatedDocente();
-    } else {
-      if (this.jefeService.getJefeDptoLoggedIn() == true) {
-        return this.jefeService.isAuthenticatedJefe();
-      }
-    }
-*/
+  //ocultar
+    //JEFE
+  public isAuthenticatedJefe(): boolean {
+    console.log( this.jefeService.isAuthenticatedJefe());
+    return this.jefeService.isAuthenticatedJefe();
+  
   }
+  //JEFE
+  public isAuthenticatedDoc(): boolean {
+    console.log( this.docenteService.isAuthenticatedDocente());
+    return this.docenteService.isAuthenticatedDocente();
+  
+  }
+//236491452227
+
+  //name
+  userName(): string {
+
+    return this.jefeService.getUserName();
+  }
+  
+
 }

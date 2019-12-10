@@ -31,7 +31,7 @@ namespace Proyecto
         public void ConfigureServices(IServiceCollection services)
         {
             //services.AddDbContext<TaskContext>(opt => opt.UseInMemoryDatabase("TaskBD"));
-            services.AddDbContext<ClassContext>(opt => opt.UseSqlServer(@"Server=RINCONES\SQLEXPRESS;Database=UPCDataBase;Trusted_Connection=True;"));
+            services.AddDbContext<ClassContext>(opt => opt.UseSqlServer(@"Server=RINCONES\SQLEXPRESS;Database=Ejemplo;Trusted_Connection=True;"));
             services.AddMvc(option => option.EnableEndpointRouting = false);
 
             //Register the swagger services

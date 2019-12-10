@@ -1,17 +1,18 @@
 <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
   integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
  
-<nav class="navbar navbar-expand fixed-top" style="background-color: #09B76B;"><a href="#"><img src=""
+<nav class="navbar navbar-expand fixed-top" style="background-color: #09B76B;"><a href="#">
+  <img src="./assets/imagenesComplemento/logotipo.png"
       class="logo"></a><a href="#menu-toggle" id="menu-toggle" class="navbar-brand"><i class="fa fa-bars"
       id="barra-menu"></i></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample02"
     aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation"> <span
       class="navbar-toggler-icon"></span> </button>
-  <div class="collapse navbar-collapse" id="navbarsExample02">
+  <div class="collapse navbar-collapse" id=" navbarsExample02">
     <ul class="nav__links">
-      <li><a href="" routerLink="/" class="botonesDerecha">Login</a></li>
+      <li><a href="" routerLink="/HomePage" class="botonesDerecha">Home</a></li>
       <li><a href="" class="botonesDerecha" (click)="logout()">Logaut</a></li>
-      <li><a>Hello {{name}}</a></li>
+      <li><a></a></li>
     </ul>
     <form class="form-inline my-2 my-md-0"> </form>
   </div>
@@ -25,7 +26,7 @@
       <div class="contenedor-menu">
         <ul class="menu">
           <!-- JEFE-->
-          <li><a href="#"><i class="icono izquierda fa fa-graduation-cap"></i>Gestionar Docente<i
+          <li *ngIf="isAuthenticatedJefe()" ><a href="#"><i class="icono izquierda fa fa-graduation-cap"></i>Gestionar Docente<i
                 class="icono derecha fa fa-chevron-down"></i></a>
             <ul>
               <li><a href="#" routerLink="/RegistroDocente" routerLinkActive="active">Registrar
@@ -34,7 +35,7 @@
                   Docentes</a></li>
             </ul>
           </li>
-          <li><a href="#"><i class="icono izquierda fa fa-graduation-cap"></i>Gestionar Actividades<i
+          <li *ngIf="isAuthenticatedJefe()" ><a href="#"><i class="icono izquierda fa fa-graduation-cap"></i>Gestionar Actividades<i
                 class="icono derecha fa fa-chevron-down"></i></a>
             <ul>
               <li><a href="#" routerLink="/RegistroTipodeActividad" routerLinkActive="active">Registrar
@@ -45,14 +46,14 @@
                   Actividad</a></li>
             </ul>
           </li>
-          <li><a href="#"><i class="icono izquierda fa fa-envelope"></i>Verificar Actividades</a></li>
-          <li><a href="#"><i class="icono izquierda fa fa-envelope"></i>Estado de Actividades</a></li>
-          <li><a href="#" routerLink="/RegistroDocente" routerLinkActive="active">Revisar Act. Complementarias</a>
+          <li *ngIf="isAuthenticatedJefe()" ><a href="#"><i class="icono izquierda fa fa-envelope"></i>Verificar Actividades</a></li>
+          <li *ngIf="isAuthenticatedJefe()" ><a href="#"><i class="icono izquierda fa fa-envelope"></i>Estado de Actividades</a></li>
+          <li *ngIf="isAuthenticatedJefe()" ><a href="#" routerLink="/RegistroDocente" routerLinkActive="active">Revisar Act. Complementarias</a>
           </li>
-          <li><a href="#"><i class="icono izquierda fa fa-envelope"></i>Reporte Estadisticas</a></li>
+          <li *ngIf="isAuthenticatedJefe()" ><a href="#"><i class="icono izquierda fa fa-envelope"></i>Reporte Estadisticas</a></li>
 
           <!-- DOCENTE-->
-          <li><a href="#"><i class="icono izquierda fa fa-star"></i>Gestionar Plan de Acicón<i
+          <li *ngIf="isAuthenticatedDoc()"  ><a href="#"><i class="icono izquierda fa fa-star"></i>Gestionar Plan de Acicón<i
                 class="icono derecha fa fa-chevron-down"></i></a>
             <ul>
               <li><a href="#" routerLink="/RegistroDocente" routerLinkActive="active">Registrar
@@ -61,7 +62,7 @@
                   Plan de Acicón</a></li>
             </ul>
           </li>
-          <li><a href="#"><i class="icono izquierda fa fa-star"></i>Gestionar Act. Complementarias<i
+          <li *ngIf="isAuthenticatedDoc()"  ><a href="#"><i class="icono izquierda fa fa-star"></i>Gestionar Act. Complementarias<i
                 class="icono derecha fa fa-chevron-down"></i></a>
             <ul>
               <li><a href="#" routerLink="/RegistroDocente" routerLinkActive="active">Registrar
@@ -70,7 +71,7 @@
                   Act. Complementarias</a></li>
             </ul>
           </li>
-          <li><a href="#"><i class="icono izquierda fa fa-star"></i>Gestionar Acciones<i
+          <li *ngIf="isAuthenticatedDoc()"   ><a href="#"><i class="icono izquierda fa fa-star"></i>Gestionar Acciones<i
                 class="icono derecha fa fa-chevron-down"></i></a>
             <ul>
               <li><a href="#" routerLink="/RegistroAcciones" routerLinkActive="active">Registrar
@@ -79,8 +80,8 @@
                   Acciones</a></li>
             </ul>
           </li>
-          <li><a href="#"><i class="icono izquierda fa fa-envelope"></i>Estado de Actividades</a></li>
-          <li><a href="#"><i class="icono izquierda fa fa-star"></i>Gestionar Evidencias<i
+          <li  *ngIf="isAuthenticatedDoc()"  ><a href="#"><i class="icono izquierda fa fa-envelope"></i>Estado de Actividades</a></li>
+          <li *ngIf="isAuthenticatedDoc()"  ><a href="#"><i class="icono izquierda fa fa-star"></i>Gestionar Evidencias<i
                 class="icono derecha fa fa-chevron-down"></i></a>
             <ul>
               <li><a href="#" routerLink="/Registroeocente" routerLinkActive="active">Registrar

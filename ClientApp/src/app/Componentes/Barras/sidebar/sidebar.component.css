@@ -51,15 +51,15 @@ a{
 }
 
 .contenedor-menu .menu li a{
-    color: #ffffff;
+    color: #000000;
     display: block;
     padding: 15px 20px;
-    background: #09B76B;
+    background: rgb(204, 204, 204);
 }
 
 .contenedor-menu .menu li a:hover{
     background: #f7f7f7;
-    color: #09B76B;
+    color: rgb(85, 85, 85);
 }
 
 .contenedor-menu .menu .icono{
@@ -82,18 +82,18 @@ a{
 }
 
 .contenedor-menu .menu ul li a{
-    background: rgb(6, 138, 81);
+    background:   rgb(149, 149, 149);
     color: #ffffff;
 }
 
 .contenedor-menu .menu ul li a:hover{
-    background: rgb(7, 150, 88);
+    background:  rgb(149, 149, 149);
     color: #ffffff;
 }
 
 .contenedor-menu .menu .activado > a {
     background: #f7f7f7;
-    color: #09B76B;
+    color:   rgb(149, 149, 149);
     border-left: solid 5px;
     border-left-color: #cecece;
 }
@@ -1335,7 +1335,7 @@ body {
   height: 100%;
   margin-left: -250px;
   overflow-y: auto;
-  background: #09B76B;
+  background: rgb(204, 204, 204);
   -webkit-transition: all 0.5s ease;
   -moz-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
@@ -1412,8 +1412,16 @@ body {
   }
 
   .logo{
-    padding: 17px;
-    margin-left: 82px;
+    height: 60px;
+    font-size: 36px;
+    line-height: 60px;
+    padding: 0 20px;
+    text-align: center;
+    box-sizing: border-box;
+    float: left;
+    font-weight: 700;
+    text-decoration: none;
+    transform: scale(0.9);
   }
 
   .botonesDerecha{

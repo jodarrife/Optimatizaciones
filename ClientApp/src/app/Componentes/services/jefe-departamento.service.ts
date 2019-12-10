@@ -123,6 +123,11 @@ return this.isDocenteLoggedIn;
     
   }
   isAuthenticatedJefe(): boolean {
-    return localStorage.getItem('administrador') != null;
+    return sessionStorage.getItem('administrador') != null;
+  }
+  //traer el nombre
+  getUserName(): string {
+    var administrador= JSON.parse(sessionStorage.getItem('administrador'));
+    return administrador.user_Name;
   }
 }

@@ -49,9 +49,11 @@ export class LoginComponent implements OnInit {
     var tipoCargo = (document.getElementById("tipoCargo") as HTMLInputElement).value;
     if (tipoCargo == "Docente") {
       this.ValidarLoginDocente();
+     
     } else {
        if (tipoCargo == "Administrador") {
          this.ValidarLoginJefe();
+         
        }else{
          alert("Elija un Rol")
        }
@@ -91,6 +93,7 @@ export class LoginComponent implements OnInit {
     console.log("password recibido", Contraseña)
     if (usuario == user && Contraseña == pass) {
       this.docenteService.setDocenteLoggedIn();
+      alert("Bienvenido Docente");
       this.router.navigate(['/HomePage']);
     } else {
       alert("Contraseña incorrecta")
@@ -105,6 +108,7 @@ export class LoginComponent implements OnInit {
     console.log("password recibido", Contraseña)
     if (usuario == user && Contraseña == pass) {
       this.jefeService.setJefeDptoLoggedIn();
+      alert("Bienvenido Administrador");
       this.router.navigate(['/HomePage']);
     } else {
       alert("Contraseña incorrecta")
